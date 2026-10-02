@@ -1,48 +1,82 @@
 [gd_scene format=3 uid="uid://cqxvdadsf515n"]
 
+[ext_resource type="Texture2D" uid="uid://dthvc1g14ts14" path="res://Sprites/level assets/screenz_L.png" id="1_km5ld"]
+[ext_resource type="Texture2D" uid="uid://t862n537r6hs" path="res://Sprites/level assets/dark_notsplit_L.png" id="2_i2t4f"]
+[ext_resource type="Texture2D" uid="uid://vtt4r3o2uxvd" path="res://Sprites/level assets/white_notsplit_L.png" id="3_8cye3"]
+[ext_resource type="Texture2D" uid="uid://valj8xcqnfpi" path="res://Sprites/level assets/screenz_R.png" id="4_2orkt"]
+[ext_resource type="Texture2D" uid="uid://dhf25sfovlac6" path="res://Sprites/level assets/dark_notsplit_R.png" id="5_aicyk"]
+[ext_resource type="Texture2D" uid="uid://bfhxckoyis3o2" path="res://Sprites/level assets/white_notsplit_R.png" id="6_8b0r0"]
+[ext_resource type="Texture2D" uid="uid://c0d88je1rc6ud" path="res://Sprites/level assets/foam_notsplit_L.png" id="7_h6smj"]
+[ext_resource type="Texture2D" uid="uid://dqklomrond7uq" path="res://Sprites/level assets/foam_notsplit_R.png" id="8_v5j5c"]
+
 [node name="Level" type="Node2D" unique_id=13814193]
 
 [node name="OceanL" type="Node2D" parent="." unique_id=1603513351]
 position = Vector2(160, 0)
 scale = Vector2(800, 1080)
 
-[node name="ColorRect" type="ColorRect" parent="OceanL" unique_id=1621409080]
-offset_right = 1.0
-offset_bottom = 1.0
-mouse_filter = 2
-color = Color(0.1254902, 0.2627451, 0.3254902, 1)
+[node name="ScreenzL" type="Sprite2D" parent="OceanL" unique_id=1797055023]
+position = Vector2(0.4, 0.5)
+scale = Vector2(0.00125, 0.0009259259)
+texture = ExtResource("1_km5ld")
+
+[node name="DarkNotsplitL" type="Sprite2D" parent="OceanL/ScreenzL" unique_id=2070219490]
+texture = ExtResource("2_i2t4f")
+
+[node name="WhiteNotsplitL" type="Sprite2D" parent="OceanL/ScreenzL" unique_id=697157541]
+z_index = 1
+texture = ExtResource("3_8cye3")
 
 [node name="OceanL2" type="Node2D" parent="." unique_id=1347926857]
 position = Vector2(960, 0)
 scale = Vector2(800, 1080)
 
-[node name="ColorRect" type="ColorRect" parent="OceanL2" unique_id=845104509]
-offset_right = 1.0
-offset_bottom = 1.0
-mouse_filter = 2
-color = Color(0.20392157, 0.36078432, 0.4117647, 1)
+[node name="ScreenzR" type="Sprite2D" parent="OceanL2" unique_id=45865343]
+position = Vector2(0.6, 0.5)
+scale = Vector2(0.00125, 0.0009259259)
+texture = ExtResource("4_2orkt")
+
+[node name="DarkNotsplitR" type="Sprite2D" parent="OceanL2/ScreenzR" unique_id=857921792]
+texture = ExtResource("5_aicyk")
+
+[node name="WhiteNotsplitR" type="Sprite2D" parent="OceanL2/ScreenzR" unique_id=130546136]
+texture = ExtResource("6_8b0r0")
 
 [node name="Divider" type="Node2D" parent="." unique_id=1628844154]
+z_index = 100
 position = Vector2(950, 0)
 scale = Vector2(20, 1080)
 
-[node name="ColorRect" type="ColorRect" parent="Divider" unique_id=1300069329]
-offset_right = 1.0
-offset_bottom = 1.0
+[node name="FoamNotsplitL" type="Sprite2D" parent="Divider" unique_id=882939250]
+position = Vector2(-23.5, 0.5)
+scale = Vector2(0.05, 0.0009259259)
+texture = ExtResource("7_h6smj")
+
+[node name="FoamNotsplitR" type="Sprite2D" parent="Divider" unique_id=1411451320]
+position = Vector2(24.5, 0.5)
+scale = Vector2(0.05, 0.0009259259)
+texture = ExtResource("8_v5j5c")
 
 [node name="RodL" type="Node2D" parent="." unique_id=1811222397]
+visible = false
 scale = Vector2(160, 1080)
 
 [node name="ColorRect" type="ColorRect" parent="RodL" unique_id=1771300176]
+visible = false
+z_index = 100
 offset_right = 1.0
 offset_bottom = 1.0
 color = Color(0.25792736, 0.1882098, 0.1448898, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="RodR" type="Node2D" parent="." unique_id=835874129]
+visible = false
 position = Vector2(1760, 0)
 scale = Vector2(160, 1080)
 
 [node name="ColorRect" type="ColorRect" parent="RodR" unique_id=2101076770]
+visible = false
+z_index = 100
 offset_right = 1.0
 offset_bottom = 1.0
 color = Color(0.25792736, 0.1882098, 0.1448898, 1)
