@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://cqxvdadsf515n"]
+
+[node name="Level" type="Node2D" unique_id=13814193]
+
+[node name="OceanL" type="Node2D" parent="." unique_id=1603513351]
+scale = Vector2(960, 1080)
+
+[node name="ColorRect" type="ColorRect" parent="OceanL" unique_id=1621409080]
+offset_right = 1.0
+offset_bottom = 1.0
+mouse_filter = 2
+color = Color(0.1254902, 0.2627451, 0.3254902, 1)
+
+[node name="OceanL2" type="Node2D" parent="." unique_id=1347926857]
+position = Vector2(960, 0)
+scale = Vector2(960, 1080)
+
+[node name="ColorRect" type="ColorRect" parent="OceanL2" unique_id=845104509]
+offset_right = 1.0
+offset_bottom = 1.0
+mouse_filter = 2
+color = Color(0.20392157, 0.36078432, 0.4117647, 1)
+
+[node name="Divider" type="Node2D" parent="." unique_id=1628844154]
+position = Vector2(950, 0)
+scale = Vector2(20, 1080)
+
+[node name="ColorRect" type="ColorRect" parent="Divider" unique_id=1300069329]
+offset_right = 1.0
+offset_bottom = 1.0
