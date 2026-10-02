@@ -1,3 +1,19 @@
 [gd_scene format=3 uid="uid://dqvp8ny31g3s"]
 
+[ext_resource type="Script" uid="uid://bra6eglb865r2" path="res://Scripts/character_body_2d.gd" id="1_66c54"]
+[ext_resource type="Texture2D" uid="uid://1b0unr4q1sp4" path="res://Sprites/hehe.jpg" id="2_5x8id"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_66c54"]
+
 [node name="DogScene" type="Node2D" unique_id=1139799850]
+
+[node name="PorcupineBody" type="CharacterBody2D" parent="." unique_id=1901146809]
+position = Vector2(584, 351)
+script = ExtResource("1_66c54")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PorcupineBody" unique_id=230693840]
+shape = SubResource("RectangleShape2D_66c54")
+debug_color = Color(0.1399397, 0.54745126, 0.91012627, 0.41960785)
+
+[node name="Sprite2D" type="Sprite2D" parent="PorcupineBody" unique_id=1414172764]
+texture = ExtResource("2_5x8id")
