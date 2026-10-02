@@ -1,15 +1,25 @@
 extends CharacterBody2D
 const SPEED = 300.0
 
-func _process(delta: float) -> void:
-	print_debug(velocity.x)
-	var directionY := Input.get_axis("ui_up","ui_down")
+enum Player {
+	PLAYER_1 = 1,
+	PLAYER_2 = 2
+}
+
+@export var current_player: Player = Player.PLAYER_1
+
+func _physics_process(_delta: float) -> void:
+	var up = "p%d_move_up" % current_player
+	var down = "p%d_move_down" % current_player
+	var left = "p%d_move_left" % current_player
+	var right = "p%d_move_right" % current_player
+
+	var directionY := Input.get_axis(up, down)
 	if directionY:
 		velocity.y = directionY * SPEED
 	else:
-		velocity.y = move_toward(velocity.y,0,SPEED)
 	
-	var directionX := Input.get_axis("ui_left", "ui_right")
+	var directionX := Input.get_axis(left, right)
 	if directionX:
 		velocity.x = directionX * SPEED
 	else:

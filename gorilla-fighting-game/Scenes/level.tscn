@@ -52,4 +52,10 @@ color = Color(0.25792736, 0.1882098, 0.1448898, 1)
 
 [node name="PorcupineBody" parent="." unique_id=313664581 instance=ExtResource("1_tumq0")]
 top_level = true
-position = Vector2(479, 316)
+position = Vector2(295, 277)
+
+[node name="PorcupineBody" parent="PorcupineBody" unique_id=331631706 instance=ExtResource("1_tumq0")]
+top_level = true
+position = Vector2(727, 279)
+rotation = 3.1415927
+current_player = 2
