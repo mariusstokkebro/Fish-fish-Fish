@@ -3,7 +3,8 @@
 [node name="Level" type="Node2D" unique_id=13814193]
 
 [node name="OceanL" type="Node2D" parent="." unique_id=1603513351]
-scale = Vector2(960, 1080)
+position = Vector2(160, 0)
+scale = Vector2(800, 1080)
 
 [node name="ColorRect" type="ColorRect" parent="OceanL" unique_id=1621409080]
 offset_right = 1.0
@@ -13,7 +14,7 @@ color = Color(0.1254902, 0.2627451, 0.3254902, 1)
 
 [node name="OceanL2" type="Node2D" parent="." unique_id=1347926857]
 position = Vector2(960, 0)
-scale = Vector2(960, 1080)
+scale = Vector2(800, 1080)
 
 [node name="ColorRect" type="ColorRect" parent="OceanL2" unique_id=845104509]
 offset_right = 1.0
@@ -28,3 +29,20 @@ scale = Vector2(20, 1080)
 [node name="ColorRect" type="ColorRect" parent="Divider" unique_id=1300069329]
 offset_right = 1.0
 offset_bottom = 1.0
+
+[node name="RodL" type="Node2D" parent="." unique_id=1811222397]
+scale = Vector2(160, 1080)
+
+[node name="ColorRect" type="ColorRect" parent="RodL" unique_id=1771300176]
+offset_right = 1.0
+offset_bottom = 1.0
+color = Color(0.25792736, 0.1882098, 0.1448898, 1)
+
+[node name="RodR" type="Node2D" parent="." unique_id=835874129]
+position = Vector2(1760, 0)
+scale = Vector2(160, 1080)
+
+[node name="ColorRect" type="ColorRect" parent="RodR" unique_id=2101076770]
+offset_right = 1.0
+offset_bottom = 1.0
+color = Color(0.25792736, 0.1882098, 0.1448898, 1)
