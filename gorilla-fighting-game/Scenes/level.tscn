@@ -55,6 +55,12 @@ color = Color(0.25792736, 0.1882098, 0.1448898, 1)
 top_level = true
 position = Vector2(456, 456)
 
+[node name="CatchBall" parent="PorcupineBody" index="2" unique_id=1538139581]
+steerSpeed = null
+maxSteer = null
+steerAxis = null
+current_player = null
+
 [node name="PorcupineBody2" parent="." unique_id=331631706 instance=ExtResource("1_tumq0")]
 top_level = true
 position = Vector2(1405, 486)
@@ -62,6 +68,9 @@ rotation = -3.1415925
 current_player = 2
 
 [node name="CatchBall" parent="PorcupineBody2" index="2" unique_id=1538139581]
+steerSpeed = null
+maxSteer = null
+steerAxis = null
 current_player = 2
 
 [node name="Border" parent="." unique_id=255961422 instance=ExtResource("2_k5f4k")]

@@ -20,10 +20,13 @@ var enemyBody: CharacterBody2D
 var base_pos := Vector2.ZERO 
 var steer_offset := 0.0
 var tween: Tween
+var fishList: Array
 func _ready() -> void:
 	base_pos = position
-	collision.body_entered.connect(onBodyEntered)
-	collision.body_exited.connect(onBodyExited)
+	
+func _physics_process(delta: float) -> void:
+	fishList = collision.get_overlapping_bodies()
+			
 func _process(delta: float) -> void:
 	if steering:
 		var up = "p%d_move_up" % current_player
@@ -38,21 +41,19 @@ func _process(delta: float) -> void:
 	if hooking == true:
 		if tween:
 			tween.kill()
-		
-		tween = create_tween()
-		tween.tween_property(self, "base_pos", Vector2.ZERO, castTime)
-		tween.parallel().tween_property(self, "steer_offset", 0.0, castTime)
-		tween.tween_callback(func(): thrown = false)
-		tween.tween_callback(func(): hooking = false)
+			reelIn()
 		
 		if enemyBody:
 			enemyBody.getMoved(get_global_position())
 		
 func castRod(delta: float) -> void:
-	if thrown:
-		return
-	
 	var confirm = "p%d_confirm" % current_player
+	if thrown:
+		if Input.is_action_pressed(confirm):
+			reelIn()
+			if fishList.is_empty() == false:
+				hookFish(fishList[0])
+		return
 	
 	if Input.is_action_pressed(confirm):
 		distance += 100.0 * distanceMultiplier * delta
@@ -69,16 +70,23 @@ func castRod(delta: float) -> void:
 		tween.tween_property(self, "base_pos", target, castTime)
 		tween.tween_interval(2.0) 
 		tween.tween_callback(func(): steering = false)
-		
-		tween.tween_property(self, "base_pos", Vector2.ZERO, castTime)
-		tween.parallel().tween_property(self, "steer_offset", 0.0, castTime)
-		tween.tween_callback(func(): thrown = false)
 
-func onBodyEntered(body: Node2D):
+func hookFish(body: Node2D):
+	var confirm = "p%d_confirm" % current_player
 	if body is CharacterBody2D and body != get_parent():
 		enemyBody = body
-		hooking = true
+		if Input.is_action_pressed(confirm):
+			
+			hooking = true
 
 func onBodyExited(body: Node2D):
 	if body == enemyBody:
 		hooking = false
+
+
+func reelIn():
+	tween = create_tween()
+	tween.tween_property(self, "base_pos", Vector2.ZERO, castTime)
+	tween.parallel().tween_property(self, "steer_offset", 0.0, castTime)
+	tween.tween_callback(func(): thrown = false)
+	tween.tween_callback(func(): hooking = false)
