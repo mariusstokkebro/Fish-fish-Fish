@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cjf0buuv2sh18"
-path="res://.godot/imported/title drop Andreea.wav-334031e20671d9611eeb2b2b090c843f.sample"
+path="res://.godot/imported/Andreea TitleDrop.wav-68321bf7e52802a6c84be2a9ed8683b4.sample"
 
 [deps]
 
-source_file="res://Audio/SFX/title drop Andreea.wav"
-dest_files=["res://.godot/imported/title drop Andreea.wav-334031e20671d9611eeb2b2b090c843f.sample"]
+source_file="res://Audio/SFX/Andreea TitleDrop.wav"
+dest_files=["res://.godot/imported/Andreea TitleDrop.wav-68321bf7e52802a6c84be2a9ed8683b4.sample"]
 
 [params]
 
