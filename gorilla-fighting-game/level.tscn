@@ -30,14 +30,14 @@ texture = ExtResource("1_km5ld")
 [node name="DarkNotsplitL" type="Sprite2D" parent="OceanL/ScreenzL" unique_id=2070219490]
 texture_repeat = 2
 material = SubResource("ShaderMaterial_4n21a")
-instance_shader_parameters/Scroll_Speed = 0.025
+instance_shader_parameters/Scroll_Speed = 0.03
 texture = ExtResource("2_i2t4f")
 
 [node name="WhiteNotsplitL" type="Sprite2D" parent="OceanL/ScreenzL" unique_id=697157541]
 z_index = 1
 texture_repeat = 2
 material = SubResource("ShaderMaterial_7cplr")
-instance_shader_parameters/Scroll_Speed = 0.05
+instance_shader_parameters/Scroll_Speed = 0.04
 texture = ExtResource("3_8cye3")
 
 [node name="OceanL2" type="Node2D" parent="." unique_id=1347926857]
@@ -52,13 +52,13 @@ texture = ExtResource("4_2orkt")
 [node name="DarkNotsplitR" type="Sprite2D" parent="OceanL2/ScreenzR" unique_id=857921792]
 texture_repeat = 2
 material = SubResource("ShaderMaterial_7cplr")
-instance_shader_parameters/Scroll_Speed = -0.025
+instance_shader_parameters/Scroll_Speed = -0.03
 texture = ExtResource("5_aicyk")
 
 [node name="WhiteNotsplitR" type="Sprite2D" parent="OceanL2/ScreenzR" unique_id=130546136]
 texture_repeat = 2
 material = SubResource("ShaderMaterial_7cplr")
-instance_shader_parameters/Scroll_Speed = -0.05
+instance_shader_parameters/Scroll_Speed = -0.04
 texture = ExtResource("6_8b0r0")
 
 [node name="Divider" type="Node2D" parent="." unique_id=1628844154]
@@ -69,7 +69,7 @@ scale = Vector2(20, 1080)
 [node name="FoamNotsplitL" type="Sprite2D" parent="Divider" unique_id=882939250]
 texture_repeat = 2
 material = SubResource("ShaderMaterial_7cplr")
-instance_shader_parameters/Scroll_Speed = 0.1
+instance_shader_parameters/Scroll_Speed = 0.06
 position = Vector2(-23.5, 0.5)
 scale = Vector2(0.05, 0.0009259259)
 texture = ExtResource("7_h6smj")
@@ -77,7 +77,7 @@ texture = ExtResource("7_h6smj")
 [node name="FoamNotsplitR" type="Sprite2D" parent="Divider" unique_id=1411451320]
 texture_repeat = 2
 material = SubResource("ShaderMaterial_7cplr")
-instance_shader_parameters/Scroll_Speed = -0.1
+instance_shader_parameters/Scroll_Speed = -0.06
 position = Vector2(24.5, 0.5)
 scale = Vector2(0.05, 0.0009259259)
 texture = ExtResource("8_v5j5c")
