@@ -17,8 +17,8 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-WinManager="*uid://bnyiy2xx7x7mp"
 Global="*uid://drbxmvbhu4e46"
+WinManager="*uid://bnyiy2xx7x7mp"
 
 [display]
 
