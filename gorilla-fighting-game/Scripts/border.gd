@@ -10,13 +10,12 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-
-
 func onBodyEntered(body:CharacterBody2D):
+	print_debug(body.name)
 	if body.hooked == true:
 		if body.name == "PorcupineBody":
 			WinManager.player2_score += 1
-			
+			WinManager.reset = true
 		if body.name == "PorcupineBody2":
 			WinManager.player1_score += 1
-		body.tpBackToOrigin()
+			WinManager.reset = true

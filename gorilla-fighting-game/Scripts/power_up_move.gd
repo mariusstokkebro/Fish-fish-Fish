@@ -1,7 +1,8 @@
 extends Node2D
-
+var fish = true
 var speed = 100
 var dir = -1
+var hooked = false
 @onready var ray_cast_down: RayCast2D = $RayCastDown
 @onready var ray_cast_up: RayCast2D = $RayCastUp
 

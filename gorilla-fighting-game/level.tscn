@@ -13,9 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://btgxk2qe6hbqh" path="res://Objects/speed_power_up.tscn" id="11_8b0r0"]
 [ext_resource type="PackedScene" uid="uid://33gce1r4fu35" path="res://Objects/catch_ball.tscn" id="11_h6smj"]
 [ext_resource type="PackedScene" uid="uid://yguorhsypi3f" path="res://Objects/Border.tscn" id="12_h6smj"]
-[ext_resource type="Script" uid="uid://bnyiy2xx7x7mp" path="res://Scripts/win_manager.gd" id="14_h6smj"]
 [ext_resource type="PackedScene" uid="uid://dhyka27ejhvo4" path="res://Objects/player_score.tscn" id="15_v5j5c"]
-[ext_resource type="PackedScene" uid="uid://ds5uf3np0j1wt" path="res://Scenes/audio_scene.tscn" id="14_h6smj"]
+[ext_resource type="PackedScene" uid="uid://ds5uf3np0j1wt" path="res://Scenes/audio_scene.tscn" id="16_5pxul"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4n21a"]
 shader = ExtResource("2_8cye3")
@@ -26,7 +25,7 @@ shader = ExtResource("2_8cye3")
 [node name="Level" type="Node2D" unique_id=13814193]
 
 [node name="OceanL" type="Node2D" parent="." unique_id=1603513351]
-position = Vector2(160, 0)
+position = Vector2(159.99998, 0)
 scale = Vector2(800, 1080)
 
 [node name="ScreenzL" type="Sprite2D" parent="OceanL" unique_id=1797055023]
@@ -93,13 +92,19 @@ texture = ExtResource("8_v5j5c")
 
 [node name="PorcupineBody" parent="." unique_id=313664581 instance=ExtResource("10_aicyk")]
 position = Vector2(344, 477)
+collision_mask = 5
 
 [node name="PorcupineBody2" parent="." unique_id=590454050 instance=ExtResource("10_aicyk")]
 position = Vector2(1573, 469)
+collision_layer = 2
+collision_mask = 5
 current_player = 2
 
 [node name="CatchBall" parent="." unique_id=1538139581 node_paths=PackedStringArray("player") instance=ExtResource("11_h6smj")]
 player = NodePath("../PorcupineBody")
+
+[node name="Area2D" parent="CatchBall" index="0" unique_id=1037202603]
+collision_mask = 2
 
 [node name="CatchBall2" parent="." unique_id=346354549 node_paths=PackedStringArray("player") instance=ExtResource("11_h6smj")]
 player = NodePath("../PorcupineBody2")
@@ -111,7 +116,6 @@ position = Vector2(771.99994, 966.99994)
 [node name="Border" parent="." unique_id=255961422 instance=ExtResource("12_h6smj")]
 
 [node name="WinManager" type="Node2D" parent="." unique_id=81796413]
-script = ExtResource("14_h6smj")
 
 [node name="player1Score" parent="." unique_id=425476136 instance=ExtResource("15_v5j5c")]
 position = Vector2(81, 89)
@@ -119,7 +123,10 @@ position = Vector2(81, 89)
 [node name="player2Score" parent="." unique_id=809339552 instance=ExtResource("15_v5j5c")]
 position = Vector2(1860, 53)
 player = 2
-[node name="AudioScene" parent="." unique_id=1429051702 instance=ExtResource("14_h6smj")]
+
+[node name="AudioScene" parent="." unique_id=1429051702 instance=ExtResource("16_5pxul")]
 
 [editable path="PorcupineBody"]
 [editable path="PorcupineBody2"]
+[editable path="CatchBall"]
+[editable path="CatchBall2"]
