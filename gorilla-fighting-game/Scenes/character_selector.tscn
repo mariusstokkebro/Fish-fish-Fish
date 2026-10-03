@@ -22,8 +22,8 @@
 [ext_resource type="Texture2D" uid="uid://ciw0hrnk271ig" path="res://Sprites/cats/LA_CABRA_1.png" id="17_lw6qj"]
 [ext_resource type="Texture2D" uid="uid://c7fy1dqcrog23" path="res://Sprites/cats/LA_CABRA_2.png" id="18_4khxo"]
 [ext_resource type="Texture2D" uid="uid://bfafsjqy5b1ee" path="res://Sprites/jook.png" id="19_h26s2"]
-[ext_resource type="Script" uid="uid://cujjggnlikgxg" path="res://Scenes/play_button_anim.gd" id="21_d4h87"]
-[ext_resource type="PackedScene" uid="uid://cqxvdadsf515n" path="res://level.tscn" id="23_h26s2"]
+[ext_resource type="Script" path="res://Scenes/play_button_anim.gd" id="21_d4h87"]
+[ext_resource type="PackedScene" uid="uid://bc34yfx1oysm5" path="res://Scenes/AnimatedLevel.tscn" id="24_d4h87"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6bmrj"]
 load_path = "res://.godot/imported/anglerfish_2.png-2dd6e629be306e18bbf4a6c20a40c91c.ctex"
@@ -32,7 +32,7 @@ load_path = "res://.godot/imported/anglerfish_2.png-2dd6e629be306e18bbf4a6c20a40
 position = Vector2(-4, 0)
 
 [node name="character - 1" type="Sprite2D" parent="." unique_id=1729939378 node_paths=PackedStringArray("character_squares", "hook_sprite", "ready_indicator", "play_button")]
-z_index = 1
+z_index = 4096
 position = Vector2(882, 245.99998)
 scale = Vector2(0.7, 0.7)
 script = ExtResource("1_vnn0l")
@@ -144,7 +144,7 @@ scale = Vector2(1.1, 1.1)
 texture = ExtResource("19_h26s2")
 
 [node name="character - 2" type="Sprite2D" parent="." unique_id=1539500711 node_paths=PackedStringArray("character_squares", "hook_sprite", "ready_indicator", "play_button")]
-z_index = 1
+z_index = 4096
 position = Vector2(1039.9999, 246)
 rotation = 3.1415927
 scale = Vector2(0.7, -0.7)
@@ -274,5 +274,5 @@ position = Vector2(246.99995, 452.83322)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("11_tevl1")
 
-[node name="Level" parent="." unique_id=13814193 instance=ExtResource("23_h26s2")]
-z_index = -5
+[node name="Level" parent="." unique_id=13814193 instance=ExtResource("24_d4h87")]
+z_index = -10
