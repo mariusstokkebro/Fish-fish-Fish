@@ -1,0 +1,162 @@
+[gd_scene format=3 uid="uid://cqqcqs1kjto23"]
+
+[ext_resource type="Script" uid="uid://dtaqldrlxoqjm" path="res://Scripts/character_selector.gd" id="1_vnn0l"]
+[ext_resource type="Texture2D" uid="uid://cqt0hsw1tql5e" path="res://Sprites/1.png" id="2_pa3tc"]
+[ext_resource type="Texture2D" uid="uid://d4arctgvlcleb" path="res://Sprites/2.png" id="3_g6eeq"]
+[ext_resource type="Texture2D" uid="uid://hjd3h0baal3u" path="res://Sprites/3.png" id="4_i5hcc"]
+[ext_resource type="Texture2D" uid="uid://b45ennvvmsgid" path="res://Sprites/4.png" id="5_j1huj"]
+[ext_resource type="Texture2D" uid="uid://c12kjjpydi2e" path="res://Sprites/5.png" id="6_wtmm4"]
+[ext_resource type="Texture2D" uid="uid://cpo2e47l3ilup" path="res://Sprites/6.png" id="7_tevl1"]
+[ext_resource type="Texture2D" uid="uid://c5xc3l0mlxxtc" path="res://Sprites/hook.png" id="8_g6eeq"]
+[ext_resource type="Texture2D" uid="uid://5tx7ixr11l67" path="res://Sprites/play_button.png" id="8_i5hcc"]
+[ext_resource type="Texture2D" uid="uid://c8x5yj3ge7yja" path="res://Sprites/p1.png" id="10_wtmm4"]
+[ext_resource type="Texture2D" uid="uid://5u8cq200e6rv" path="res://Sprites/p2.png" id="11_tevl1"]
+
+[node name="CharacterSelector" type="Node2D" unique_id=2109283420]
+position = Vector2(-4, 0)
+
+[node name="OceanL" type="Node2D" parent="." unique_id=860325683]
+position = Vector2(160, 0)
+scale = Vector2(800, 1080)
+
+[node name="ColorRect" type="ColorRect" parent="OceanL" unique_id=481046624]
+offset_right = 1.0
+offset_bottom = 1.0
+mouse_filter = 2
+color = Color(0.1254902, 0.2627451, 0.3254902, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="OceanL2" type="Node2D" parent="." unique_id=446946612]
+position = Vector2(960, 0)
+scale = Vector2(800, 1080)
+
+[node name="ColorRect" type="ColorRect" parent="OceanL2" unique_id=1826899979]
+offset_right = 1.0
+offset_bottom = 1.0
+mouse_filter = 2
+color = Color(0.20392157, 0.36078432, 0.4117647, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Divider" type="Node2D" parent="." unique_id=1953541779]
+position = Vector2(950, 0)
+scale = Vector2(20, 1080)
+
+[node name="ColorRect" type="ColorRect" parent="Divider" unique_id=2441021]
+offset_right = 1.0
+offset_bottom = 1.0
+metadata/_edit_use_anchors_ = true
+
+[node name="RodL" type="Node2D" parent="." unique_id=1747596638]
+scale = Vector2(160, 1080)
+
+[node name="ColorRect" type="ColorRect" parent="RodL" unique_id=306496480]
+offset_right = 1.0
+offset_bottom = 1.0
+color = Color(0.25792736, 0.1882098, 0.1448898, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="RodR" type="Node2D" parent="." unique_id=1704541391]
+position = Vector2(1760, 0)
+scale = Vector2(160, 1080)
+
+[node name="ColorRect" type="ColorRect" parent="RodR" unique_id=1090805923]
+offset_right = 1.0
+offset_bottom = 1.0
+color = Color(0.25792736, 0.1882098, 0.1448898, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="character - 1" type="Sprite2D" parent="." unique_id=1729939378 node_paths=PackedStringArray("character_squares", "main_display_hex", "hook_sprite", "ready_indicator", "play_button")]
+z_index = 1
+position = Vector2(152, 240)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_vnn0l")
+character_squares = [NodePath("1"), NodePath("2"), NodePath("3"), NodePath("4"), NodePath("5"), NodePath("6")]
+main_display_hex = NodePath(".")
+hook_sprite = NodePath("../Hook")
+ready_indicator = NodePath("../PlayButton/P1")
+play_button = NodePath("../PlayButton")
+
+[node name="1" type="Sprite2D" parent="character - 1" unique_id=549568398]
+position = Vector2(-171.5, 515)
+texture = ExtResource("2_pa3tc")
+
+[node name="2" type="Sprite2D" parent="character - 1" unique_id=307343485]
+position = Vector2(18.5, 519)
+texture = ExtResource("3_g6eeq")
+
+[node name="3" type="Sprite2D" parent="character - 1" unique_id=24184744]
+position = Vector2(207.5, 522)
+texture = ExtResource("4_i5hcc")
+
+[node name="4" type="Sprite2D" parent="character - 1" unique_id=187595309]
+position = Vector2(-76.5, 686)
+texture = ExtResource("5_j1huj")
+
+[node name="5" type="Sprite2D" parent="character - 1" unique_id=95455907]
+position = Vector2(114.5, 689)
+texture = ExtResource("6_wtmm4")
+
+[node name="6" type="Sprite2D" parent="character - 1" unique_id=2094880001]
+position = Vector2(22.5, 856)
+texture = ExtResource("7_tevl1")
+
+[node name="character - 2" type="Sprite2D" parent="." unique_id=1799653368 node_paths=PackedStringArray("character_squares", "main_display_hex", "hook_sprite", "ready_indicator", "play_button")]
+z_index = 2
+position = Vector2(782, 235)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_vnn0l")
+current_player = 2
+character_squares = [NodePath("1"), NodePath("2"), NodePath("3"), NodePath("4"), NodePath("5"), NodePath("6")]
+main_display_hex = NodePath(".")
+hook_sprite = NodePath("../Hook2")
+ready_indicator = NodePath("../PlayButton/P2")
+play_button = NodePath("../PlayButton")
+
+[node name="1" type="Sprite2D" parent="character - 2" unique_id=729051468]
+position = Vector2(-185.5, 859)
+texture = ExtResource("2_pa3tc")
+
+[node name="2" type="Sprite2D" parent="character - 2" unique_id=1989445898]
+position = Vector2(4.5, 863)
+texture = ExtResource("3_g6eeq")
+
+[node name="3" type="Sprite2D" parent="character - 2" unique_id=2046821271]
+position = Vector2(193.5, 866)
+texture = ExtResource("4_i5hcc")
+
+[node name="4" type="Sprite2D" parent="character - 2" unique_id=1265546348]
+position = Vector2(-90.5, 698)
+texture = ExtResource("5_j1huj")
+
+[node name="5" type="Sprite2D" parent="character - 2" unique_id=1451957142]
+position = Vector2(100.5, 700)
+texture = ExtResource("6_wtmm4")
+
+[node name="6" type="Sprite2D" parent="character - 2" unique_id=671286295]
+position = Vector2(7.5, 535)
+texture = ExtResource("7_tevl1")
+
+[node name="Hook" type="Sprite2D" parent="." unique_id=672694937]
+position = Vector2(160, 121)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("8_g6eeq")
+
+[node name="Hook2" type="Sprite2D" parent="." unique_id=1780593283]
+position = Vector2(793, 121)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("8_g6eeq")
+
+[node name="PlayButton" type="Sprite2D" parent="." unique_id=1299196785]
+position = Vector2(474.00003, 538)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("8_i5hcc")
+
+[node name="P1" type="Sprite2D" parent="PlayButton" unique_id=36383758]
+position = Vector2(-243.33337, 160)
+scale = Vector2(0.33333334, 0.33333334)
+texture = ExtResource("10_wtmm4")
+
+[node name="P2" type="Sprite2D" parent="PlayButton" unique_id=1884582235]
+position = Vector2(246.66663, 163.33325)
+scale = Vector2(0.33333334, 0.33333334)
+texture = ExtResource("11_tevl1")
