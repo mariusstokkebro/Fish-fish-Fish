@@ -41,7 +41,10 @@ func getMoved(movement:Vector2,bait:Node2D):
 	
 	
 func tpBackToOrigin():
-	set_position(startPosition)
+	if hooked:
+		currentBait.hooking = false
+		hooked = false
+		set_position(startPosition)
 	
 	
 func Hooked():

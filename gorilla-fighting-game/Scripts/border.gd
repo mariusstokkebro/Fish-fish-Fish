@@ -15,7 +15,7 @@ func _process(delta: float) -> void:
 func onBodyEntered(body:CharacterBody2D):
 	if body.name == "PorcupineBody":
 		print_debug("player 2 plus one point")
-	
+		
 	if body.name == "PorcupineBody2":
 		print_debug("player 1 plus one point")
 	body.tpBackToOrigin()

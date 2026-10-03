@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://bra6eglb865r2" path="res://Scripts/character_body_2d.gd" id="1_mknlu"]
 [ext_resource type="Texture2D" uid="uid://1b0unr4q1sp4" path="res://Sprites/hehe.jpg" id="2_ayemm"]
-[ext_resource type="PackedScene" uid="uid://33gce1r4fu35" path="res://Objects/catch_ball.tscn" id="3_ayemm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_66c54"]
 size = Vector2(215, 216)
@@ -17,14 +16,3 @@ debug_color = Color(0.1399397, 0.54745126, 0.91012627, 0.41960785)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=515046900]
 texture = ExtResource("2_ayemm")
-
-[node name="CatchBall" parent="." unique_id=1538139581 instance=ExtResource("3_ayemm")]
-castTime = 3.0
-
-[node name="Area2D" parent="CatchBall" index="0" unique_id=1037202603]
-collision_mask = 7
-
-[node name="CollisionShape2D" parent="CatchBall/Area2D" index="0" unique_id=1381677839]
-position = Vector2(-6, 24)
-
-[editable path="CatchBall"]

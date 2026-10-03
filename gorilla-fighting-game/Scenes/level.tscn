@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cxp7tw36ke0yh" path="res://Objects/porcupine_body.tscn" id="1_tumq0"]
 [ext_resource type="PackedScene" uid="uid://yguorhsypi3f" path="res://Objects/Border.tscn" id="2_k5f4k"]
+[ext_resource type="PackedScene" uid="uid://33gce1r4fu35" path="res://Objects/catch_ball.tscn" id="3_6phgx"]
 
 [node name="Level" type="Node2D" unique_id=13814193]
 position = Vector2(0, 4)
@@ -55,27 +56,20 @@ color = Color(0.25792736, 0.1882098, 0.1448898, 1)
 top_level = true
 position = Vector2(456, 456)
 
-[node name="CatchBall" parent="PorcupineBody" index="2" unique_id=1538139581]
-steerSpeed = null
-maxSteer = null
-steerAxis = null
-current_player = null
-
 [node name="PorcupineBody2" parent="." unique_id=331631706 instance=ExtResource("1_tumq0")]
 top_level = true
 position = Vector2(1405, 486)
 rotation = -3.1415925
 current_player = 2
 
-[node name="CatchBall" parent="PorcupineBody2" index="2" unique_id=1538139581]
-steerSpeed = null
-maxSteer = null
-steerAxis = null
-current_player = 2
-
 [node name="Border" parent="." unique_id=255961422 instance=ExtResource("2_k5f4k")]
 
+[node name="CatchBall" parent="." unique_id=1538139581 node_paths=PackedStringArray("player") instance=ExtResource("3_6phgx")]
+player = NodePath("../PorcupineBody")
+
+[node name="CatchBall2" parent="." unique_id=736980961 node_paths=PackedStringArray("player") instance=ExtResource("3_6phgx")]
+player = NodePath("../PorcupineBody2")
+current_player = 2
+
 [editable path="PorcupineBody"]
-[editable path="PorcupineBody/CatchBall"]
 [editable path="PorcupineBody2"]
-[editable path="PorcupineBody2/CatchBall"]

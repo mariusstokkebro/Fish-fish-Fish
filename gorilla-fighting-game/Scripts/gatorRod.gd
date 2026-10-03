@@ -1,5 +1,6 @@
 extends Node2D
 @export var ballTexture: Sprite2D
+@export var player: CharacterBody2D
 @export var collision: Area2D
 @export var castTime: float = 1.0
 @export var distanceMultiplier: float = 1.0
@@ -18,7 +19,7 @@ var thrown := false
 var steering := false
 var hooking = false
 var enemyBody: CharacterBody2D
-var base_pos := Vector2.ZERO 
+var base_pos
 var steer_offset := 0.0
 var tween: Tween
 var fishList: Array
@@ -26,18 +27,19 @@ var lastAngle: float = 0.0
 var rotationSpeed: float = 0.0
 var timer: float = 0.0
 func _ready() -> void:
-	base_pos = position
+	base_pos = player.position
 	
 func _physics_process(delta: float) -> void:
 	fishList = collision.get_overlapping_bodies()
-			
+	
 func _process(delta: float) -> void:
 	if steering:
-		var up = "p%d_move_up" % current_player
-		var down = "p%d_move_down" % current_player
+		var up = "p%d_rotate_up" % current_player
+		var down = "p%d_rotate_down" % current_player
 		var input := Input.get_axis(up, down)
 		steer_offset = clamp(steer_offset + input * steerSpeed * delta, -maxSteer, maxSteer)
-
+	if thrown == false:
+		base_pos = player.position
 	position = base_pos + steerAxis * steer_offset
 	
 	castRod(delta)
@@ -52,8 +54,9 @@ func _process(delta: float) -> void:
 		if timer > timeToCatch:
 			hooking = false
 			timer = 0.0
-			base_pos = Vector2(0,0)
+			base_pos = player.position
 			ballTexture.visible = false
+			thrown = false
 func castRod(delta: float) -> void:
 	var confirm = "p%d_confirm" % current_player
 	if thrown:
@@ -69,9 +72,13 @@ func castRod(delta: float) -> void:
 			ballTexture.visible = true
 
 	if Input.is_action_just_released(confirm):
+		var target
 		thrown = true
 		steering = true
-		var target := base_pos + Vector2(distance, 0)
+		if current_player == Player.PLAYER_1:
+			target = base_pos + Vector2(distance, 0)
+		else:
+			target = base_pos + Vector2(-distance, 0)
 		distance = 10.0
 
 		tween = create_tween()
@@ -81,7 +88,7 @@ func castRod(delta: float) -> void:
 
 func hookFish(body: Node2D):
 	var confirm = "p%d_confirm" % current_player
-	if body != get_parent():
+	if body.current_player != current_player:
 		enemyBody = body
 		body.Hooked()
 		if Input.is_action_pressed(confirm):
@@ -106,7 +113,8 @@ func reelIn(delta:float):
 		base_pos = newPosition
 	else:
 		tween = create_tween()
-		tween.tween_property(self, "base_pos", Vector2.ZERO, castTime)
+		tween.tween_property(self, "base_pos", player.position, castTime)
 		tween.parallel().tween_property(self, "steer_offset", 0.0, castTime)
 		tween.tween_callback(func(): thrown = false)
 		tween.tween_callback(func(): hooking = false)
+		tween.tween_callback(func(): ballTexture.visible = false)
