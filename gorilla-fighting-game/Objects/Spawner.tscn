@@ -1,0 +1,236 @@
+[gd_scene format=3 uid="uid://drr3gkju4gxyv"]
+
+[ext_resource type="Script" uid="uid://022ra0hqbrrj" path="res://Objects/Spawner.gd" id="1_t8sqj"]
+[ext_resource type="Script" uid="uid://by3h7hckyuh6m" path="res://Scripts/power_up_move.gd" id="2_8v14h"]
+[ext_resource type="Texture2D" uid="uid://5lr5hobmugv2" path="res://Sprites/cats/angelfish.png" id="2_n73o4"]
+[ext_resource type="Texture2D" uid="uid://ddip4umie833w" path="res://Sprites/cats/anglerfish.png" id="2_qfxwc"]
+[ext_resource type="Texture2D" uid="uid://dx5wmevfo8jy1" path="res://Sprites/cats/bonefish.png" id="3_t8sqj"]
+[ext_resource type="Texture2D" uid="uid://cnc272anxvn2d" path="res://Sprites/cats/sardine.png" id="3_tgibj"]
+[ext_resource type="Texture2D" uid="uid://de2vundj1j6st" path="res://Sprites/cats/catfish.png" id="4_d2fnv"]
+[ext_resource type="Texture2D" uid="uid://c4doyhxdkn1o" path="res://Sprites/cats/shrimp.png" id="4_wktgt"]
+[ext_resource type="Texture2D" uid="uid://djilclskwwwbb" path="res://Sprites/cats/goldfish.png" id="5_p0jak"]
+[ext_resource type="Texture2D" uid="uid://flg7ssrkwdi2" path="res://Sprites/cats/LA_CABRA.png" id="6_0fiq4"]
+[ext_resource type="Texture2D" uid="uid://boaoeh3oinhm" path="res://Sprites/cats/pufferfish.png" id="7_ssla4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n73o4"]
+radius = 20.024984
+
+[node name="Spawner" type="Node2D" unique_id=448375989]
+script = ExtResource("1_t8sqj")
+spawn_interval = 5.0
+
+[node name="CharacterBody2D3" type="CharacterBody2D" parent="." unique_id=457895356]
+scale = Vector2(0.99999994, 0.99999994)
+collision_layer = 2
+script = ExtResource("2_8v14h")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D3" unique_id=2065609280]
+texture = ExtResource("2_qfxwc")
+
+[node name="RayCastDown" type="RayCast2D" parent="CharacterBody2D3" unique_id=1260736945]
+position = Vector2(-0.16286644, 16.938112)
+scale = Vector2(1.0000001, 1.0000001)
+target_position = Vector2(0, 8.957654)
+collision_mask = 16
+
+[node name="RayCastUp" type="RayCast2D" parent="CharacterBody2D3" unique_id=1992913097]
+position = Vector2(3.7615824e-37, -18.078178)
+scale = Vector2(1.0000001, 1.0000001)
+target_position = Vector2(-1.0587911e-22, -7.4918556)
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D3" unique_id=1128371890]
+scale = Vector2(5, 5)
+shape = SubResource("CircleShape2D_n73o4")
+
+[node name="CharacterBody2D4" type="CharacterBody2D" parent="." unique_id=988962134]
+scale = Vector2(0.99999994, 0.99999994)
+collision_layer = 2
+script = ExtResource("2_8v14h")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D4" unique_id=751652789]
+texture = ExtResource("3_t8sqj")
+
+[node name="RayCastDown" type="RayCast2D" parent="CharacterBody2D4" unique_id=379324702]
+position = Vector2(-0.16286644, 16.938112)
+scale = Vector2(1.0000001, 1.0000001)
+target_position = Vector2(0, 8.957654)
+collision_mask = 16
+
+[node name="RayCastUp" type="RayCast2D" parent="CharacterBody2D4" unique_id=509485434]
+position = Vector2(3.7615824e-37, -18.078178)
+scale = Vector2(1.0000001, 1.0000001)
+target_position = Vector2(-1.0587911e-22, -7.4918556)
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D4" unique_id=1311969194]
+scale = Vector2(5, 5)
+shape = SubResource("CircleShape2D_n73o4")
+
+[node name="CharacterBody2D5" type="CharacterBody2D" parent="." unique_id=634805947]
+scale = Vector2(0.99999994, 0.99999994)
+collision_layer = 2
+script = ExtResource("2_8v14h")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D5" unique_id=1307430601]
+texture = ExtResource("4_d2fnv")
+
+[node name="RayCastDown" type="RayCast2D" parent="CharacterBody2D5" unique_id=1670665873]
+position = Vector2(-0.16286644, 16.938112)
+scale = Vector2(1.0000001, 1.0000001)
+target_position = Vector2(0, 8.957654)
+collision_mask = 16
+
+[node name="RayCastUp" type="RayCast2D" parent="CharacterBody2D5" unique_id=1137694759]
+position = Vector2(3.7615824e-37, -18.078178)
+scale = Vector2(1.0000001, 1.0000001)
+target_position = Vector2(-1.0587911e-22, -7.4918556)
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D5" unique_id=1058225133]
+scale = Vector2(5, 5)
+shape = SubResource("CircleShape2D_n73o4")
+
+[node name="CharacterBody2D6" type="CharacterBody2D" parent="." unique_id=929677254]
+scale = Vector2(0.99999994, 0.99999994)
+collision_layer = 2
+script = ExtResource("2_8v14h")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D6" unique_id=553608993]
+texture = ExtResource("5_p0jak")
+
+[node name="RayCastDown" type="RayCast2D" parent="CharacterBody2D6" unique_id=1594116827]
+position = Vector2(-0.16286644, 16.938112)
+scale = Vector2(1.0000001, 1.0000001)
+target_position = Vector2(0, 8.957654)
+collision_mask = 16
+
+[node name="RayCastUp" type="RayCast2D" parent="CharacterBody2D6" unique_id=367144829]
+position = Vector2(3.7615824e-37, -18.078178)
+scale = Vector2(1.0000001, 1.0000001)
+target_position = Vector2(-1.0587911e-22, -7.4918556)
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D6" unique_id=1128508107]
+scale = Vector2(5, 5)
+shape = SubResource("CircleShape2D_n73o4")
+
+[node name="CharacterBody2D7" type="CharacterBody2D" parent="." unique_id=1881299303]
+scale = Vector2(0.99999994, 0.99999994)
+collision_layer = 2
+script = ExtResource("2_8v14h")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D7" unique_id=1198234242]
+texture = ExtResource("6_0fiq4")
+
+[node name="RayCastDown" type="RayCast2D" parent="CharacterBody2D7" unique_id=1141636158]
+position = Vector2(-0.16286644, 16.938112)
+scale = Vector2(1.0000001, 1.0000001)
+target_position = Vector2(0, 8.957654)
+collision_mask = 16
+
+[node name="RayCastUp" type="RayCast2D" parent="CharacterBody2D7" unique_id=16453405]
+position = Vector2(3.7615824e-37, -18.078178)
+scale = Vector2(1.0000001, 1.0000001)
+target_position = Vector2(-1.0587911e-22, -7.4918556)
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D7" unique_id=976842493]
+scale = Vector2(5, 5)
+shape = SubResource("CircleShape2D_n73o4")
+
+[node name="CharacterBody2D8" type="CharacterBody2D" parent="." unique_id=1420106422]
+scale = Vector2(0.99999994, 0.99999994)
+collision_layer = 2
+script = ExtResource("2_8v14h")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D8" unique_id=1020521244]
+texture = ExtResource("7_ssla4")
+
+[node name="RayCastDown" type="RayCast2D" parent="CharacterBody2D8" unique_id=1034197132]
+position = Vector2(-0.16286644, 16.938112)
+scale = Vector2(1.0000001, 1.0000001)
+target_position = Vector2(0, 8.957654)
+collision_mask = 16
+
+[node name="RayCastUp" type="RayCast2D" parent="CharacterBody2D8" unique_id=1205894918]
+position = Vector2(3.7615824e-37, -18.078178)
+scale = Vector2(1.0000001, 1.0000001)
+target_position = Vector2(-1.0587911e-22, -7.4918556)
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D8" unique_id=1937689788]
+scale = Vector2(5, 5)
+shape = SubResource("CircleShape2D_n73o4")
+
+[node name="sardine" type="CharacterBody2D" parent="." unique_id=1732507934]
+scale = Vector2(0.99999994, 0.99999994)
+collision_layer = 2
+script = ExtResource("2_8v14h")
+
+[node name="Sprite2D" type="Sprite2D" parent="sardine" unique_id=1783266177]
+texture = ExtResource("3_tgibj")
+
+[node name="RayCastDown" type="RayCast2D" parent="sardine" unique_id=1066027887]
+position = Vector2(-0.16286644, 16.938112)
+scale = Vector2(1.0000001, 1.0000001)
+target_position = Vector2(0, 8.957654)
+collision_mask = 16
+
+[node name="RayCastUp" type="RayCast2D" parent="sardine" unique_id=1951539509]
+position = Vector2(3.7615824e-37, -18.078178)
+scale = Vector2(1.0000001, 1.0000001)
+target_position = Vector2(-1.0587911e-22, -7.4918556)
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sardine" unique_id=2085840206]
+scale = Vector2(4, 4)
+shape = SubResource("CircleShape2D_n73o4")
+
+[node name="shrimp" type="CharacterBody2D" parent="." unique_id=1660841108]
+scale = Vector2(0.99999994, 0.99999994)
+collision_layer = 2
+script = ExtResource("2_8v14h")
+
+[node name="Sprite2D" type="Sprite2D" parent="shrimp" unique_id=1226608578]
+texture = ExtResource("4_wktgt")
+
+[node name="RayCastDown" type="RayCast2D" parent="shrimp" unique_id=1885978004]
+position = Vector2(-0.16286644, 16.938112)
+scale = Vector2(1.0000001, 1.0000001)
+target_position = Vector2(0, 8.957654)
+collision_mask = 16
+
+[node name="RayCastUp" type="RayCast2D" parent="shrimp" unique_id=630596715]
+position = Vector2(3.7615824e-37, -18.078178)
+scale = Vector2(1.0000001, 1.0000001)
+target_position = Vector2(-1.0587911e-22, -7.4918556)
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="shrimp" unique_id=1033525591]
+scale = Vector2(4, 4)
+shape = SubResource("CircleShape2D_n73o4")
+
+[node name="fly" type="CharacterBody2D" parent="." unique_id=853147557]
+scale = Vector2(0.99999994, 0.99999994)
+collision_layer = 2
+script = ExtResource("2_8v14h")
+
+[node name="Sprite2D" type="Sprite2D" parent="fly" unique_id=1707615355]
+texture = ExtResource("2_n73o4")
+
+[node name="RayCastDown" type="RayCast2D" parent="fly" unique_id=641265903]
+position = Vector2(-0.16286644, 16.938112)
+scale = Vector2(1.0000001, 1.0000001)
+target_position = Vector2(0, 8.957654)
+collision_mask = 16
+
+[node name="RayCastUp" type="RayCast2D" parent="fly" unique_id=2050739588]
+position = Vector2(3.7615824e-37, -18.078178)
+scale = Vector2(1.0000001, 1.0000001)
+target_position = Vector2(-1.0587911e-22, -7.4918556)
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="fly" unique_id=2025690179]
+scale = Vector2(5, 5)
+shape = SubResource("CircleShape2D_n73o4")

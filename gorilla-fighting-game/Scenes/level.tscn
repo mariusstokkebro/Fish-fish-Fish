@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cxp7tw36ke0yh" path="res://Objects/porcupine_body.tscn" id="1_tumq0"]
 [ext_resource type="PackedScene" uid="uid://yguorhsypi3f" path="res://Objects/Border.tscn" id="2_k5f4k"]
 [ext_resource type="PackedScene" uid="uid://33gce1r4fu35" path="res://Objects/catch_ball.tscn" id="3_6phgx"]
+[ext_resource type="PackedScene" uid="uid://drr3gkju4gxyv" path="res://Objects/Spawner.tscn" id="4_81xng"]
 
 [node name="Level" type="Node2D" unique_id=13814193]
 position = Vector2(0, 4)
@@ -70,6 +71,13 @@ player = NodePath("../PorcupineBody")
 [node name="CatchBall2" parent="." unique_id=736980961 node_paths=PackedStringArray("player") instance=ExtResource("3_6phgx")]
 player = NodePath("../PorcupineBody2")
 current_player = 2
+
+[node name="Spawner" parent="." unique_id=448375989 instance=ExtResource("4_81xng")]
+position = Vector2(472, 1208)
+spawner_owner = 2
+
+[node name="Spawner2" parent="." unique_id=374063279 instance=ExtResource("4_81xng")]
+position = Vector2(1424, 1215)
 
 [editable path="PorcupineBody"]
 [editable path="PorcupineBody2"]
