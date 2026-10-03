@@ -73,7 +73,7 @@ func castRod(delta: float) -> void:
 
 func hookFish(body: Node2D):
 	var confirm = "p%d_confirm" % current_player
-	if body is CharacterBody2D and body != get_parent():
+	if body != get_parent():
 		enemyBody = body
 		if Input.is_action_pressed(confirm):
 			

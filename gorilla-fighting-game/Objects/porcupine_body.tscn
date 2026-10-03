@@ -21,7 +21,10 @@ texture = ExtResource("2_ayemm")
 [node name="CatchBall" parent="." unique_id=1538139581 instance=ExtResource("3_ayemm")]
 castTime = 3.0
 
-[node name="CollisionShape2D" parent="CatchBall/Area2D" parent_id_path=PackedInt32Array(1538139581, 1037202603) index="0" unique_id=1381677839]
+[node name="Area2D" parent="CatchBall" index="0" unique_id=1037202603]
+collision_mask = 7
+
+[node name="CollisionShape2D" parent="CatchBall/Area2D" index="0" unique_id=1381677839]
 position = Vector2(-6, 24)
 
 [editable path="CatchBall"]
