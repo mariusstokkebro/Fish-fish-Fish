@@ -1,162 +1,278 @@
 [gd_scene format=3 uid="uid://cqqcqs1kjto23"]
 
 [ext_resource type="Script" uid="uid://dtaqldrlxoqjm" path="res://Scripts/character_selector.gd" id="1_vnn0l"]
-[ext_resource type="Texture2D" uid="uid://cqt0hsw1tql5e" path="res://Sprites/1.png" id="2_pa3tc"]
-[ext_resource type="Texture2D" uid="uid://d4arctgvlcleb" path="res://Sprites/2.png" id="3_g6eeq"]
-[ext_resource type="Texture2D" uid="uid://hjd3h0baal3u" path="res://Sprites/3.png" id="4_i5hcc"]
-[ext_resource type="Texture2D" uid="uid://b45ennvvmsgid" path="res://Sprites/4.png" id="5_j1huj"]
-[ext_resource type="Texture2D" uid="uid://c12kjjpydi2e" path="res://Sprites/5.png" id="6_wtmm4"]
-[ext_resource type="Texture2D" uid="uid://cpo2e47l3ilup" path="res://Sprites/6.png" id="7_tevl1"]
-[ext_resource type="Texture2D" uid="uid://c5xc3l0mlxxtc" path="res://Sprites/hook.png" id="8_g6eeq"]
+[ext_resource type="Texture2D" uid="uid://ddip4umie833w" path="res://Sprites/cats/anglerfish.png" id="2_c0ap7"]
+[ext_resource type="Texture2D" uid="uid://souw4w45076h" path="res://Sprites/cats/anglerfish_1.png" id="3_3es2i"]
+[ext_resource type="Texture2D" uid="uid://dx5wmevfo8jy1" path="res://Sprites/cats/bonefish.png" id="4_gaaop"]
+[ext_resource type="Texture2D" uid="uid://de2vundj1j6st" path="res://Sprites/cats/catfish.png" id="5_jop44"]
+[ext_resource type="Texture2D" uid="uid://dbsrelbk8rrsc" path="res://Sprites/cats/bonefish_1.png" id="5_lrvhe"]
+[ext_resource type="Texture2D" uid="uid://bmxwrjw3ftqe1" path="res://Sprites/cats/bonefish_2.png" id="6_h26s2"]
+[ext_resource type="Texture2D" uid="uid://djilclskwwwbb" path="res://Sprites/cats/goldfish.png" id="6_lrvhe"]
+[ext_resource type="Texture2D" uid="uid://boaoeh3oinhm" path="res://Sprites/cats/pufferfish.png" id="7_h26s2"]
+[ext_resource type="Texture2D" uid="uid://hvvbeoxic2t0" path="res://Sprites/cats/catfish_1.png" id="8_6bmrj"]
+[ext_resource type="Texture2D" uid="uid://flg7ssrkwdi2" path="res://Sprites/cats/LA_CABRA.png" id="8_d4h87"]
 [ext_resource type="Texture2D" uid="uid://5tx7ixr11l67" path="res://Sprites/play_button.png" id="8_i5hcc"]
+[ext_resource type="Texture2D" uid="uid://d1lbpjwox57jj" path="res://Sprites/cats/catfish_2.png" id="9_wnwnq"]
 [ext_resource type="Texture2D" uid="uid://c8x5yj3ge7yja" path="res://Sprites/p1.png" id="10_wtmm4"]
+[ext_resource type="Texture2D" uid="uid://cdyft68s4rq66" path="res://Sprites/cats/goldfish_1.png" id="11_fv8v2"]
 [ext_resource type="Texture2D" uid="uid://5u8cq200e6rv" path="res://Sprites/p2.png" id="11_tevl1"]
+[ext_resource type="Texture2D" uid="uid://rpm0qiwwv805" path="res://Sprites/cats/goldfish_2.png" id="12_ehjkg"]
+[ext_resource type="Texture2D" uid="uid://cei6vjo1wocfb" path="res://Sprites/cats/pufferfish_1.png" id="14_31lfj"]
+[ext_resource type="Texture2D" uid="uid://bb7jvsnww3656" path="res://Sprites/cats/pufferfish_2.png" id="15_iosqu"]
+[ext_resource type="Texture2D" uid="uid://ciw0hrnk271ig" path="res://Sprites/cats/LA_CABRA_1.png" id="17_lw6qj"]
+[ext_resource type="Texture2D" uid="uid://c7fy1dqcrog23" path="res://Sprites/cats/LA_CABRA_2.png" id="18_4khxo"]
+[ext_resource type="Texture2D" uid="uid://bfafsjqy5b1ee" path="res://Sprites/jook.png" id="19_h26s2"]
+[ext_resource type="Script" path="res://Scenes/play_button_anim.gd" id="21_d4h87"]
+[ext_resource type="PackedScene" uid="uid://bc34yfx1oysm5" path="res://Scenes/AnimatedLevel.tscn" id="24_d4h87"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6bmrj"]
+load_path = "res://.godot/imported/anglerfish_2.png-2dd6e629be306e18bbf4a6c20a40c91c.ctex"
 
 [node name="CharacterSelector" type="Node2D" unique_id=2109283420]
 position = Vector2(-4, 0)
 
-[node name="OceanL" type="Node2D" parent="." unique_id=860325683]
-position = Vector2(160, 0)
-scale = Vector2(800, 1080)
-
-[node name="ColorRect" type="ColorRect" parent="OceanL" unique_id=481046624]
-offset_right = 1.0
-offset_bottom = 1.0
-mouse_filter = 2
-color = Color(0.1254902, 0.2627451, 0.3254902, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="OceanL2" type="Node2D" parent="." unique_id=446946612]
-position = Vector2(960, 0)
-scale = Vector2(800, 1080)
-
-[node name="ColorRect" type="ColorRect" parent="OceanL2" unique_id=1826899979]
-offset_right = 1.0
-offset_bottom = 1.0
-mouse_filter = 2
-color = Color(0.20392157, 0.36078432, 0.4117647, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="Divider" type="Node2D" parent="." unique_id=1953541779]
-position = Vector2(950, 0)
-scale = Vector2(20, 1080)
-
-[node name="ColorRect" type="ColorRect" parent="Divider" unique_id=2441021]
-offset_right = 1.0
-offset_bottom = 1.0
-metadata/_edit_use_anchors_ = true
-
-[node name="RodL" type="Node2D" parent="." unique_id=1747596638]
-scale = Vector2(160, 1080)
-
-[node name="ColorRect" type="ColorRect" parent="RodL" unique_id=306496480]
-offset_right = 1.0
-offset_bottom = 1.0
-color = Color(0.25792736, 0.1882098, 0.1448898, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="RodR" type="Node2D" parent="." unique_id=1704541391]
-position = Vector2(1760, 0)
-scale = Vector2(160, 1080)
-
-[node name="ColorRect" type="ColorRect" parent="RodR" unique_id=1090805923]
-offset_right = 1.0
-offset_bottom = 1.0
-color = Color(0.25792736, 0.1882098, 0.1448898, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="character - 1" type="Sprite2D" parent="." unique_id=1729939378 node_paths=PackedStringArray("character_squares", "main_display_hex", "hook_sprite", "ready_indicator", "play_button")]
-z_index = 1
-position = Vector2(152, 240)
-scale = Vector2(0.5, 0.5)
+[node name="character - 1" type="Sprite2D" parent="." unique_id=1729939378 node_paths=PackedStringArray("character_squares", "hook_sprite", "ready_indicator", "play_button")]
+z_index = 4096
+position = Vector2(882, 245.99998)
+scale = Vector2(0.7, 0.7)
 script = ExtResource("1_vnn0l")
 character_squares = [NodePath("1"), NodePath("2"), NodePath("3"), NodePath("4"), NodePath("5"), NodePath("6")]
-main_display_hex = NodePath(".")
-hook_sprite = NodePath("../Hook")
+hook_sprite = NodePath("Hook")
 ready_indicator = NodePath("../PlayButton/P1")
 play_button = NodePath("../PlayButton")
 
 [node name="1" type="Sprite2D" parent="character - 1" unique_id=549568398]
-position = Vector2(-171.5, 515)
-texture = ExtResource("2_pa3tc")
+z_index = 2
+position = Vector2(-706.0714, 159.64288)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_c0ap7")
+
+[node name="1_1" type="Sprite2D" parent="character - 1/1" unique_id=1466425655]
+z_index = 2
+scale = Vector2(0.9999998, 0.9999998)
+texture = ExtResource("3_3es2i")
+
+[node name="1_2" type="Sprite2D" parent="character - 1/1" unique_id=1085340184]
+z_index = 2
+scale = Vector2(0.99999994, 0.99999994)
+texture = SubResource("CompressedTexture2D_6bmrj")
 
 [node name="2" type="Sprite2D" parent="character - 1" unique_id=307343485]
-position = Vector2(18.5, 519)
-texture = ExtResource("3_g6eeq")
+z_index = 2
+position = Vector2(-277.49994, 159.64288)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("4_gaaop")
+
+[node name="2_1" type="Sprite2D" parent="character - 1/2" unique_id=1101414566]
+z_index = 2
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("5_lrvhe")
+
+[node name="2_2" type="Sprite2D" parent="character - 1/2" unique_id=1410480253]
+z_index = 2
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("6_h26s2")
 
 [node name="3" type="Sprite2D" parent="character - 1" unique_id=24184744]
-position = Vector2(207.5, 522)
-texture = ExtResource("4_i5hcc")
+z_index = 2
+position = Vector2(-706.0714, 459.64285)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("5_jop44")
+
+[node name="3_1" type="Sprite2D" parent="character - 1/3" unique_id=1281263053]
+z_index = 2
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("8_6bmrj")
+
+[node name="3_2" type="Sprite2D" parent="character - 1/3" unique_id=1343885702]
+z_index = 2
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("9_wnwnq")
 
 [node name="4" type="Sprite2D" parent="character - 1" unique_id=187595309]
-position = Vector2(-76.5, 686)
-texture = ExtResource("5_j1huj")
+z_index = 2
+position = Vector2(-277.49994, 459.64285)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_lrvhe")
+
+[node name="4_1" type="Sprite2D" parent="character - 1/4" unique_id=452239675]
+z_index = 2
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("11_fv8v2")
+
+[node name="4_2" type="Sprite2D" parent="character - 1/4" unique_id=1074982884]
+z_index = 2
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("12_ehjkg")
 
 [node name="5" type="Sprite2D" parent="character - 1" unique_id=95455907]
-position = Vector2(114.5, 689)
-texture = ExtResource("6_wtmm4")
+z_index = 2
+position = Vector2(-706.0714, 759.6429)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("7_h26s2")
+
+[node name="5_1" type="Sprite2D" parent="character - 1/5" unique_id=2132243282]
+z_index = 2
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("14_31lfj")
+
+[node name="5_2" type="Sprite2D" parent="character - 1/5" unique_id=1857883687]
+z_index = 2
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("15_iosqu")
 
 [node name="6" type="Sprite2D" parent="character - 1" unique_id=2094880001]
-position = Vector2(22.5, 856)
-texture = ExtResource("7_tevl1")
-
-[node name="character - 2" type="Sprite2D" parent="." unique_id=1799653368 node_paths=PackedStringArray("character_squares", "main_display_hex", "hook_sprite", "ready_indicator", "play_button")]
 z_index = 2
-position = Vector2(782, 235)
-scale = Vector2(0.5, 0.5)
+position = Vector2(-277.49994, 759.6429)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("8_d4h87")
+
+[node name="6_1" type="Sprite2D" parent="character - 1/6" unique_id=2057565443]
+z_index = 2
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("17_lw6qj")
+
+[node name="6_2" type="Sprite2D" parent="character - 1/6" unique_id=1869580571]
+z_index = 2
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("18_4khxo")
+
+[node name="Hook" type="Sprite2D" parent="character - 1" unique_id=672694937]
+z_index = -1
+position = Vector2(-104.28571, -170)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("19_h26s2")
+
+[node name="character - 2" type="Sprite2D" parent="." unique_id=1539500711 node_paths=PackedStringArray("character_squares", "hook_sprite", "ready_indicator", "play_button")]
+z_index = 4096
+position = Vector2(1039.9999, 246)
+rotation = 3.1415927
+scale = Vector2(0.7, -0.7)
 script = ExtResource("1_vnn0l")
 current_player = 2
-character_squares = [NodePath("1"), NodePath("2"), NodePath("3"), NodePath("4"), NodePath("5"), NodePath("6")]
-main_display_hex = NodePath(".")
-hook_sprite = NodePath("../Hook2")
+character_squares = [NodePath("2"), NodePath("1"), NodePath("4"), NodePath("3"), NodePath("6"), NodePath("5")]
+hook_sprite = NodePath("Hook")
 ready_indicator = NodePath("../PlayButton/P2")
 play_button = NodePath("../PlayButton")
 
-[node name="1" type="Sprite2D" parent="character - 2" unique_id=729051468]
-position = Vector2(-185.5, 859)
-texture = ExtResource("2_pa3tc")
+[node name="1" type="Sprite2D" parent="character - 2" unique_id=1185690147]
+z_index = 2
+position = Vector2(-706.0714, 159.64288)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_c0ap7")
 
-[node name="2" type="Sprite2D" parent="character - 2" unique_id=1989445898]
-position = Vector2(4.5, 863)
-texture = ExtResource("3_g6eeq")
+[node name="1_1" type="Sprite2D" parent="character - 2/1" unique_id=1257127817]
+z_index = 2
+scale = Vector2(0.9999998, 0.9999998)
+texture = ExtResource("3_3es2i")
 
-[node name="3" type="Sprite2D" parent="character - 2" unique_id=2046821271]
-position = Vector2(193.5, 866)
-texture = ExtResource("4_i5hcc")
+[node name="1_2" type="Sprite2D" parent="character - 2/1" unique_id=895546639]
+z_index = 2
+scale = Vector2(0.99999994, 0.99999994)
+texture = SubResource("CompressedTexture2D_6bmrj")
 
-[node name="4" type="Sprite2D" parent="character - 2" unique_id=1265546348]
-position = Vector2(-90.5, 698)
-texture = ExtResource("5_j1huj")
+[node name="2" type="Sprite2D" parent="character - 2" unique_id=193583271]
+z_index = 2
+position = Vector2(-277.49994, 159.64288)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("4_gaaop")
 
-[node name="5" type="Sprite2D" parent="character - 2" unique_id=1451957142]
-position = Vector2(100.5, 700)
-texture = ExtResource("6_wtmm4")
+[node name="2_1" type="Sprite2D" parent="character - 2/2" unique_id=1041682148]
+z_index = 2
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("5_lrvhe")
 
-[node name="6" type="Sprite2D" parent="character - 2" unique_id=671286295]
-position = Vector2(7.5, 535)
-texture = ExtResource("7_tevl1")
+[node name="2_2" type="Sprite2D" parent="character - 2/2" unique_id=1337032293]
+z_index = 2
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("6_h26s2")
 
-[node name="Hook" type="Sprite2D" parent="." unique_id=672694937]
-position = Vector2(160, 121)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("8_g6eeq")
+[node name="3" type="Sprite2D" parent="character - 2" unique_id=1547156520]
+z_index = 2
+position = Vector2(-706.0714, 459.64285)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("5_jop44")
 
-[node name="Hook2" type="Sprite2D" parent="." unique_id=1780593283]
-position = Vector2(793, 121)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("8_g6eeq")
+[node name="3_1" type="Sprite2D" parent="character - 2/3" unique_id=1918279204]
+z_index = 2
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("8_6bmrj")
+
+[node name="3_2" type="Sprite2D" parent="character - 2/3" unique_id=1121098602]
+z_index = 2
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("9_wnwnq")
+
+[node name="4" type="Sprite2D" parent="character - 2" unique_id=1897479225]
+z_index = 2
+position = Vector2(-277.49994, 459.64285)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_lrvhe")
+
+[node name="4_1" type="Sprite2D" parent="character - 2/4" unique_id=209884931]
+z_index = 2
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("11_fv8v2")
+
+[node name="4_2" type="Sprite2D" parent="character - 2/4" unique_id=937318833]
+z_index = 2
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("12_ehjkg")
+
+[node name="5" type="Sprite2D" parent="character - 2" unique_id=1346659633]
+z_index = 2
+position = Vector2(-706.0714, 759.6429)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("7_h26s2")
+
+[node name="5_1" type="Sprite2D" parent="character - 2/5" unique_id=299382542]
+z_index = 2
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("14_31lfj")
+
+[node name="5_2" type="Sprite2D" parent="character - 2/5" unique_id=1463655808]
+z_index = 2
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("15_iosqu")
+
+[node name="6" type="Sprite2D" parent="character - 2" unique_id=1087461014]
+z_index = 2
+position = Vector2(-277.49994, 759.6429)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("8_d4h87")
+
+[node name="6_1" type="Sprite2D" parent="character - 2/6" unique_id=902135706]
+z_index = 2
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("17_lw6qj")
+
+[node name="6_2" type="Sprite2D" parent="character - 2/6" unique_id=67603664]
+z_index = 2
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("18_4khxo")
+
+[node name="Hook" type="Sprite2D" parent="character - 2" unique_id=1433401589]
+z_index = -1
+position = Vector2(-120.00015, -170.00003)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("19_h26s2")
 
 [node name="PlayButton" type="Sprite2D" parent="." unique_id=1299196785]
-position = Vector2(474.00003, 538)
-scale = Vector2(0.3, 0.3)
+z_index = 4096
+position = Vector2(960, 647)
+scale = Vector2(0.8, 0.8)
 texture = ExtResource("8_i5hcc")
+script = ExtResource("21_d4h87")
 
 [node name="P1" type="Sprite2D" parent="PlayButton" unique_id=36383758]
-position = Vector2(-243.33337, 160)
-scale = Vector2(0.33333334, 0.33333334)
+position = Vector2(-243.00005, 449.49997)
+scale = Vector2(0.3, 0.3)
 texture = ExtResource("10_wtmm4")
 
 [node name="P2" type="Sprite2D" parent="PlayButton" unique_id=1884582235]
-position = Vector2(246.66663, 163.33325)
-scale = Vector2(0.33333334, 0.33333334)
+position = Vector2(246.99995, 452.83322)
+scale = Vector2(0.3, 0.3)
 texture = ExtResource("11_tevl1")
+
+[node name="Level" parent="." unique_id=13814193 instance=ExtResource("24_d4h87")]
+z_index = -10

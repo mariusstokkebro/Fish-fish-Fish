@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://ybquq74kqpe7"]
+[gd_scene format=3 uid="uid://cqxvdadsf515n"]
 
 [ext_resource type="Texture2D" uid="uid://dthvc1g14ts14" path="res://Sprites/level assets/screenz_L.png" id="1_km5ld"]
 [ext_resource type="Shader" uid="uid://cq4e3pa2cwrae" path="res://VFX/scrollTex.tres" id="2_8cye3"]
@@ -71,6 +71,7 @@ position = Vector2(950, 0)
 scale = Vector2(20, 1080)
 
 [node name="FoamNotsplitL" type="Sprite2D" parent="Divider" unique_id=882939250]
+z_index = -3
 texture_repeat = 2
 material = SubResource("ShaderMaterial_7cplr")
 instance_shader_parameters/Scroll_Speed = 0.06
@@ -79,6 +80,7 @@ scale = Vector2(0.05, 0.0009259259)
 texture = ExtResource("7_h6smj")
 
 [node name="FoamNotsplitR" type="Sprite2D" parent="Divider" unique_id=1411451320]
+z_index = -3
 texture_repeat = 2
 material = SubResource("ShaderMaterial_7cplr")
 instance_shader_parameters/Scroll_Speed = -0.06
