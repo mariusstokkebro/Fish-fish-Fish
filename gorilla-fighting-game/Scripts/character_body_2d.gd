@@ -19,6 +19,7 @@ enum Player {
 		
 @export var current_player: Player = Player.PLAYER_1
 func _ready() -> void:
+	Global.inMenu = false
 	startPosition = position
 	if current_player == Player.PLAYER_1 and Global.p1_texture != null:
 		sprite.texture = Global.p1_texture

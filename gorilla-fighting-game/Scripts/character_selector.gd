@@ -114,7 +114,7 @@ func _process(delta: float) -> void:
 					else:
 						Global.p2_texture = chosen_tex
 				
-				get_tree().change_scene_to_file("res://Scenes/level.tscn")
+				get_tree().change_scene_to_file("res://level.tscn")
 		return
 
 
