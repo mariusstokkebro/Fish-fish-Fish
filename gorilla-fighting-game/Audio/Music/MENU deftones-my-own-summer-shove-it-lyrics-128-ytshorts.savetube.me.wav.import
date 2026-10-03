@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://kfkkq3kybfst"
+path="res://.godot/imported/MENU deftones-my-own-summer-shove-it-lyrics-128-ytshorts.savetube.me.wav-5e17baf10ed805a1b7e24db3df5d5e60.sample"
+
+[deps]
+
+source_file="res://Audio/Music/MENU deftones-my-own-summer-shove-it-lyrics-128-ytshorts.savetube.me.wav"
+dest_files=["res://.godot/imported/MENU deftones-my-own-summer-shove-it-lyrics-128-ytshorts.savetube.me.wav-5e17baf10ed805a1b7e24db3df5d5e60.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
