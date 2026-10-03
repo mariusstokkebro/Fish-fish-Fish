@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cbikcss53phku"
+path="res://.godot/imported/Pencil bones.wav-3e650758d43cca5e0466d05edbe1bf26.sample"
+
+[deps]
+
+source_file="res://Audio/SFX/Pencil bones.wav"
+dest_files=["res://.godot/imported/Pencil bones.wav-3e650758d43cca5e0466d05edbe1bf26.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
