@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dhyka27ejhvo4"]
+
+[ext_resource type="Script" uid="uid://duk8b6ljxbfka" path="res://Scripts/showScore.gd" id="1_hn7ok"]
+
+[node name="playerScore" type="Node2D" unique_id=425476136 node_paths=PackedStringArray("ScoreSprite")]
+script = ExtResource("1_hn7ok")
+ScoreSprite = NodePath("ScoreSprite")
+
+[node name="ScoreSprite" type="Sprite2D" parent="." unique_id=182954673]

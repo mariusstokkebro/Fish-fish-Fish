@@ -5,6 +5,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(158, 1075)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
+size = Vector2(82, 1063)
+
 [node name="Border" type="Node2D" unique_id=255961422]
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1738892536]
@@ -13,3 +16,9 @@ script = ExtResource("1_xv2hn")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1193908980]
 position = Vector2(963, 540)
 shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="Wall" type="StaticBody2D" parent="." unique_id=1009073929]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall" unique_id=202174527]
+position = Vector2(964, 528)
+shape = SubResource("RectangleShape2D_yf5fn")
