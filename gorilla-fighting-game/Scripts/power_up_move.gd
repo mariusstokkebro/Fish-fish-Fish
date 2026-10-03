@@ -24,5 +24,8 @@ func _physics_process(delta: float) -> void:
 		
 	if ray_cast_up.is_colliding():
 		dir = -1
-func getMoved(movement:Vector2):
+func getMoved(movement:Vector2, bait:Node2D):
 	set_global_position(movement)
+
+func Hooked():
+	var hooked = true

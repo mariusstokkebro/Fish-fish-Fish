@@ -6,7 +6,8 @@ extends Node2D
 @export var steerSpeed: float = 150.0
 @export var maxSteer: float = 80.0
 @export var steerAxis: Vector2 = Vector2.DOWN
-@export var reelSpeed: float = 0.2  # direction the bait can be nudged
+@export var reelSpeed: float = 0.2
+@export var timeToCatch: float = 5
 enum Player {
 	PLAYER_1 = 1,
 	PLAYER_2 = 2
@@ -23,6 +24,7 @@ var tween: Tween
 var fishList: Array
 var lastAngle: float = 0.0
 var rotationSpeed: float = 0.0
+var timer: float = 0.0
 func _ready() -> void:
 	base_pos = position
 	
@@ -41,12 +43,17 @@ func _process(delta: float) -> void:
 	castRod(delta)
 	
 	if hooking == true:
+		timer += delta
 		if tween:
 			tween.kill()
 			reelIn(delta)
 		if enemyBody:
 			enemyBody.getMoved(get_global_position(),self)
-		
+		if timer > timeToCatch:
+			hooking = false
+			timer = 0.0
+			base_pos = Vector2(0,0)
+			ballTexture.visible = false
 func castRod(delta: float) -> void:
 	var confirm = "p%d_confirm" % current_player
 	if thrown:
@@ -79,7 +86,7 @@ func hookFish(body: Node2D):
 		body.Hooked()
 		if Input.is_action_pressed(confirm):
 			hooking = true
-
+		
 func reelIn(delta:float):
 	if hooking:
 		var currentPosition = base_pos
