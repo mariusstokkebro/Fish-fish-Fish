@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://yguorhsypi3f" path="res://Objects/Border.tscn" id="12_h6smj"]
 [ext_resource type="Script" uid="uid://bnyiy2xx7x7mp" path="res://Scripts/win_manager.gd" id="14_h6smj"]
 [ext_resource type="PackedScene" uid="uid://dhyka27ejhvo4" path="res://Objects/player_score.tscn" id="15_v5j5c"]
+[ext_resource type="PackedScene" uid="uid://ds5uf3np0j1wt" path="res://Scenes/audio_scene.tscn" id="14_h6smj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4n21a"]
 shader = ExtResource("2_8cye3")
@@ -90,30 +91,6 @@ position = Vector2(24.5, 0.5)
 scale = Vector2(0.05, 0.0009259259)
 texture = ExtResource("8_v5j5c")
 
-[node name="RodL" type="Node2D" parent="." unique_id=1811222397]
-visible = false
-scale = Vector2(160, 1080)
-
-[node name="ColorRect" type="ColorRect" parent="RodL" unique_id=1771300176]
-visible = false
-z_index = 100
-offset_right = 1.0
-offset_bottom = 1.0
-color = Color(0.25792736, 0.1882098, 0.1448898, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="RodR" type="Node2D" parent="." unique_id=835874129]
-visible = false
-position = Vector2(1760, 0)
-scale = Vector2(160, 1080)
-
-[node name="ColorRect" type="ColorRect" parent="RodR" unique_id=2101076770]
-visible = false
-z_index = 100
-offset_right = 1.0
-offset_bottom = 1.0
-color = Color(0.25792736, 0.1882098, 0.1448898, 1)
-
 [node name="PorcupineBody" parent="." unique_id=313664581 instance=ExtResource("10_aicyk")]
 position = Vector2(344, 477)
 
@@ -142,6 +119,7 @@ position = Vector2(81, 89)
 [node name="player2Score" parent="." unique_id=809339552 instance=ExtResource("15_v5j5c")]
 position = Vector2(1860, 53)
 player = 2
+[node name="AudioScene" parent="." unique_id=1429051702 instance=ExtResource("14_h6smj")]
 
 [editable path="PorcupineBody"]
 [editable path="PorcupineBody2"]
