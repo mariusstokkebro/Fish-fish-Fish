@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ds5uf3np0j1wt"]
 
 [ext_resource type="AudioStream" uid="uid://bikvenetlrpmo" path="res://Audio/Music/GAME kf015611-wet-sparkle.wav" id="1_4o14l"]
+[ext_resource type="Script" uid="uid://cha6knuamfbhb" path="res://Scripts/audioManager.gd" id="1_eqpra"]
 [ext_resource type="AudioStream" uid="uid://lkcfssk24lxd" path="res://Audio/SFX/UIButton.wav" id="2_4ekki"]
 [ext_resource type="AudioStream" uid="uid://hlchwaurdpo8" path="res://Audio/SFX/ambientOcean.wav" id="2_vec8e"]
 [ext_resource type="AudioStream" uid="uid://dcdwxdwscuui6" path="res://Audio/SFX/winSoundCombined.wav" id="6_edm0x"]
@@ -18,7 +19,15 @@ stream_0/stream = ExtResource("6_vec8e")
 stream_1/stream = ExtResource("7_64lsk")
 stream_2/stream = ExtResource("8_eeepx")
 
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_g4v7s"]
+loop = false
+fade_time = 0.0
+stream_count = 2
+stream_0 = ExtResource("10_eeepx")
+stream_1 = ExtResource("9_eeepx")
+
 [node name="AudioScene" type="Node2D" unique_id=1429051702]
+script = ExtResource("1_eqpra")
 
 [node name="Autoplayed" type="Node" parent="." unique_id=521253700]
 
@@ -48,7 +57,7 @@ stream = SubResource("AudioStreamRandomizer_g4v7s")
 volume_db = 5.0
 
 [node name="MenuMusic" type="AudioStreamPlayer" parent="." unique_id=911451025]
-stream = ExtResource("9_eeepx")
+stream = SubResource("AudioStreamPlaylist_g4v7s")
 
 [node name="TitleDrop" type="AudioStreamPlayer" parent="MenuMusic" unique_id=95415112]
 stream = ExtResource("10_eeepx")

@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://lbb44afehqso"
-path="res://.godot/imported/James meow.wav-e7f5437991ee05d2ac649b2538407403.sample"
+path="res://.godot/imported/James meow.wav-a310397e1572216af0d71ddf4583e942.sample"
 
 [deps]
 
-source_file="res://Audio/SFX/James meow.wav"
-dest_files=["res://.godot/imported/James meow.wav-e7f5437991ee05d2ac649b2538407403.sample"]
+source_file="res://Audio/SFX/fishSounds/James meow.wav"
+dest_files=["res://.godot/imported/James meow.wav-a310397e1572216af0d71ddf4583e942.sample"]
 
 [params]
 

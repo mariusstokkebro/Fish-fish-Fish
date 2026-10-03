@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://vgqey5b2trc"
-path="res://.godot/imported/Clara angler.wav-f9c9813be58550fddfc310f8a4aa06c9.sample"
+uid="uid://djkw7kqff0c8a"
+path="res://.godot/imported/hookable.wav-33201f34ac99957aac993fc87e33d554.sample"
 
 [deps]
 
-source_file="res://Audio/SFX/Clara angler.wav"
-dest_files=["res://.godot/imported/Clara angler.wav-f9c9813be58550fddfc310f8a4aa06c9.sample"]
+source_file="res://Audio/SFX/catingRod/hookable.wav"
+dest_files=["res://.godot/imported/hookable.wav-33201f34ac99957aac993fc87e33d554.sample"]
 
 [params]
 

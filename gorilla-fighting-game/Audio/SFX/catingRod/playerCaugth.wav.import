@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://c7qauduccwbhe"
-path="res://.godot/imported/playerCaugth.wav-9076b98b3fabb278eee8207021e4e3c0.sample"
+path="res://.godot/imported/playerCaugth.wav-614e0d57a333b3f2a8bfc37d09db3e68.sample"
 
 [deps]
 
-source_file="res://Audio/SFX/playerCaugth.wav"
-dest_files=["res://.godot/imported/playerCaugth.wav-9076b98b3fabb278eee8207021e4e3c0.sample"]
+source_file="res://Audio/SFX/catingRod/playerCaugth.wav"
+dest_files=["res://.godot/imported/playerCaugth.wav-614e0d57a333b3f2a8bfc37d09db3e68.sample"]
 
 [params]
 

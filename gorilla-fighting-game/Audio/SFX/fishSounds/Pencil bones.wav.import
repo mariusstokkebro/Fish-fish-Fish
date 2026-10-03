@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cbikcss53phku"
-path="res://.godot/imported/Pencil bones.wav-3e650758d43cca5e0466d05edbe1bf26.sample"
+path="res://.godot/imported/Pencil bones.wav-089e533cc533848c8321232a354f3889.sample"
 
 [deps]
 
-source_file="res://Audio/SFX/Pencil bones.wav"
-dest_files=["res://.godot/imported/Pencil bones.wav-3e650758d43cca5e0466d05edbe1bf26.sample"]
+source_file="res://Audio/SFX/fishSounds/Pencil bones.wav"
+dest_files=["res://.godot/imported/Pencil bones.wav-089e533cc533848c8321232a354f3889.sample"]
 
 [params]
 

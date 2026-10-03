@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bsi8eso3ydver"
-path="res://.godot/imported/reelLoop.wav-46fe8693d200925a35eeae39415e0170.sample"
+path="res://.godot/imported/reelLoop.wav-7427e24b85fad388fa831bda18773856.sample"
 
 [deps]
 
-source_file="res://Audio/SFX/reelLoop.wav"
-dest_files=["res://.godot/imported/reelLoop.wav-46fe8693d200925a35eeae39415e0170.sample"]
+source_file="res://Audio/SFX/catingRod/reelLoop.wav"
+dest_files=["res://.godot/imported/reelLoop.wav-7427e24b85fad388fa831bda18773856.sample"]
 
 [params]
 
