@@ -56,10 +56,16 @@ color = Color(0.25792736, 0.1882098, 0.1448898, 1)
 top_level = true
 position = Vector2(295, 277)
 
+[node name="CatchBall" parent="PorcupineBody" index="2" unique_id=1538139581]
+castTime = 1.0
+
 [node name="PorcupineBody2" parent="." unique_id=331631706 instance=ExtResource("1_wpb62")]
 top_level = true
 position = Vector2(727, 279)
 rotation = -3.1415925
+current_player = 2
+
+[node name="CatchBall" parent="PorcupineBody2" index="2" unique_id=1538139581]
 current_player = 2
 
 [node name="Node" type="Node" parent="." unique_id=1633877551]
@@ -84,3 +90,5 @@ position = Vector2(714, 518)
 
 [editable path="PorcupineBody"]
 [editable path="PorcupineBody/CatchBall"]
+[editable path="PorcupineBody2"]
+[editable path="PorcupineBody2/CatchBall"]
