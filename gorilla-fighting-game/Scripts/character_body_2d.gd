@@ -11,9 +11,16 @@ enum Player {
 	PLAYER_2 = 2
 }
 
+@onready var sprite: Sprite2D = $Sprite2D
+
+
+		
 @export var current_player: Player = Player.PLAYER_1
-func _ready():
-	startPosition = get_position() 
+func _ready() -> void:
+	if current_player == Player.PLAYER_1 and Global.p1_texture != null:
+		sprite.texture = Global.p1_texture
+	elif current_player == Player.PLAYER_2 and Global.p2_texture != null:
+		sprite.texture = Global.p2_texture
 func _physics_process(_delta: float) -> void:
 	var up = "p%d_move_up" % current_player
 	var down = "p%d_move_down" % current_player
