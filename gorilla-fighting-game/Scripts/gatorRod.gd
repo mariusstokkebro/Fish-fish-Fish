@@ -26,31 +26,40 @@ func _ready() -> void:
 	collision.body_exited.connect(onBodyExited)
 func _process(delta: float) -> void:
 	if steering:
-		var input := Input.get_axis("ui_up", "ui_down")
+		var up = "p%d_move_up" % current_player
+		var down = "p%d_move_down" % current_player
+		var input := Input.get_axis(up, down)
 		steer_offset = clamp(steer_offset + input * steerSpeed * delta, -maxSteer, maxSteer)
 
 	position = base_pos + steerAxis * steer_offset
-	if current_player == Player.PLAYER_1:
-		castRod(delta)
+	
+	castRod(delta)
+	
 	if hooking == true:
-		tween.kill()
+		if tween:
+			tween.kill()
 		
 		tween = create_tween()
 		tween.tween_property(self, "base_pos", Vector2.ZERO, castTime)
 		tween.parallel().tween_property(self, "steer_offset", 0.0, castTime)
 		tween.tween_callback(func(): thrown = false)
 		tween.tween_callback(func(): hooking = false)
-		enemyBody.getMoved(get_global_position())
+		
+		if enemyBody:
+			enemyBody.getMoved(get_global_position())
 		
 func castRod(delta: float) -> void:
 	if thrown:
 		return
 	
-	if Input.is_action_pressed("ui_accept"):
+	var confirm = "p%d_confirm" % current_player
+	
+	if Input.is_action_pressed(confirm):
 		distance += 100.0 * distanceMultiplier * delta
-		ballTexture.visible = true
+		if ballTexture:
+			ballTexture.visible = true
 
-	if Input.is_action_just_released("ui_accept"):
+	if Input.is_action_just_released(confirm):
 		thrown = true
 		steering = true
 		var target := base_pos + Vector2(distance, 0)
@@ -65,13 +74,11 @@ func castRod(delta: float) -> void:
 		tween.parallel().tween_property(self, "steer_offset", 0.0, castTime)
 		tween.tween_callback(func(): thrown = false)
 
-func onBodyEntered(body: CharacterBody2D):
-	if current_player == Player.PLAYER_1:
-		if body.name == "PorcupineBody2":
-			enemyBody = body
-			hooking = true
+func onBodyEntered(body: Node2D):
+	if body is CharacterBody2D and body != get_parent():
+		enemyBody = body
+		hooking = true
 
-func onBodyExited(body:CharacterBody2D):
-	if current_player == Player.PLAYER_1:
-		if body == enemyBody:
-			hooking = false
+func onBodyExited(body: Node2D):
+	if body == enemyBody:
+		hooking = false
