@@ -3,17 +3,17 @@
 [ext_resource type="AudioStream" uid="uid://bikvenetlrpmo" path="res://Audio/Music/kf015611-wet-sparkle.wav" id="1_4o14l"]
 [ext_resource type="AudioStream" uid="uid://lkcfssk24lxd" path="res://Audio/SFX/UIButton.wav" id="2_4ekki"]
 [ext_resource type="AudioStream" uid="uid://hlchwaurdpo8" path="res://Audio/SFX/ambientOcean.wav" id="2_vec8e"]
-[ext_resource type="AudioStream" uid="uid://oxtgmbyxkulf" path="res://Audio/SFX/scoredBig.wav" id="3_edm0x"]
-[ext_resource type="AudioStream" uid="uid://cy0fx4apv57wk" path="res://Audio/SFX/scoredMedium.wav" id="4_vec8e"]
-[ext_resource type="AudioStream" uid="uid://bavubq8xo0c8t" path="res://Audio/SFX/scoredSmall.wav" id="5_64lsk"]
 [ext_resource type="AudioStream" uid="uid://dcdwxdwscuui6" path="res://Audio/SFX/winSoundCombined.wav" id="6_edm0x"]
+[ext_resource type="AudioStream" uid="uid://bai4hocu6sdng" path="res://Audio/SFX/human-vocal-male-cheer-victory-05.wav" id="6_vec8e"]
+[ext_resource type="AudioStream" uid="uid://bw0y3npoad83v" path="res://Audio/SFX/human-vocal-male-cheer-victory-woohoo-01.wav" id="7_64lsk"]
 [ext_resource type="AudioStream" uid="uid://bn2sbqhk3f15s" path="res://Audio/SFX/tieBoat.wav" id="7_vec8e"]
+[ext_resource type="AudioStream" uid="uid://ci0cdw026w6rp" path="res://Audio/SFX/human-vocal-male-victory-yee-haw-01.wav" id="8_eeepx"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_g4v7s"]
 streams_count = 3
-stream_0/stream = ExtResource("3_edm0x")
-stream_1/stream = ExtResource("4_vec8e")
-stream_2/stream = ExtResource("5_64lsk")
+stream_0/stream = ExtResource("6_vec8e")
+stream_1/stream = ExtResource("7_64lsk")
+stream_2/stream = ExtResource("8_eeepx")
 
 [node name="AudioScene" type="Node2D" unique_id=1429051702]
 
@@ -22,13 +22,11 @@ stream_2/stream = ExtResource("5_64lsk")
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="Autoplayed" unique_id=1836691360]
 stream = ExtResource("1_4o14l")
 volume_db = -5.0
-autoplay = true
 
 [node name="AmbiencePlayer" type="AudioStreamPlayer" parent="Autoplayed" unique_id=311384167]
 stream = ExtResource("2_vec8e")
 volume_db = -5.0
 pitch_scale = 1.75
-autoplay = true
 
 [node name="Ending Sounds" type="Node" parent="." unique_id=1570680600]
 
