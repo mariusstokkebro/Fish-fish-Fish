@@ -35,6 +35,8 @@ func _physics_process(delta: float) -> void:
 func _process(delta: float) -> void:
 	if WinManager.reset:
 		thrown = false
+		ballTexture.visible = false
+		position = player.position
 	if steering:
 		var up = "p%d_rotate_up" % current_player
 		var down = "p%d_rotate_down" % current_player
@@ -54,13 +56,12 @@ func _process(delta: float) -> void:
 		if enemyBody:
 			enemyBody.getMoved(get_global_position(),self)
 		if timer > timeToCatch:
-			enemyBody.hooked == false
 			hooking = false
 			timer = 0.0
 			base_pos = player.position
 			ballTexture.visible = false
 			thrown = false
-			enemyBody.hooked == false
+			enemyBody.hooked = false
 func castRod(delta: float) -> void:
 	var confirm = "p%d_confirm" % current_player
 	if thrown:

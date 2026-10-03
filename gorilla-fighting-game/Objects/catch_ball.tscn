@@ -10,7 +10,9 @@ size = Vector2(166, 155)
 script = ExtResource("1_vqwdj")
 ballTexture = NodePath("ballTexture")
 collision = NodePath("Area2D")
-distanceMultiplier = 3.0
+distanceMultiplier = 6.0
+steerSpeed = 250.0
+maxSteer = 120.0
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1037202603]
 
