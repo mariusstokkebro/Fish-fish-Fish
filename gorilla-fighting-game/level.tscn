@@ -10,11 +10,16 @@
 [ext_resource type="Texture2D" uid="uid://c0d88je1rc6ud" path="res://Sprites/level assets/foam_notsplit_L.png" id="7_h6smj"]
 [ext_resource type="Texture2D" uid="uid://dqklomrond7uq" path="res://Sprites/level assets/foam_notsplit_R.png" id="8_v5j5c"]
 [ext_resource type="PackedScene" uid="uid://cxp7tw36ke0yh" path="res://Objects/porcupine_body.tscn" id="10_aicyk"]
+[ext_resource type="AudioStream" path="res://Audio/SFX/playerCaugth.wav" id="11_5pxul"]
 [ext_resource type="PackedScene" uid="uid://btgxk2qe6hbqh" path="res://Objects/speed_power_up.tscn" id="11_8b0r0"]
 [ext_resource type="PackedScene" uid="uid://33gce1r4fu35" path="res://Objects/catch_ball.tscn" id="11_h6smj"]
 [ext_resource type="PackedScene" uid="uid://yguorhsypi3f" path="res://Objects/Border.tscn" id="12_h6smj"]
+[ext_resource type="Texture2D" uid="uid://dd3mxi8b4f277" path="res://Sprites/rod/1_bobber.png" id="13_42xju"]
+[ext_resource type="Texture2D" uid="uid://curt4lkkc256g" path="res://Sprites/rod/1_bobaim.png" id="14_v7sqt"]
+[ext_resource type="Texture2D" uid="uid://rcisn58vso6l" path="res://Sprites/rod/2_bobber.png" id="15_ilwjd"]
 [ext_resource type="PackedScene" uid="uid://dhyka27ejhvo4" path="res://Objects/player_score.tscn" id="15_v5j5c"]
 [ext_resource type="PackedScene" uid="uid://ds5uf3np0j1wt" path="res://Scenes/audio_scene.tscn" id="16_5pxul"]
+[ext_resource type="Texture2D" uid="uid://b5d8csl35j2ab" path="res://Sprites/rod/2_bobaim.png" id="16_y3bce"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4n21a"]
 shader = ExtResource("2_8cye3")
@@ -94,11 +99,17 @@ texture = ExtResource("8_v5j5c")
 position = Vector2(344, 477)
 collision_mask = 5
 
+[node name="HookedSound" parent="PorcupineBody/Audio" parent_id_path=PackedInt32Array(313664581, 233818292) index="0" unique_id=1190527668]
+stream = ExtResource("11_5pxul")
+
 [node name="PorcupineBody2" parent="." unique_id=590454050 instance=ExtResource("10_aicyk")]
 position = Vector2(1573, 469)
 collision_layer = 2
 collision_mask = 5
 current_player = 2
+
+[node name="HookedSound" parent="PorcupineBody2/Audio" parent_id_path=PackedInt32Array(590454050, 233818292) index="0" unique_id=1190527668]
+stream = ExtResource("11_5pxul")
 
 [node name="CatchBall" parent="." unique_id=1538139581 node_paths=PackedStringArray("player") instance=ExtResource("11_h6smj")]
 player = NodePath("../PorcupineBody")
@@ -106,9 +117,21 @@ player = NodePath("../PorcupineBody")
 [node name="Area2D" parent="CatchBall" index="0" unique_id=1037202603]
 collision_mask = 2
 
+[node name="ballTexture" parent="CatchBall" index="1" unique_id=2104973120]
+texture = ExtResource("13_42xju")
+
+[node name="Reticle" parent="CatchBall" index="2" unique_id=1089738642]
+texture = ExtResource("14_v7sqt")
+
 [node name="CatchBall2" parent="." unique_id=346354549 node_paths=PackedStringArray("player") instance=ExtResource("11_h6smj")]
 player = NodePath("../PorcupineBody2")
 current_player = 2
+
+[node name="ballTexture" parent="CatchBall2" index="1" unique_id=2104973120]
+texture = ExtResource("15_ilwjd")
+
+[node name="Reticle" parent="CatchBall2" index="2" unique_id=1089738642]
+texture = ExtResource("16_y3bce")
 
 [node name="SpeedPowerUp" parent="." unique_id=1191806642 instance=ExtResource("11_8b0r0")]
 position = Vector2(771.99994, 966.99994)
@@ -125,6 +148,7 @@ position = Vector2(1860, 53)
 player = 2
 
 [node name="AudioScene" parent="." unique_id=1429051702 instance=ExtResource("16_5pxul")]
+script = null
 
 [editable path="PorcupineBody"]
 [editable path="PorcupineBody2"]

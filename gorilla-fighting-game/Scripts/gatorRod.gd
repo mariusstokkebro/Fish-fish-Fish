@@ -1,5 +1,6 @@
 extends Node2D
 @export var ballTexture: Sprite2D
+@export var reticleTexture: Sprite2D
 @export var player: CharacterBody2D
 @export var collision: Area2D
 @export var castTime: float = 1.0
@@ -66,6 +67,7 @@ func castRod(delta: float) -> void:
 	var confirm = "p%d_confirm" % current_player
 	if thrown:
 		if Input.is_action_pressed(confirm):
+			reticleTexture.position = Vector2.ZERO
 			if fishList.is_empty() == false:
 				hookFish(fishList[0])
 			reelIn(delta)
@@ -73,10 +75,18 @@ func castRod(delta: float) -> void:
 	
 	if Input.is_action_pressed(confirm):
 		distance += 100.0 * distanceMultiplier * delta
+		reticleTexture.visible = true
+		if current_player == Player.PLAYER_1:
+			reticleTexture.position.x = distance
+		else:
+			reticleTexture.position.x = -distance
+
 		if ballTexture:
 			ballTexture.visible = true
 
 	if Input.is_action_just_released(confirm):
+		reticleTexture.visible = false
+		reticleTexture.position.x = 0
 		var target
 		thrown = true
 		steering = true
@@ -85,7 +95,7 @@ func castRod(delta: float) -> void:
 		else:
 			target = base_pos + Vector2(-distance, 0)
 		distance = 10.0
-
+		
 		tween = create_tween()
 		tween.tween_property(self, "base_pos", target, castTime)
 		tween.tween_interval(2.0) 
