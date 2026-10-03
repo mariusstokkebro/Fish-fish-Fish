@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://bra6eglb865r2" path="res://Scripts/character_body_2d.gd" id="1_mknlu"]
 [ext_resource type="Texture2D" uid="uid://1b0unr4q1sp4" path="res://Sprites/hehe.jpg" id="2_ayemm"]
+[ext_resource type="AudioStream" uid="uid://c7qauduccwbhe" path="res://Audio/SFX/playerCaugth.wav" id="3_hx8xw"]
+[ext_resource type="AudioStream" uid="uid://bmr317dltpdlf" path="res://Audio/SFX/moveLoop.wav" id="4_3u1k4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_66c54"]
 size = Vector2(215, 216)
@@ -16,3 +18,14 @@ debug_color = Color(0.1399397, 0.54745126, 0.91012627, 0.41960785)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=515046900]
 texture = ExtResource("2_ayemm")
+
+[node name="Audio" type="Node" parent="." unique_id=233818292]
+
+[node name="HookedSound" type="AudioStreamPlayer2D" parent="Audio" unique_id=1190527668]
+stream = ExtResource("3_hx8xw")
+max_polyphony = 2
+
+[node name="MoveSound" type="AudioStreamPlayer2D" parent="Audio" unique_id=1404610368]
+stream = ExtResource("4_3u1k4")
+volume_db = -5.0
+max_polyphony = 2

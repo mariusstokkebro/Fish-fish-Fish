@@ -12,7 +12,8 @@ enum Player {
 }
 
 @onready var sprite: Sprite2D = $Sprite2D
-
+@onready var sound_hooked: AudioStreamPlayer2D = $Audio/HookedSound
+@onready var sound_move: AudioStreamPlayer2D = $Audio/MoveSound
 
 		
 @export var current_player: Player = Player.PLAYER_1
@@ -42,6 +43,16 @@ func _physics_process(_delta: float) -> void:
 	move_and_slide()
 	if hooked:
 		resist(_delta)
+		
+
+func _process(float) -> void:
+	if velocity != Vector2(0.0, 0.0) && !sound_move.playing:
+		sound_move.play()
+	else: 
+		if sound_move.playing && velocity == Vector2(0.0, 0.0):
+			sound_move.stop()
+
+
 func getMoved(movement:Vector2,bait:Node2D):
 	currentBait = bait
 	set_global_position(movement)
@@ -55,6 +66,7 @@ func tpBackToOrigin():
 	
 	
 func Hooked():
+	sound_hooked.play()
 	hooked = true
 
 func resist(delta):
