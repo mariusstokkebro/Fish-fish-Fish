@@ -1,12 +1,12 @@
 extends Node2D
 @export var ballTexture: Sprite2D
 @export var collision: Area2D
- 
 @export var castTime: float = 1.0
 @export var distanceMultiplier: float = 1.0
 @export var steerSpeed: float = 150.0
 @export var maxSteer: float = 80.0
-@export var steerAxis: Vector2 = Vector2.DOWN  # direction the bait can be nudged
+@export var steerAxis: Vector2 = Vector2.DOWN
+@export var reelSpeed: float = 0.2  # direction the bait can be nudged
 enum Player {
 	PLAYER_1 = 1,
 	PLAYER_2 = 2
@@ -21,6 +21,8 @@ var base_pos := Vector2.ZERO
 var steer_offset := 0.0
 var tween: Tween
 var fishList: Array
+var lastAngle: float = 0.0
+var rotationSpeed: float = 0.0
 func _ready() -> void:
 	base_pos = position
 	
@@ -41,18 +43,17 @@ func _process(delta: float) -> void:
 	if hooking == true:
 		if tween:
 			tween.kill()
-			reelIn()
-		
+			reelIn(delta)
 		if enemyBody:
-			enemyBody.getMoved(get_global_position())
+			enemyBody.getMoved(get_global_position(),self)
 		
 func castRod(delta: float) -> void:
 	var confirm = "p%d_confirm" % current_player
 	if thrown:
 		if Input.is_action_pressed(confirm):
-			reelIn()
 			if fishList.is_empty() == false:
 				hookFish(fishList[0])
+			reelIn(delta)
 		return
 	
 	if Input.is_action_pressed(confirm):
@@ -75,18 +76,30 @@ func hookFish(body: Node2D):
 	var confirm = "p%d_confirm" % current_player
 	if body != get_parent():
 		enemyBody = body
+		body.Hooked()
 		if Input.is_action_pressed(confirm):
-			
 			hooking = true
 
-func onBodyExited(body: Node2D):
-	if body == enemyBody:
-		hooking = false
-
-
-func reelIn():
-	tween = create_tween()
-	tween.tween_property(self, "base_pos", Vector2.ZERO, castTime)
-	tween.parallel().tween_property(self, "steer_offset", 0.0, castTime)
-	tween.tween_callback(func(): thrown = false)
-	tween.tween_callback(func(): hooking = false)
+func reelIn(delta:float):
+	if hooking:
+		var currentPosition = base_pos
+		var input_vector := Input.get_vector(
+		"p%d_rotate_left" % current_player,
+		"p%d_rotate_right" % current_player, 
+		"p%d_rotate_up" % current_player,
+		"p%d_rotate_down" % current_player)
+		if input_vector.length() > 0.1:
+			var currentAngle = atan2(input_vector.y,input_vector.x)
+			var angle_diff = wrapf(currentAngle - lastAngle, -PI,PI)
+			rotationSpeed = angle_diff/delta
+			lastAngle = currentAngle
+		else:
+			rotationSpeed =0.0
+		var newPosition = Vector2(currentPosition.x + reelSpeed * rotationSpeed,currentPosition.y)
+		base_pos = newPosition
+	else:
+		tween = create_tween()
+		tween.tween_property(self, "base_pos", Vector2.ZERO, castTime)
+		tween.parallel().tween_property(self, "steer_offset", 0.0, castTime)
+		tween.tween_callback(func(): thrown = false)
+		tween.tween_callback(func(): hooking = false)

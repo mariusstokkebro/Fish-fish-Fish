@@ -1,7 +1,11 @@
 extends CharacterBody2D
-
+var hooked = false
 const SPEED = 300.0
 var startPosition
+var rotationSpeed: float = 0.0
+var lastAngle: float = 0.0
+var resistSpeed: float = 0.2
+var currentBait: Node2D
 enum Player {
 	PLAYER_1 = 1,
 	PLAYER_2 = 2
@@ -29,11 +33,34 @@ func _physics_process(_delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
-
-func getMoved(movement:Vector2):
+	if hooked:
+		resist(_delta)
+func getMoved(movement:Vector2,bait:Node2D):
+	currentBait = bait
 	set_global_position(movement)
 	
 	
 func tpBackToOrigin():
 	set_position(startPosition)
+	
+	
+func Hooked():
+	hooked = true
+
+func resist(delta):
+	var currentPosition = currentBait.base_pos
+	var input_vector := Input.get_vector(
+	"p%d_rotate_left" % current_player,
+	"p%d_rotate_right" % current_player, 
+	"p%d_rotate_up" % current_player,
+	"p%d_rotate_down" % current_player)
+	if input_vector.length() > 0.1:
+		var currentAngle = atan2(input_vector.y,input_vector.x)
+		var angle_diff = wrapf(currentAngle - lastAngle, -PI,PI)
+		rotationSpeed = angle_diff/delta
+		lastAngle = currentAngle
+	else:
+		rotationSpeed =0.0
+	var newPosition = Vector2(currentPosition.x + resistSpeed * rotationSpeed,currentPosition.y)
+	currentBait.base_pos = newPosition
 	
