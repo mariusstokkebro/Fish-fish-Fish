@@ -8,7 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://bw0y3npoad83v" path="res://Audio/SFX/human-vocal-male-cheer-victory-woohoo-01.wav" id="7_64lsk"]
 [ext_resource type="AudioStream" uid="uid://bn2sbqhk3f15s" path="res://Audio/SFX/tieBoat.wav" id="7_vec8e"]
 [ext_resource type="AudioStream" uid="uid://ci0cdw026w6rp" path="res://Audio/SFX/human-vocal-male-victory-yee-haw-01.wav" id="8_eeepx"]
-[ext_resource type="AudioStream" uid="uid://blkn60qklrejo" path="res://Audio/Music/MENU kf020809-billowing-skirts.wav" id="9_64lsk"]
+[ext_resource type="AudioStream" uid="uid://kfkkq3kybfst" path="res://Audio/Music/MENU deftones-my-own-summer-shove-it-lyrics-128-ytshorts.savetube.me.wav" id="9_eeepx"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_g4v7s"]
 streams_count = 3
@@ -46,5 +46,5 @@ stream = SubResource("AudioStreamRandomizer_g4v7s")
 volume_db = 5.0
 
 [node name="Menu music" type="AudioStreamPlayer" parent="." unique_id=911451025]
-stream = ExtResource("9_64lsk")
+stream = ExtResource("9_eeepx")
 autoplay = true
