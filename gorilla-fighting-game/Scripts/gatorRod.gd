@@ -80,7 +80,6 @@ func castRod(delta: float) -> void:
 			reticleTexture.position.x = distance
 		else:
 			reticleTexture.position.x = -distance
-			reticleTexture.position.x = distance
 		if ballTexture:
 			ballTexture.visible = true
 
