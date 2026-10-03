@@ -1,14 +1,15 @@
 extends CharacterBody2D
 
 const SPEED = 300.0
-
+var startPosition
 enum Player {
 	PLAYER_1 = 1,
 	PLAYER_2 = 2
 }
 
 @export var current_player: Player = Player.PLAYER_1
-
+func _ready():
+	startPosition = get_position() 
 func _physics_process(_delta: float) -> void:
 	var up = "p%d_move_up" % current_player
 	var down = "p%d_move_down" % current_player
@@ -31,4 +32,8 @@ func _physics_process(_delta: float) -> void:
 
 func getMoved(movement:Vector2):
 	set_global_position(movement)
+	
+	
+func tpBackToOrigin():
+	set_position(startPosition)
 	

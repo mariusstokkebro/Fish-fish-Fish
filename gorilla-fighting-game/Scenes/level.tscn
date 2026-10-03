@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://m7uktegwyayq"]
 
 [ext_resource type="PackedScene" uid="uid://cxp7tw36ke0yh" path="res://Objects/porcupine_body.tscn" id="1_tumq0"]
+[ext_resource type="PackedScene" uid="uid://yguorhsypi3f" path="res://Objects/Border.tscn" id="2_k5f4k"]
 
 [node name="Level" type="Node2D" unique_id=13814193]
 position = Vector2(0, 4)
@@ -62,6 +63,8 @@ current_player = 2
 
 [node name="CatchBall" parent="PorcupineBody2" index="2" unique_id=1538139581]
 current_player = 2
+
+[node name="Border" parent="." unique_id=255961422 instance=ExtResource("2_k5f4k")]
 
 [editable path="PorcupineBody"]
 [editable path="PorcupineBody/CatchBall"]
