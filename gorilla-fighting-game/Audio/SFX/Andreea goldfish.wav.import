@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dl85yki71bu1i"
+path="res://.godot/imported/Andreea goldfish.wav-ac8819be1ff0e8f5bf57aa981d2414ba.sample"
+
+[deps]
+
+source_file="res://Audio/SFX/Andreea goldfish.wav"
+dest_files=["res://.godot/imported/Andreea goldfish.wav-ac8819be1ff0e8f5bf57aa981d2414ba.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
