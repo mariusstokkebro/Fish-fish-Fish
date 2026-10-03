@@ -52,11 +52,11 @@ color = Color(0.25792736, 0.1882098, 0.1448898, 1)
 
 [node name="PorcupineBody" parent="." unique_id=313664581 instance=ExtResource("1_tumq0")]
 top_level = true
-position = Vector2(295, 277)
+position = Vector2(456, 456)
 
 [node name="PorcupineBody2" parent="." unique_id=331631706 instance=ExtResource("1_tumq0")]
 top_level = true
-position = Vector2(727.64, 279)
+position = Vector2(1405, 486)
 rotation = -3.1415925
 current_player = 2
 
@@ -64,5 +64,6 @@ current_player = 2
 current_player = 2
 
 [editable path="PorcupineBody"]
+[editable path="PorcupineBody/CatchBall"]
 [editable path="PorcupineBody2"]
 [editable path="PorcupineBody2/CatchBall"]

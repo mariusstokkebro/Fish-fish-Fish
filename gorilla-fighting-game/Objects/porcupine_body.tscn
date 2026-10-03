@@ -5,11 +5,13 @@
 [ext_resource type="PackedScene" uid="uid://33gce1r4fu35" path="res://Objects/catch_ball.tscn" id="3_ayemm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_66c54"]
+size = Vector2(215, 216)
 
 [node name="PorcupineBody" type="CharacterBody2D" unique_id=313664581]
 script = ExtResource("1_mknlu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=543348037]
+position = Vector2(3.5, 4)
 shape = SubResource("RectangleShape2D_66c54")
 debug_color = Color(0.1399397, 0.54745126, 0.91012627, 0.41960785)
 
@@ -18,4 +20,8 @@ texture = ExtResource("2_ayemm")
 
 [node name="CatchBall" parent="." unique_id=1538139581 instance=ExtResource("3_ayemm")]
 castTime = 3.0
-distanceMultiplier = 3.0
+
+[node name="CollisionShape2D" parent="CatchBall/Area2D" parent_id_path=PackedInt32Array(1538139581, 1037202603) index="0" unique_id=1381677839]
+position = Vector2(-6, 24)
+
+[editable path="CatchBall"]
