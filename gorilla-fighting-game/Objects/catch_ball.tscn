@@ -4,20 +4,18 @@
 [ext_resource type="Texture2D" uid="uid://cn4agumuxk5il" path="res://Sprites/me.jpg" id="2_cfjnb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
-size = Vector2(282, 264)
+size = Vector2(268, 199)
 
-[node name="CatchBall" type="Node2D" unique_id=1538139581 node_paths=PackedStringArray("ballTexture", "collider")]
+[node name="CatchBall" type="Node2D" unique_id=1538139581 node_paths=PackedStringArray("ballTexture", "collision")]
 script = ExtResource("1_vqwdj")
 ballTexture = NodePath("ballTexture")
-collider = NodePath("StaticBody2D/CollisionShape2D")
-distanceMultiplier = 1.0
+collision = NodePath("Area2D")
+distanceMultiplier = 3.0
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1114486529]
-collision_layer = 2
-collision_mask = 2
+[node name="Area2D" type="Area2D" parent="." unique_id=1037202603]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1381677839]
-position = Vector2(-8, -7)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1381677839]
+position = Vector2(21, 25.5)
 shape = SubResource("RectangleShape2D_g4v7s")
 
 [node name="ballTexture" type="Sprite2D" parent="." unique_id=2104973120]

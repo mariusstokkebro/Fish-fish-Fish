@@ -16,7 +16,6 @@ debug_color = Color(0.1399397, 0.54745126, 0.91012627, 0.41960785)
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=515046900]
 texture = ExtResource("2_ayemm")
 
-[node name="CatchBall" parent="." unique_id=1538139581 node_paths=PackedStringArray("player") instance=ExtResource("3_ayemm")]
-player = NodePath("..")
+[node name="CatchBall" parent="." unique_id=1538139581 instance=ExtResource("3_ayemm")]
 castTime = 3.0
 distanceMultiplier = 3.0

@@ -1,4 +1,5 @@
 extends CharacterBody2D
+
 const SPEED = 300.0
 
 enum Player {
@@ -27,3 +28,7 @@ func _physics_process(_delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+
+func getMoved(movement:Vector2):
+	set_global_position(movement)
+	
