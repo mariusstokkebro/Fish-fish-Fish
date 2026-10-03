@@ -80,7 +80,7 @@ func castRod(delta: float) -> void:
 			reticleTexture.position.x = distance
 		else:
 			reticleTexture.position.x = -distance
-
+			reticleTexture.position.x = distance
 		if ballTexture:
 			ballTexture.visible = true
 
@@ -103,7 +103,7 @@ func castRod(delta: float) -> void:
 
 func hookFish(body: Node2D):
 	var confirm = "p%d_confirm" % current_player
-	if body.current_player != current_player:
+	if body != player:
 		enemyBody = body
 		body.Hooked()
 		if Input.is_action_pressed(confirm):
