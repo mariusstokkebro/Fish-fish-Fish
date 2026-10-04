@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://drsh4fd3boxi1" path="res://Sprites/Player1.png" id="5_7waqh"]
 [ext_resource type="Texture2D" uid="uid://bdx4bml8s1u82" path="res://Sprites/Player2.png" id="6_msglg"]
 [ext_resource type="PackedScene" uid="uid://b0356f1fd5nru" path="res://Objects/confetti.tscn" id="7_7waqh"]
+[ext_resource type="AudioStream" uid="uid://dcdwxdwscuui6" path="res://Audio/SFX/winSoundCombined.wav" id="8_msglg"]
 
 [node name="WinManager" type="Node2D" unique_id=15051887]
 script = ExtResource("1_i6mgx")
@@ -46,6 +47,9 @@ scale = Vector2(7, 7)
 visible = true
 position = Vector2(700, 700)
 scale = Vector2(7, 7)
+
+[node name="WinSound" type="AudioStreamPlayer2D" parent="." unique_id=660411398]
+stream = ExtResource("8_msglg")
 
 [editable path="ConfettiLeft"]
 [editable path="ConfettiRight"]

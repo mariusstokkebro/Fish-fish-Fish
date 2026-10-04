@@ -18,6 +18,7 @@ var timer = 0.0
 @onready var player_2_sprite: Sprite2D = $Player2Sprite2D
 @onready var confetti_left: Node2D = $ConfettiLeft
 @onready var confetti_right: Node2D = $ConfettiRight
+@onready var win_sound: AudioStreamPlayer2D = $WinSound
 
 var is_game_stop = false
 
@@ -57,6 +58,7 @@ func _stop_game(is_winner: bool, is_player1: bool) -> void:
 	divider.visible = false
 	
 	if (is_winner):
+		win_sound.play()
 		winner_sprite.visible = true
 		
 		if (is_player1):
