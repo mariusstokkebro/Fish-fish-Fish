@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bdx4bml8s1u82" path="res://Sprites/Player2.png" id="6_msglg"]
 [ext_resource type="PackedScene" uid="uid://b0356f1fd5nru" path="res://Objects/confetti.tscn" id="7_7waqh"]
 [ext_resource type="AudioStream" uid="uid://dcdwxdwscuui6" path="res://Audio/SFX/winSoundCombined.wav" id="8_msglg"]
+[ext_resource type="Texture2D" uid="uid://j7rbg7h3nm8w" path="res://Sprites/yellowsubmarine.png" id="9_q8ocw"]
 
 [node name="WinManager" type="Node2D" unique_id=15051887 node_paths=PackedStringArray("penguin1_sprite", "penguin2_sprite")]
 script = ExtResource("1_i6mgx")
@@ -52,6 +53,11 @@ scale = Vector2(7, 7)
 
 [node name="WinSound" type="AudioStreamPlayer2D" parent="." unique_id=660411398]
 stream = ExtResource("8_msglg")
+
+[node name="Yellowsubmarine" type="Sprite2D" parent="." unique_id=2051787644]
+visible = false
+position = Vector2(666, 187)
+texture = ExtResource("9_q8ocw")
 
 [editable path="ConfettiLeft"]
 [editable path="ConfettiRight"]

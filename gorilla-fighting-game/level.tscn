@@ -168,6 +168,9 @@ z_index = 100
 position = Vector2(0, 546)
 scale = Vector2(0.99, 0.99)
 
+[node name="Yellowsubmarine" parent="WinManager" index="8" unique_id=2051787644]
+z_index = 100
+
 [node name="Spawner" parent="." unique_id=448375989 instance=ExtResource("19_ait7k")]
 position = Vector2(488, 1218)
 spawner_owner = 2
