@@ -1,6 +1,7 @@
 extends Area2D
 
-@onready var score_sound: AudioStreamPlayer = $"ScoreSoundPlayer"
+@onready var sound_score: AudioStreamPlayer = $ScoreSoundPlayer
+@onready var sound_powerUp: AudioStreamPlayer = $PowerUpSound
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	body_entered.connect(onBodyEntered)
@@ -19,17 +20,18 @@ func onBodyEntered(body: CharacterBody2D):
 				"sardine":
 					if catcher.has_method("apply_speed_boost"):
 						catcher.apply_speed_boost()
+						sound_powerUp.play()
 				"shrimp":
 					if is_player1:
 						WinManager.player1_score += 1
 					else:
 						WinManager.player2_score += 1
-					score_sound.play()
+					sound_score.play()
 					
 			body.queue_free() 
 			return
 			
-		score_sound.play()
+		sound_score.play()
 		if body.name == "PorcupineBody":
 			WinManager.player2_score += 1
 			WinManager.reset = true

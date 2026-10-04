@@ -5,6 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://c7qauduccwbhe" path="res://Audio/SFX/catingRod/playerCaugth.wav" id="3_hx8xw"]
 [ext_resource type="AudioStream" uid="uid://bmr317dltpdlf" path="res://Audio/SFX/moveLoop.wav" id="4_3u1k4"]
 [ext_resource type="Texture2D" uid="uid://bmslgbumfymex" path="res://Sprites/rod/rod.png" id="5_3u1k4"]
+[ext_resource type="AudioStream" uid="uid://c0o5b8hw1sp4" path="res://Audio/SFX/flyingFishSlap.wav" id="5_ckkug"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_66c54"]
 size = Vector2(215, 216)
@@ -30,6 +31,11 @@ max_polyphony = 2
 [node name="MoveSound" type="AudioStreamPlayer2D" parent="Audio" unique_id=1404610368]
 stream = ExtResource("4_3u1k4")
 volume_db = -5.0
+max_polyphony = 2
+
+[node name="StunSound" type="AudioStreamPlayer2D" parent="Audio" unique_id=1634108621]
+stream = ExtResource("5_ckkug")
+volume_db = 5.0
 max_polyphony = 2
 
 [node name="fishingRod" type="Sprite2D" parent="." unique_id=417631565]
