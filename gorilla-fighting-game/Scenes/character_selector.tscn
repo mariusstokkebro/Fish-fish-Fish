@@ -157,6 +157,7 @@ stream = ExtResource("26_lw6qj")
 
 [node name="fish4" type="AudioStreamPlayer" parent="character - 1/Audio" unique_id=50711629]
 stream = ExtResource("27_4khxo")
+volume_db = 10.0
 
 [node name="fish5" type="AudioStreamPlayer" parent="character - 1/Audio" unique_id=901936931]
 stream = ExtResource("28_pwpu7")
@@ -303,6 +304,7 @@ stream = ExtResource("26_lw6qj")
 
 [node name="fish3" type="AudioStreamPlayer" parent="character - 2/Audio" unique_id=352514082]
 stream = ExtResource("27_4khxo")
+volume_db = 10.0
 
 [node name="fish6" type="AudioStreamPlayer" parent="character - 2/Audio" unique_id=831875706]
 stream = ExtResource("28_pwpu7")
