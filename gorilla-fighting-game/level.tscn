@@ -133,7 +133,6 @@ position = Vector2(1860, 53)
 player = 2
 
 [node name="AudioScene" parent="." unique_id=1429051702 instance=ExtResource("16_5pxul")]
-script = null
 
 [node name="WinManager" parent="." unique_id=15051887 node_paths=PackedStringArray("player1", "player2", "penguin1_sprite", "penguin2_sprite") instance=ExtResource("18_4c15r")]
 position = Vector2(964, 254)
@@ -186,6 +185,7 @@ spawn_direction = 1
 [editable path="PorcupineBody2"]
 [editable path="CatchBall"]
 [editable path="CatchBall2"]
+[editable path="AudioScene"]
 [editable path="WinManager"]
 [editable path="WinManager/ConfettiLeft"]
 [editable path="WinManager/ConfettiRight"]
