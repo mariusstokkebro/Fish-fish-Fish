@@ -5,19 +5,10 @@
 [ext_resource type="AudioStream" uid="uid://lkcfssk24lxd" path="res://Audio/SFX/UIButton.wav" id="2_4ekki"]
 [ext_resource type="AudioStream" uid="uid://hlchwaurdpo8" path="res://Audio/SFX/ambientOcean.wav" id="2_vec8e"]
 [ext_resource type="AudioStream" uid="uid://dcdwxdwscuui6" path="res://Audio/SFX/winSoundCombined.wav" id="6_edm0x"]
-[ext_resource type="AudioStream" uid="uid://bai4hocu6sdng" path="res://Audio/SFX/human-vocal-male-cheer-victory-05.wav" id="6_vec8e"]
-[ext_resource type="AudioStream" uid="uid://bw0y3npoad83v" path="res://Audio/SFX/human-vocal-male-cheer-victory-woohoo-01.wav" id="7_64lsk"]
 [ext_resource type="AudioStream" uid="uid://bn2sbqhk3f15s" path="res://Audio/SFX/tieBoat.wav" id="7_vec8e"]
-[ext_resource type="AudioStream" uid="uid://ci0cdw026w6rp" path="res://Audio/SFX/human-vocal-male-victory-yee-haw-01.wav" id="8_eeepx"]
 [ext_resource type="AudioStream" uid="uid://kfkkq3kybfst" path="res://Audio/Music/MENU deftones-my-own-summer-shove-it-lyrics-128-ytshorts.savetube.me.wav" id="9_eeepx"]
 [ext_resource type="AudioStream" uid="uid://cjf0buuv2sh18" path="res://Audio/SFX/Andreea TitleDrop.wav" id="10_eeepx"]
 [ext_resource type="AudioStream" uid="uid://vy38xwhm5anh" path="res://Audio/SFX/transitionSound.wav" id="11_4mf35"]
-
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_g4v7s"]
-streams_count = 3
-stream_0/stream = ExtResource("6_vec8e")
-stream_1/stream = ExtResource("7_64lsk")
-stream_2/stream = ExtResource("8_eeepx")
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_g4v7s"]
 loop = false
@@ -51,11 +42,6 @@ stream = ExtResource("7_vec8e")
 [node name="UiSoundsPlayer" type="AudioStreamPlayer" parent="." unique_id=417316884]
 stream = ExtResource("2_4ekki")
 volume_db = 2.0
-
-[node name="ScoreSoundPlayer" type="AudioStreamPlayer" parent="." unique_id=477344317]
-stream = SubResource("AudioStreamRandomizer_g4v7s")
-volume_db = -25.0
-pitch_scale = 0.8
 
 [node name="MenuMusic" type="AudioStreamPlayer" parent="." unique_id=911451025]
 stream = SubResource("AudioStreamPlaylist_g4v7s")

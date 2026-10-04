@@ -30,7 +30,7 @@ shape = SubResource("RectangleShape2D_g4v7s")
 
 [node name="ScoreSoundPlayer" type="AudioStreamPlayer" parent="Area2D" unique_id=601290174]
 stream = SubResource("AudioStreamRandomizer_lkn81")
-volume_db = 5.0
+volume_db = -15.0
 
 [node name="Wall" type="StaticBody2D" parent="." unique_id=1009073929]
 collision_layer = 4

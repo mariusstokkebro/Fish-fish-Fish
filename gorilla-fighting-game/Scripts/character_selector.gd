@@ -97,7 +97,6 @@ func _process(delta: float) -> void:
 			
 		elif Input.is_action_just_pressed(confirm):
 			if check_all_players_ready():
-				Global.inMenu = false
 				var selectors = get_tree().get_nodes_in_group("player_selectors")
 				for selector in selectors:
 					var active_square = selector.character_squares[selector.current_index]
@@ -114,6 +113,7 @@ func _process(delta: float) -> void:
 					else:
 						Global.p2_texture = chosen_tex
 				
+				Global.inMenu = false
 				get_tree().change_scene_to_file("res://level.tscn")
 		return
 

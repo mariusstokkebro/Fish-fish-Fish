@@ -7,17 +7,16 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	
-	if Global.inMenu == true:
-		print("MENU")
 		menuSound.play()
-	else:
-		print("GAME")
-		transition.play()
-		gameMusic.play()
-		gameAmbience.play()
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if Global.inMenu == false:
+		switchSongs()
+
+func switchSongs():
+	menuSound.stop()
+	print("GAME")
+	transition.play()
+	gameMusic.play()
+	gameAmbience.play()

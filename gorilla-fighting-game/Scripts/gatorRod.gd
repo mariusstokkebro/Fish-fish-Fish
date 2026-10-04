@@ -40,6 +40,7 @@ var splashed: bool = false
 
 func _ready() -> void:
 	base_pos = player.position
+	Global.inMenu = false
 	
 func _physics_process(delta: float) -> void:
 	fishList = collision.get_overlapping_bodies()
@@ -87,12 +88,7 @@ func _process(delta: float) -> void:
 				enemyBody.hooked = false
 			if sound_Reel.playing:
 				sound_Reel.stop()
-			
-	if rotationSpeed != 0.0:
-		if not sound_Reel.playing:
-			sound_Reel.play()
-	elif sound_Reel.playing && rotationSpeed == 0.0:
-		sound_Reel.stop()
+				
 		
 func castRod(delta: float) -> void:
 	var confirm = "p%d_confirm" % current_player
