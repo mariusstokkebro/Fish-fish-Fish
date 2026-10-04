@@ -1,6 +1,7 @@
 extends CharacterBody2D
 var hooked = false
 var speed: float = 300.0
+var wobble_time: float = 0.0
 var is_stunned: bool = false
 var startPosition
 var rotationSpeed: float = 0.0
@@ -58,11 +59,15 @@ func _physics_process(_delta: float) -> void:
 	if hooked:
 		resist(_delta)
 
-func _process(float) -> void:
-	if velocity != Vector2(0.0, 0.0) && !sound_move.playing:
-		sound_move.play()
-	else: 
-		if sound_move.playing && velocity == Vector2(0.0, 0.0):
+func _process(delta: float) -> void:
+	if velocity != Vector2.ZERO:
+		wobble_time += delta * 15.0
+		sprite.rotation = sin(wobble_time) * 0.1
+		if !sound_move.playing:
+			sound_move.play()
+	else:
+		sprite.rotation = 0.0
+		if sound_move.playing:
 			sound_move.stop()
 
 func apply_stun(duration: float) -> void:

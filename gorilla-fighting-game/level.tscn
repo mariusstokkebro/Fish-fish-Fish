@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://ybquq74kqpe7"]
+[gd_scene format=3 uid="uid://cqxvdadsf515n"]
 
 [ext_resource type="Texture2D" uid="uid://dthvc1g14ts14" path="res://Sprites/level assets/screenz_L.png" id="1_km5ld"]
 [ext_resource type="Shader" uid="uid://cq4e3pa2cwrae" path="res://VFX/scrollTex.tres" id="2_8cye3"]
