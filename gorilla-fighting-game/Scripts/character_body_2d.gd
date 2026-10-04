@@ -14,6 +14,7 @@ enum Player {
 }
 
 @onready var sprite: Sprite2D = $Sprite2D
+@onready var rodSprite: Sprite2D = $fishingRod
 @onready var sound_hooked: AudioStreamPlayer2D = $Audio/HookedSound
 @onready var sound_move: AudioStreamPlayer2D = $Audio/MoveSound
 @onready var sound_stunned: AudioStreamPlayer2D = $Audio/StunSound
@@ -28,6 +29,13 @@ func _ready() -> void:
 		sprite.texture = Global.p1_texture
 	elif current_player == Player.PLAYER_2 and Global.p2_texture != null:
 		sprite.texture = Global.p2_texture
+		
+	if current_player == Player.PLAYER_2:
+		sprite.flip_h = true
+		rodSprite.flip_h = true
+		rodSprite.rotate(-1)
+		rodSprite.move_local_x(-80)
+		rodSprite.move_local_y(-40)
 
 func _physics_process(_delta: float) -> void:
 	if WinManager.reset == true:
