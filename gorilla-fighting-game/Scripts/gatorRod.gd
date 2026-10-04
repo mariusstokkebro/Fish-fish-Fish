@@ -1,4 +1,5 @@
 extends Node2D
+
 @export var ballTexture: Sprite2D
 @export var reticleTexture: Sprite2D
 @export var player: CharacterBody2D
@@ -10,10 +11,12 @@ extends Node2D
 @export var steerAxis: Vector2 = Vector2.DOWN
 @export var reelSpeed: float = 0.2
 @export var timeToCatch: float = 5
+
 enum Player {
 	PLAYER_1 = 1,
 	PLAYER_2 = 2
 }
+
 @export var current_player: Player = Player.PLAYER_1
 var distance := 10.0
 var thrown := false
@@ -64,17 +67,32 @@ func _process(delta: float) -> void:
 		if tween:
 			tween.kill()
 			reelIn(delta)
-		if enemyBody:
-			enemyBody.getMoved(get_global_position(),self)
+			
+		if is_instance_valid(enemyBody):
+			enemyBody.getMoved(get_global_position(), self)
+		else:
+			hooking = false
+			timer = 0.0
+			base_pos = player.position
+			ballTexture.visible = false
+			thrown = false
+			
 		if timer > timeToCatch:
 			hooking = false
 			timer = 0.0
 			base_pos = player.position
 			ballTexture.visible = false
 			thrown = false
-			enemyBody.hooked = false
+			if is_instance_valid(enemyBody):
+				enemyBody.hooked = false
 			if sound_Reel.playing:
 				sound_Reel.stop()
+			
+	if rotationSpeed != 0.0:
+		if not sound_Reel.playing:
+			sound_Reel.play()
+	elif sound_Reel.playing && rotationSpeed == 0.0:
+		sound_Reel.stop()
 		
 func castRod(delta: float) -> void:
 	var confirm = "p%d_confirm" % current_player
@@ -82,14 +100,14 @@ func castRod(delta: float) -> void:
 		if Input.is_action_pressed(confirm):
 			reticleTexture.position = Vector2.ZERO
 			if fishList.is_empty() == false:
-				hookFish(fishList[0])
+				if is_instance_valid(fishList[0]):
+					hookFish(fishList[0])
 			reelIn(delta)
 		return
 	
 	if Input.is_action_pressed(confirm):
 		if !sound_Charge.playing:
 			sound_Charge.play()
-			splashed = false
 		distance += 100.0 * distanceMultiplier * delta
 		reticleTexture.visible = true
 		if current_player == Player.PLAYER_1:
@@ -120,23 +138,31 @@ func castRod(delta: float) -> void:
 		tween.tween_interval(2.0) 
 		tween.tween_callback(func(): steering = false)
 		await tween.finished
-		if !splashed:
-			sound_Splash.play()
-			splashed = true
+		sound_Splash.play()
+		splashed = true
 		canHook = true
-		##PLAY splash ANIMATION!!
 		
-
 func hookFish(body: Node2D):
+	if not is_instance_valid(body):
+		return
+		
+	if "powerup_type" in body and body.powerup_type == "fly":
+		return 
+		
 	var confirm = "p%d_confirm" % current_player
-	if body != player && canHook:
+	if body != player:
+		if "fish_owner" in body and body.fish_owner != current_player as int:
+			return
+			
 		enemyBody = body
 		body.Hooked()
 		if Input.is_action_pressed(confirm):
 			hooking = true
-			sound_Reel.play()
+			if not sound_Reel.playing:
+				sound_Reel.play()
 			if !splashed:
 				sound_Splash.play()
+				splashed = true
 		
 func reelIn(delta:float):
 	if hooking:
@@ -162,6 +188,7 @@ func reelIn(delta:float):
 		tween.tween_callback(func(): thrown = false)
 		tween.tween_callback(func(): hooking = false)
 		tween.tween_callback(func(): ballTexture.visible = false)
+		tween.tween_callback(func(): splashed = false)
 		canHook = false
 		if sound_Reel.playing:
 			sound_Reel.stop()

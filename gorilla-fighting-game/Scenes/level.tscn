@@ -79,5 +79,15 @@ spawner_owner = 2
 [node name="Spawner2" parent="." unique_id=374063279 instance=ExtResource("4_81xng")]
 position = Vector2(1424, 1215)
 
+[node name="Spawner3" parent="." unique_id=436615299 instance=ExtResource("4_81xng")]
+position = Vector2(472, -170)
+spawner_owner = 2
+spawn_direction = 1
+
+[node name="Spawner4" parent="." unique_id=1754603940 instance=ExtResource("4_81xng")]
+position = Vector2(1429, -179)
+spawner_owner = 2
+spawn_direction = 1
+
 [editable path="PorcupineBody"]
 [editable path="PorcupineBody2"]

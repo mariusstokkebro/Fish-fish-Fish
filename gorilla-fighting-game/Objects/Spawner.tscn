@@ -18,11 +18,13 @@ radius = 20.024984
 [node name="Spawner" type="Node2D" unique_id=448375989]
 script = ExtResource("1_t8sqj")
 spawn_interval = 5.0
+spawn_x_variance = 250.0
 
 [node name="CharacterBody2D3" type="CharacterBody2D" parent="." unique_id=457895356]
 scale = Vector2(0.99999994, 0.99999994)
 collision_layer = 2
 script = ExtResource("2_8v14h")
+powerup_type = "dog"
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D3" unique_id=2065609280]
 texture = ExtResource("2_qfxwc")
@@ -47,6 +49,7 @@ shape = SubResource("CircleShape2D_n73o4")
 scale = Vector2(0.99999994, 0.99999994)
 collision_layer = 2
 script = ExtResource("2_8v14h")
+powerup_type = "dog"
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D4" unique_id=751652789]
 texture = ExtResource("3_t8sqj")
@@ -71,6 +74,7 @@ shape = SubResource("CircleShape2D_n73o4")
 scale = Vector2(0.99999994, 0.99999994)
 collision_layer = 2
 script = ExtResource("2_8v14h")
+powerup_type = "dog"
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D5" unique_id=1307430601]
 texture = ExtResource("4_d2fnv")
@@ -95,6 +99,7 @@ shape = SubResource("CircleShape2D_n73o4")
 scale = Vector2(0.99999994, 0.99999994)
 collision_layer = 2
 script = ExtResource("2_8v14h")
+powerup_type = "dog"
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D6" unique_id=553608993]
 texture = ExtResource("5_p0jak")
@@ -119,6 +124,7 @@ shape = SubResource("CircleShape2D_n73o4")
 scale = Vector2(0.99999994, 0.99999994)
 collision_layer = 2
 script = ExtResource("2_8v14h")
+powerup_type = "dog"
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D7" unique_id=1198234242]
 texture = ExtResource("6_0fiq4")
@@ -143,6 +149,7 @@ shape = SubResource("CircleShape2D_n73o4")
 scale = Vector2(0.99999994, 0.99999994)
 collision_layer = 2
 script = ExtResource("2_8v14h")
+powerup_type = "dog"
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D8" unique_id=1020521244]
 texture = ExtResource("7_ssla4")
@@ -191,6 +198,7 @@ shape = SubResource("CircleShape2D_n73o4")
 scale = Vector2(0.99999994, 0.99999994)
 collision_layer = 2
 script = ExtResource("2_8v14h")
+powerup_type = "shrimp"
 
 [node name="Sprite2D" type="Sprite2D" parent="shrimp" unique_id=1226608578]
 texture = ExtResource("4_wktgt")
@@ -215,6 +223,7 @@ shape = SubResource("CircleShape2D_n73o4")
 scale = Vector2(0.99999994, 0.99999994)
 collision_layer = 2
 script = ExtResource("2_8v14h")
+powerup_type = "fly"
 
 [node name="Sprite2D" type="Sprite2D" parent="fly" unique_id=1707615355]
 texture = ExtResource("2_n73o4")

@@ -1,6 +1,7 @@
 extends CharacterBody2D
 var hooked = false
-const SPEED = 300.0
+var speed: float = 300.0
+var is_stunned: bool = false
 var startPosition
 var rotationSpeed: float = 0.0
 var lastAngle: float = 0.0
@@ -17,8 +18,8 @@ enum Player {
 @onready var sound_move: AudioStreamPlayer2D = $Audio/MoveSound
 var playedHookSound: bool = false
 
-		
 @export var current_player: Player = Player.PLAYER_1
+
 func _ready() -> void:
 	Global.inMenu = false
 	startPosition = position
@@ -26,9 +27,16 @@ func _ready() -> void:
 		sprite.texture = Global.p1_texture
 	elif current_player == Player.PLAYER_2 and Global.p2_texture != null:
 		sprite.texture = Global.p2_texture
+
 func _physics_process(_delta: float) -> void:
 	if WinManager.reset == true:
 		tpBackToOrigin()
+		
+	if is_stunned:
+		velocity = Vector2.ZERO
+		move_and_slide()
+		return
+		
 	var up = "p%d_move_up" % current_player
 	var down = "p%d_move_down" % current_player
 	var left = "p%d_move_left" % current_player
@@ -36,20 +44,19 @@ func _physics_process(_delta: float) -> void:
 
 	var directionY := Input.get_axis(up, down)
 	if directionY:
-		velocity.y = directionY * SPEED
+		velocity.y = directionY * speed
 	else:
-		velocity.y = move_toward(velocity.y, 0, SPEED)
+		velocity.y = move_toward(velocity.y, 0, speed)
 	
 	var directionX := Input.get_axis(left, right)
 	if directionX:
-		velocity.x = directionX * SPEED
+		velocity.x = directionX * speed
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, speed)
 
 	move_and_slide()
 	if hooked:
 		resist(_delta)
-		
 
 func _process(float) -> void:
 	if velocity != Vector2(0.0, 0.0) && !sound_move.playing:
@@ -58,10 +65,15 @@ func _process(float) -> void:
 		if sound_move.playing && velocity == Vector2(0.0, 0.0):
 			sound_move.stop()
 
+func apply_stun(duration: float) -> void:
+	if is_stunned: return
+	is_stunned = true
+	await get_tree().create_timer(duration).timeout
+	is_stunned = false
+
 func getMoved(movement:Vector2,bait:Node2D):
 	currentBait = bait
 	set_global_position(movement)
-	
 	
 func tpBackToOrigin():
 	if hooked == true:
@@ -70,7 +82,6 @@ func tpBackToOrigin():
 		playedHookSound = false
 	set_position(startPosition)
 		
-	
 func Hooked():
 	if !playedHookSound:
 		sound_hooked.play()
@@ -93,4 +104,3 @@ func resist(delta):
 		rotationSpeed =0.0
 	var newPosition = Vector2(currentPosition.x + resistSpeed * rotationSpeed,currentPosition.y)
 	currentBait.base_pos = newPosition
-	

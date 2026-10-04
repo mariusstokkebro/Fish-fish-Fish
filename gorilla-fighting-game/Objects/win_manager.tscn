@@ -9,8 +9,10 @@
 [ext_resource type="PackedScene" uid="uid://b0356f1fd5nru" path="res://Objects/confetti.tscn" id="7_7waqh"]
 [ext_resource type="AudioStream" uid="uid://dcdwxdwscuui6" path="res://Audio/SFX/winSoundCombined.wav" id="8_msglg"]
 
-[node name="WinManager" type="Node2D" unique_id=15051887]
+[node name="WinManager" type="Node2D" unique_id=15051887 node_paths=PackedStringArray("penguin1_sprite", "penguin2_sprite")]
 script = ExtResource("1_i6mgx")
+penguin1_sprite = NodePath("Player1Sprite2D")
+penguin2_sprite = NodePath("Player2Sprite2D")
 
 [node name="WinnerSprite2D" type="Sprite2D" parent="." unique_id=1393924949]
 visible = false

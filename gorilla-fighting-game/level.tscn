@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://dhyka27ejhvo4" path="res://Objects/player_score.tscn" id="15_v5j5c"]
 [ext_resource type="PackedScene" uid="uid://ds5uf3np0j1wt" path="res://Scenes/audio_scene.tscn" id="16_5pxul"]
 [ext_resource type="PackedScene" uid="uid://dvwwr7rt5lxj3" path="res://Objects/win_manager.tscn" id="18_4c15r"]
+[ext_resource type="PackedScene" uid="uid://drr3gkju4gxyv" path="res://Objects/Spawner.tscn" id="19_ait7k"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4n21a"]
 shader = ExtResource("2_8cye3")
@@ -120,7 +121,7 @@ current_player = 2
 texture = ExtResource("15_ilwjd")
 
 [node name="SpeedPowerUp" parent="." unique_id=1191806642 instance=ExtResource("11_8b0r0")]
-position = Vector2(771.99994, 966.99994)
+position = Vector2(-231.99988, 967)
 
 [node name="Border" parent="." unique_id=255961422 instance=ExtResource("12_h6smj")]
 
@@ -164,6 +165,22 @@ scale = Vector2(0.99, 0.99)
 z_index = 100
 position = Vector2(0, 546)
 scale = Vector2(0.99, 0.99)
+
+[node name="Spawner" parent="." unique_id=448375989 instance=ExtResource("19_ait7k")]
+position = Vector2(488, 1218)
+spawner_owner = 2
+
+[node name="Spawner2" parent="." unique_id=1039976539 instance=ExtResource("19_ait7k")]
+position = Vector2(1481, 1218)
+
+[node name="Spawner3" parent="." unique_id=1059461967 instance=ExtResource("19_ait7k")]
+position = Vector2(488, -166)
+spawner_owner = 2
+spawn_direction = 1
+
+[node name="Spawner4" parent="." unique_id=1523657868 instance=ExtResource("19_ait7k")]
+position = Vector2(1458, -180)
+spawn_direction = 1
 
 [editable path="PorcupineBody"]
 [editable path="PorcupineBody2"]
