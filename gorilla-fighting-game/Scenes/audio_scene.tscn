@@ -10,6 +10,13 @@
 [ext_resource type="AudioStream" uid="uid://cjf0buuv2sh18" path="res://Audio/SFX/Andreea TitleDrop.wav" id="10_eeepx"]
 [ext_resource type="AudioStream" uid="uid://vy38xwhm5anh" path="res://Audio/SFX/transitionSound.wav" id="11_4mf35"]
 
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_g4v7s"]
+loop = false
+fade_time = 0.0
+stream_count = 2
+stream_0 = ExtResource("10_eeepx")
+stream_1 = ExtResource("9_eeepx")
+
 [node name="AudioScene" type="Node2D" unique_id=1429051702]
 script = ExtResource("1_eqpra")
 
@@ -17,7 +24,7 @@ script = ExtResource("1_eqpra")
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="Autoplayed" unique_id=1836691360]
 stream = ExtResource("1_4o14l")
-volume_db = -15.0
+volume_db = -10.0
 
 [node name="AmbiencePlayer" type="AudioStreamPlayer" parent="Autoplayed" unique_id=311384167]
 stream = ExtResource("2_vec8e")
@@ -36,16 +43,9 @@ stream = ExtResource("7_vec8e")
 stream = ExtResource("2_4ekki")
 volume_db = 2.0
 
+[node name="MenuMusic" type="AudioStreamPlayer" parent="." unique_id=911451025]
+stream = SubResource("AudioStreamPlaylist_g4v7s")
+volume_db = -20.0
+
 [node name="TransitionSound" type="AudioStreamPlayer" parent="." unique_id=1202797725]
 stream = ExtResource("11_4mf35")
-volume_db = -5.0
-
-[node name="Menu" type="Node" parent="." unique_id=1363580712]
-
-[node name="MenuMusic" type="AudioStreamPlayer" parent="Menu" unique_id=1173765730]
-stream = ExtResource("9_eeepx")
-volume_db = -5.0
-
-[node name="TitleDrop" type="AudioStreamPlayer" parent="Menu" unique_id=911451025]
-stream = ExtResource("10_eeepx")
-volume_db = -10.0
