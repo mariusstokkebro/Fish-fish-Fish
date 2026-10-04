@@ -27,6 +27,14 @@ var fishList: Array
 var lastAngle: float = 0.0
 var rotationSpeed: float = 0.0
 var timer: float = 0.0
+var canHook: bool = false
+var splashed: bool = false
+
+@onready var sound_Reel: AudioStreamPlayer2D = $Audio/sound_Reel
+@onready var sound_Throw: AudioStreamPlayer2D = $Audio/sound_Throw
+@onready var sound_Charge: AudioStreamPlayer2D = $Audio/sound_Charge
+@onready var sound_Splash:  AudioStreamPlayer2D = $Audio/sound_Splash
+
 func _ready() -> void:
 	base_pos = player.position
 	
@@ -38,6 +46,8 @@ func _process(delta: float) -> void:
 		thrown = false
 		ballTexture.visible = false
 		position = player.position
+		if sound_Reel.playing:
+			sound_Reel.stop()
 	if steering:
 		var up = "p%d_rotate_up" % current_player
 		var down = "p%d_rotate_down" % current_player
@@ -63,6 +73,9 @@ func _process(delta: float) -> void:
 			ballTexture.visible = false
 			thrown = false
 			enemyBody.hooked = false
+			if sound_Reel.playing:
+				sound_Reel.stop()
+		
 func castRod(delta: float) -> void:
 	var confirm = "p%d_confirm" % current_player
 	if thrown:
@@ -74,6 +87,9 @@ func castRod(delta: float) -> void:
 		return
 	
 	if Input.is_action_pressed(confirm):
+		if !sound_Charge.playing:
+			sound_Charge.play()
+			splashed = false
 		distance += 100.0 * distanceMultiplier * delta
 		reticleTexture.visible = true
 		if current_player == Player.PLAYER_1:
@@ -84,8 +100,12 @@ func castRod(delta: float) -> void:
 			ballTexture.visible = true
 
 	if Input.is_action_just_released(confirm):
+		if sound_Charge.playing:
+			sound_Charge.stop()
+		sound_Throw.play()
 		reticleTexture.visible = false
 		reticleTexture.position.x = 0
+		
 		var target
 		thrown = true
 		steering = true
@@ -99,14 +119,24 @@ func castRod(delta: float) -> void:
 		tween.tween_property(self, "base_pos", target, castTime)
 		tween.tween_interval(2.0) 
 		tween.tween_callback(func(): steering = false)
+		await tween.finished
+		if !splashed:
+			sound_Splash.play()
+			splashed = true
+		canHook = true
+		##PLAY splash ANIMATION!!
+		
 
 func hookFish(body: Node2D):
 	var confirm = "p%d_confirm" % current_player
-	if body != player:
+	if body != player && canHook:
 		enemyBody = body
 		body.Hooked()
 		if Input.is_action_pressed(confirm):
 			hooking = true
+			sound_Reel.play()
+			if !splashed:
+				sound_Splash.play()
 		
 func reelIn(delta:float):
 	if hooking:
@@ -132,3 +162,6 @@ func reelIn(delta:float):
 		tween.tween_callback(func(): thrown = false)
 		tween.tween_callback(func(): hooking = false)
 		tween.tween_callback(func(): ballTexture.visible = false)
+		canHook = false
+		if sound_Reel.playing:
+			sound_Reel.stop()

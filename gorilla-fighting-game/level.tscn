@@ -136,12 +136,11 @@ player = 2
 [node name="AudioScene" parent="." unique_id=1429051702 instance=ExtResource("16_5pxul")]
 script = null
 
-[node name="WinManager2" parent="." unique_id=15051887 node_paths=PackedStringArray("player1", "player2", "divider", "penguin1_sprite", "penguin2_sprite") instance=ExtResource("18_4c15r")]
+[node name="WinManager2" parent="." unique_id=15051887 node_paths=PackedStringArray("player1", "player2", "penguin1_sprite", "penguin2_sprite") instance=ExtResource("18_4c15r")]
 position = Vector2(964, 254)
 player1 = NodePath("../PorcupineBody")
 player2 = NodePath("../PorcupineBody2")
-gameTime = 7.0
-divider = NodePath("../Divider")
+gameTime = 120.0
 penguin1_sprite = NodePath("../PorcupineBody/Sprite2D")
 penguin2_sprite = NodePath("../PorcupineBody2/Sprite2D")
 

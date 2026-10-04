@@ -24,6 +24,7 @@ texture = ExtResource("2_ayemm")
 
 [node name="HookedSound" type="AudioStreamPlayer2D" parent="Audio" unique_id=1190527668]
 stream = ExtResource("3_hx8xw")
+volume_db = 10.0
 max_polyphony = 2
 
 [node name="MoveSound" type="AudioStreamPlayer2D" parent="Audio" unique_id=1404610368]
@@ -32,4 +33,6 @@ volume_db = -5.0
 max_polyphony = 2
 
 [node name="fishingRod" type="Sprite2D" parent="." unique_id=417631565]
+position = Vector2(53.000004, 58)
+rotation = 0.5122621
 texture = ExtResource("5_3u1k4")

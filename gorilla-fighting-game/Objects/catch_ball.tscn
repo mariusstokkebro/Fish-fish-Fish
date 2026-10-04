@@ -2,6 +2,10 @@
 
 [ext_resource type="Script" uid="uid://dt8jdcr4a0y6s" path="res://Scripts/gatorRod.gd" id="1_vqwdj"]
 [ext_resource type="Texture2D" uid="uid://cn4agumuxk5il" path="res://Sprites/me.jpg" id="2_cfjnb"]
+[ext_resource type="AudioStream" uid="uid://bsi8eso3ydver" path="res://Audio/SFX/catingRod/reelLoop.wav" id="3_cfjnb"]
+[ext_resource type="AudioStream" uid="uid://dk08t4n5bkykc" path="res://Audio/SFX/catingRod/castRod.wav" id="4_x1y0o"]
+[ext_resource type="AudioStream" uid="uid://7cgiyhqiwgan" path="res://Audio/SFX/catingRod/chargeRod.wav" id="5_g2s5g"]
+[ext_resource type="AudioStream" uid="uid://fa5cd6lirmmw" path="res://Audio/SFX/waterSplash.wav" id="6_g2s5g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(166, 155)
@@ -14,6 +18,8 @@ collision = NodePath("Area2D")
 distanceMultiplier = 6.0
 steerSpeed = 250.0
 maxSteer = 120.0
+reelSpeed = 0.075
+timeToCatch = 4.0
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1037202603]
 
@@ -27,3 +33,20 @@ position = Vector2(5, 40.000004)
 texture = ExtResource("2_cfjnb")
 
 [node name="Reticle" type="Sprite2D" parent="." unique_id=1089738642]
+
+[node name="Audio" type="Node" parent="." unique_id=889772058]
+
+[node name="sound_Reel" type="AudioStreamPlayer2D" parent="Audio" unique_id=1131799029]
+stream = ExtResource("3_cfjnb")
+volume_db = 16.0
+
+[node name="sound_Throw" type="AudioStreamPlayer2D" parent="Audio" unique_id=1537099820]
+stream = ExtResource("4_x1y0o")
+
+[node name="sound_Charge" type="AudioStreamPlayer2D" parent="Audio" unique_id=686973505]
+stream = ExtResource("5_g2s5g")
+volume_db = 5.0
+
+[node name="sound_Splash" type="AudioStreamPlayer2D" parent="Audio" unique_id=204149654]
+stream = ExtResource("6_g2s5g")
+volume_db = 10.0

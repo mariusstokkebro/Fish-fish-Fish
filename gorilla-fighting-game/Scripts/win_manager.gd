@@ -7,7 +7,6 @@ var reset = false
 var timer = 0.0
 
 @export var gameTime:float = 300
-@export var divider:Node2D
 @export var penguin1_sprite: Sprite2D
 @export var penguin2_sprite: Sprite2D
 
@@ -55,7 +54,6 @@ func _process(delta: float) -> void:
 
 func _stop_game(is_winner: bool, is_player1: bool) -> void:
 	is_game_stop = true
-	divider.visible = false
 	
 	if (is_winner):
 		win_sound.play()

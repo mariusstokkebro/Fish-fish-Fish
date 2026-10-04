@@ -119,19 +119,20 @@ player = 2
 
 [node name="AudioScene" parent="." unique_id=1429051702 instance=ExtResource("14_5n077")]
 
-[node name="WinManager" parent="." unique_id=15051887 node_paths=PackedStringArray("player1", "player2", "divider", "penguin1_sprite", "penguin2_sprite") instance=ExtResource("16_w1ptm")]
+[node name="WinManager" parent="." unique_id=15051887 node_paths=PackedStringArray("player1", "player2", "penguin1_sprite", "penguin2_sprite") instance=ExtResource("16_w1ptm")]
 position = Vector2(964, 254)
 player1 = NodePath("../PorcupineBody")
 player2 = NodePath("../PorcupineBody2")
 gameTime = 7.0
-divider = NodePath("../Divider")
 penguin1_sprite = NodePath("../PorcupineBody/Sprite2D")
 penguin2_sprite = NodePath("../PorcupineBody2/Sprite2D")
 
 [node name="WinnerSprite2D" parent="WinManager" index="0" unique_id=1393924949]
+z_index = 100
 scale = Vector2(0.765, 0.765)
 
 [node name="TieSprite2D" parent="WinManager" index="1" unique_id=967764871]
+z_index = 100
 scale = Vector2(0.765, 0.765)
 
 [node name="PenguinSprite2D" parent="WinManager" index="2" unique_id=1393890583]
