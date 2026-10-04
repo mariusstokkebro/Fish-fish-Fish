@@ -1,6 +1,7 @@
 extends CharacterBody2D
 var hooked = false
 var speed: float = 300.0
+var wobble_time: float = 0.0
 var is_stunned: bool = false
 var startPosition
 var rotationSpeed: float = 0.0
@@ -8,6 +9,8 @@ var lastAngle: float = 0.0
 var resistSpeed: float = 0.2
 var currentBait: Node2D
 var fish = true
+var kb_spin_vel: float = 0.0
+
 enum Player {
 	PLAYER_1 = 1,
 	PLAYER_2 = 2
@@ -19,8 +22,10 @@ enum Player {
 @onready var sound_move: AudioStreamPlayer2D = $Audio/MoveSound
 @onready var sound_stunned: AudioStreamPlayer2D = $Audio/StunSound
 
-@export var current_player: Player = Player.PLAYER_1
+var playedHookSound: bool = false
 var stun_tween: Tween
+
+@export var current_player: Player = Player.PLAYER_1
 
 func _ready() -> void:
 	Global.inMenu = false
@@ -67,17 +72,23 @@ func _physics_process(_delta: float) -> void:
 	if hooked:
 		resist(_delta)
 
-func _process(float) -> void:
-	if velocity != Vector2(0.0, 0.0) && !sound_move.playing:
-		sound_move.play()
-	else: 
-		if sound_move.playing && velocity == Vector2(0.0, 0.0):
+func _process(delta: float) -> void:
+	if velocity != Vector2.ZERO:
+		wobble_time += delta * 15.0
+		sprite.rotation = sin(wobble_time) * 0.1
+		if !sound_move.playing:
+			sound_move.play()
+	else:
+		sprite.rotation = 0.0
+		if sound_move.playing:
 			sound_move.stop()
 
 func apply_stun(duration: float) -> void:
 	if is_stunned: return
 	is_stunned = true
-	sound_stunned.play()
+	
+	if sound_stunned:
+		sound_stunned.play()
 	
 	if stun_tween and stun_tween.is_valid():
 		stun_tween.kill()
@@ -104,10 +115,13 @@ func tpBackToOrigin():
 	if hooked == true:
 		currentBait.hooking = false
 		hooked = false
+		playedHookSound = false
 	set_position(startPosition)
 		
 func Hooked():
-	sound_hooked.play()
+	if !playedHookSound:
+		sound_hooked.play()
+		playedHookSound = true
 	hooked = true
 
 func resist(delta):
@@ -117,12 +131,22 @@ func resist(delta):
 	"p%d_rotate_right" % current_player, 
 	"p%d_rotate_up" % current_player,
 	"p%d_rotate_down" % current_player)
+	
 	if input_vector.length() > 0.1:
 		var currentAngle = atan2(input_vector.y,input_vector.x)
 		var angle_diff = wrapf(currentAngle - lastAngle, -PI,PI)
 		rotationSpeed = angle_diff/delta
 		lastAngle = currentAngle
 	else:
-		rotationSpeed =0.0
+		var confirm = "p%d_confirm" % current_player
+		if Input.is_action_just_pressed(confirm):
+			kb_spin_vel += 15.0
+			kb_spin_vel = min(kb_spin_vel, 50.0)
+			
+		kb_spin_vel = lerp(kb_spin_vel, 0.0, 5.0 * delta)
+		
+		var resist_dir = -1.0 if current_player == Player.PLAYER_1 else 1.0
+		rotationSpeed = kb_spin_vel * resist_dir
+		
 	var newPosition = Vector2(currentPosition.x + resistSpeed * rotationSpeed,currentPosition.y)
 	currentBait.base_pos = newPosition

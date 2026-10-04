@@ -32,6 +32,7 @@ var rotationSpeed: float = 0.0
 var timer: float = 0.0
 var canHook: bool = false
 var splashed: bool = false
+var kb_spin_vel: float = 0.0
 
 @onready var sound_Reel: AudioStreamPlayer2D = $Audio/sound_Reel
 @onready var sound_Throw: AudioStreamPlayer2D = $Audio/sound_Throw
@@ -168,23 +169,38 @@ func reelIn(delta:float):
 		"p%d_rotate_right" % current_player, 
 		"p%d_rotate_up" % current_player,
 		"p%d_rotate_down" % current_player)
+		
 		if input_vector.length() > 0.1:
 			var currentAngle = atan2(input_vector.y,input_vector.x)
 			var angle_diff = wrapf(currentAngle - lastAngle, -PI,PI)
 			rotationSpeed = angle_diff/delta
 			lastAngle = currentAngle
 		else:
-			rotationSpeed =0.0
+			var confirm = "p%d_confirm" % current_player
+			if Input.is_action_just_pressed(confirm):
+				kb_spin_vel += 15.0
+				kb_spin_vel = min(kb_spin_vel, 50.0) 
+				
+			kb_spin_vel = lerp(kb_spin_vel, 0.0, 5.0 * delta) 
+			
+			var pull_dir = -1.0 if current_player == Player.PLAYER_1 else 1.0
+			rotationSpeed = kb_spin_vel * pull_dir
+			
 		var newPosition = Vector2(currentPosition.x + reelSpeed * rotationSpeed,currentPosition.y)
 		base_pos = newPosition
 	else:
+		thrown = false 
+		canHook = false
+		
+		if tween and tween.is_valid():
+			tween.kill()
+			
 		tween = create_tween()
 		tween.tween_property(self, "base_pos", player.position, castTime)
 		tween.parallel().tween_property(self, "steer_offset", 0.0, castTime)
-		tween.tween_callback(func(): thrown = false)
 		tween.tween_callback(func(): hooking = false)
 		tween.tween_callback(func(): ballTexture.visible = false)
 		tween.tween_callback(func(): splashed = false)
-		canHook = false
+		
 		if sound_Reel.playing:
 			sound_Reel.stop()
