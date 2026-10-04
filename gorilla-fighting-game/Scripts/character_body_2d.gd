@@ -15,6 +15,7 @@ enum Player {
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var sound_hooked: AudioStreamPlayer2D = $Audio/HookedSound
 @onready var sound_move: AudioStreamPlayer2D = $Audio/MoveSound
+var playedHookSound: bool = false
 
 		
 @export var current_player: Player = Player.PLAYER_1
@@ -66,11 +67,14 @@ func tpBackToOrigin():
 	if hooked == true:
 		currentBait.hooking = false
 		hooked = false
+		playedHookSound = false
 	set_position(startPosition)
 		
 	
 func Hooked():
-	sound_hooked.play()
+	if !playedHookSound:
+		sound_hooked.play()
+		playedHookSound = true
 	hooked = true
 
 func resist(delta):
