@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bwgho24p36hrh"]
+
+[ext_resource type="Script" uid="uid://btdlq3uultwhl" path="res://Scripts/end_game.gd" id="1_pyxl7"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_mfr1q"]
+
+[node name="ScreenLayer" type="Node2D" unique_id=1081870815]
+script = ExtResource("1_pyxl7")
+
+[node name="WinnerSprite2D" type="Sprite2D" parent="." unique_id=1256006026]
+visible = false
+scale = Vector2(1923, 717.99994)
+texture = SubResource("ImageTexture_mfr1q")
+
+[node name="TieSprite2D" type="Sprite2D" parent="." unique_id=1058103575]
+visible = false
+scale = Vector2(1923, 717.99994)
+texture = SubResource("ImageTexture_mfr1q")

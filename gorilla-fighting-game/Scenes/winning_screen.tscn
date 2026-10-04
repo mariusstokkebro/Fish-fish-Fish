@@ -1,0 +1,149 @@
+[gd_scene format=3 uid="uid://b1280ncennxus"]
+
+[ext_resource type="Texture2D" uid="uid://dthvc1g14ts14" path="res://Sprites/level assets/screenz_L.png" id="1_f8hq8"]
+[ext_resource type="Shader" uid="uid://cq4e3pa2cwrae" path="res://VFX/scrollTex.tres" id="2_w1ptm"]
+[ext_resource type="Texture2D" uid="uid://t862n537r6hs" path="res://Sprites/level assets/dark_notsplit_L.png" id="3_ym6qc"]
+[ext_resource type="Texture2D" uid="uid://vtt4r3o2uxvd" path="res://Sprites/level assets/white_notsplit_L.png" id="4_uoxvi"]
+[ext_resource type="Texture2D" uid="uid://valj8xcqnfpi" path="res://Sprites/level assets/screenz_R.png" id="5_rltq2"]
+[ext_resource type="Texture2D" uid="uid://dhf25sfovlac6" path="res://Sprites/level assets/dark_notsplit_R.png" id="6_cqgho"]
+[ext_resource type="Texture2D" uid="uid://bfhxckoyis3o2" path="res://Sprites/level assets/white_notsplit_R.png" id="7_l5ka1"]
+[ext_resource type="Texture2D" uid="uid://c0d88je1rc6ud" path="res://Sprites/level assets/foam_notsplit_L.png" id="8_fd1l3"]
+[ext_resource type="Texture2D" uid="uid://dqklomrond7uq" path="res://Sprites/level assets/foam_notsplit_R.png" id="9_lwg85"]
+[ext_resource type="PackedScene" uid="uid://cxp7tw36ke0yh" path="res://Objects/porcupine_body.tscn" id="10_qdjqc"]
+[ext_resource type="PackedScene" uid="uid://33gce1r4fu35" path="res://Objects/catch_ball.tscn" id="11_gyd1c"]
+[ext_resource type="PackedScene" uid="uid://btgxk2qe6hbqh" path="res://Objects/speed_power_up.tscn" id="12_ugb8n"]
+[ext_resource type="PackedScene" uid="uid://yguorhsypi3f" path="res://Objects/Border.tscn" id="13_ysief"]
+[ext_resource type="PackedScene" uid="uid://ds5uf3np0j1wt" path="res://Scenes/audio_scene.tscn" id="14_5n077"]
+[ext_resource type="PackedScene" uid="uid://dhyka27ejhvo4" path="res://Objects/player_score.tscn" id="15_gvdi1"]
+[ext_resource type="PackedScene" uid="uid://dvwwr7rt5lxj3" path="res://Objects/win_manager.tscn" id="16_w1ptm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4n21a"]
+shader = ExtResource("2_w1ptm")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7cplr"]
+shader = ExtResource("2_w1ptm")
+
+[node name="Level" type="Node2D" unique_id=13814193]
+
+[node name="OceanL" type="Node2D" parent="." unique_id=1603513351]
+position = Vector2(160, 0)
+scale = Vector2(800, 1080)
+
+[node name="ScreenzL" type="Sprite2D" parent="OceanL" unique_id=1797055023]
+position = Vector2(0.4, 0.5)
+scale = Vector2(0.00125, 0.0009259259)
+texture = ExtResource("1_f8hq8")
+
+[node name="DarkNotsplitL" type="Sprite2D" parent="OceanL/ScreenzL" unique_id=2070219490]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_4n21a")
+instance_shader_parameters/Scroll_Speed = 0.03
+texture = ExtResource("3_ym6qc")
+
+[node name="WhiteNotsplitL" type="Sprite2D" parent="OceanL/ScreenzL" unique_id=697157541]
+z_index = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_7cplr")
+instance_shader_parameters/Scroll_Speed = 0.04
+texture = ExtResource("4_uoxvi")
+
+[node name="OceanL2" type="Node2D" parent="." unique_id=1347926857]
+position = Vector2(960, 0)
+scale = Vector2(800, 1080)
+
+[node name="ScreenzR" type="Sprite2D" parent="OceanL2" unique_id=45865343]
+position = Vector2(0.6, 0.5)
+scale = Vector2(0.00125, 0.0009259259)
+texture = ExtResource("5_rltq2")
+
+[node name="DarkNotsplitR" type="Sprite2D" parent="OceanL2/ScreenzR" unique_id=857921792]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_7cplr")
+instance_shader_parameters/Scroll_Speed = -0.03
+texture = ExtResource("6_cqgho")
+
+[node name="WhiteNotsplitR" type="Sprite2D" parent="OceanL2/ScreenzR" unique_id=130546136]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_7cplr")
+instance_shader_parameters/Scroll_Speed = -0.04
+texture = ExtResource("7_l5ka1")
+
+[node name="Divider" type="Node2D" parent="." unique_id=1628844154]
+z_index = 100
+position = Vector2(950, 0)
+scale = Vector2(20, 1080)
+
+[node name="FoamNotsplitL" type="Sprite2D" parent="Divider" unique_id=882939250]
+z_index = -3
+texture_repeat = 2
+material = SubResource("ShaderMaterial_7cplr")
+instance_shader_parameters/Scroll_Speed = 0.06
+position = Vector2(-23.5, 0.5)
+scale = Vector2(0.05, 0.0009259259)
+texture = ExtResource("8_fd1l3")
+
+[node name="FoamNotsplitR" type="Sprite2D" parent="Divider" unique_id=1411451320]
+z_index = -3
+texture_repeat = 2
+material = SubResource("ShaderMaterial_7cplr")
+instance_shader_parameters/Scroll_Speed = -0.06
+position = Vector2(24.5, 0.5)
+scale = Vector2(0.05, 0.0009259259)
+texture = ExtResource("9_lwg85")
+
+[node name="PorcupineBody" parent="." unique_id=313664581 instance=ExtResource("10_qdjqc")]
+position = Vector2(344, 477)
+
+[node name="PorcupineBody2" parent="." unique_id=590454050 instance=ExtResource("10_qdjqc")]
+position = Vector2(1573, 469)
+current_player = 2
+
+[node name="CatchBall" parent="." unique_id=1538139581 node_paths=PackedStringArray("player") instance=ExtResource("11_gyd1c")]
+player = NodePath("../PorcupineBody")
+
+[node name="CatchBall2" parent="." unique_id=346354549 node_paths=PackedStringArray("player") instance=ExtResource("11_gyd1c")]
+player = NodePath("../PorcupineBody2")
+current_player = 2
+
+[node name="SpeedPowerUp" parent="." unique_id=1191806642 instance=ExtResource("12_ugb8n")]
+position = Vector2(771.99994, 966.99994)
+
+[node name="Border" parent="." unique_id=255961422 instance=ExtResource("13_ysief")]
+
+[node name="player1Score" parent="." unique_id=425476136 instance=ExtResource("15_gvdi1")]
+position = Vector2(81, 89)
+
+[node name="player2Score" parent="." unique_id=809339552 instance=ExtResource("15_gvdi1")]
+position = Vector2(1860, 53)
+player = 2
+
+[node name="AudioScene" parent="." unique_id=1429051702 instance=ExtResource("14_5n077")]
+
+[node name="WinManager" parent="." unique_id=15051887 node_paths=PackedStringArray("divider", "penguin1_sprite", "penguin2_sprite") instance=ExtResource("16_w1ptm")]
+position = Vector2(964, 254)
+gameTime = 7.0
+divider = NodePath("../Divider")
+penguin1_sprite = NodePath("../PorcupineBody/Sprite2D")
+penguin2_sprite = NodePath("../PorcupineBody2/Sprite2D")
+
+[node name="WinnerSprite2D" parent="WinManager" index="0" unique_id=1393924949]
+scale = Vector2(0.765, 0.765)
+
+[node name="TieSprite2D" parent="WinManager" index="1" unique_id=967764871]
+scale = Vector2(0.765, 0.765)
+
+[node name="PenguinSprite2D" parent="WinManager" index="2" unique_id=1393890583]
+position = Vector2(0, 306.375)
+scale = Vector2(2.1272848, 2.4216669)
+
+[node name="Player1Sprite2D" parent="WinManager" index="3" unique_id=1257724092]
+position = Vector2(0, 546)
+scale = Vector2(0.99, 0.99)
+
+[node name="Player2Sprite2D" parent="WinManager" index="4" unique_id=653720981]
+position = Vector2(0, 546)
+scale = Vector2(0.99, 0.99)
+
+[editable path="PorcupineBody"]
+[editable path="PorcupineBody2"]
+[editable path="WinManager"]
