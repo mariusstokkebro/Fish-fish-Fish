@@ -124,8 +124,6 @@ position = Vector2(771.99994, 966.99994)
 
 [node name="Border" parent="." unique_id=255961422 instance=ExtResource("12_h6smj")]
 
-[node name="WinManager" type="Node2D" parent="." unique_id=81796413]
-
 [node name="player1Score" parent="." unique_id=425476136 instance=ExtResource("15_v5j5c")]
 position = Vector2(81, 89)
 
@@ -145,20 +143,25 @@ penguin1_sprite = NodePath("../PorcupineBody/Sprite2D")
 penguin2_sprite = NodePath("../PorcupineBody2/Sprite2D")
 
 [node name="WinnerSprite2D" parent="WinManager2" index="0" unique_id=1393924949]
+z_index = 100
 scale = Vector2(0.765, 0.765)
 
 [node name="TieSprite2D" parent="WinManager2" index="1" unique_id=967764871]
+z_index = 100
 scale = Vector2(0.765, 0.765)
 
 [node name="PenguinSprite2D" parent="WinManager2" index="2" unique_id=1393890583]
+z_index = 100
 position = Vector2(0, 306.375)
 scale = Vector2(2.1272848, 2.4216669)
 
 [node name="Player1Sprite2D" parent="WinManager2" index="3" unique_id=1257724092]
+z_index = 100
 position = Vector2(0, 546)
 scale = Vector2(0.99, 0.99)
 
 [node name="Player2Sprite2D" parent="WinManager2" index="4" unique_id=653720981]
+z_index = 100
 position = Vector2(0, 546)
 scale = Vector2(0.99, 0.99)
 
@@ -167,3 +170,5 @@ scale = Vector2(0.99, 0.99)
 [editable path="CatchBall"]
 [editable path="CatchBall2"]
 [editable path="WinManager2"]
+[editable path="WinManager2/ConfettiLeft"]
+[editable path="WinManager2/ConfettiRight"]
