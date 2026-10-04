@@ -18,9 +18,9 @@ radius = 20.024984
 [node name="Spawner" type="Node2D" unique_id=448375989]
 script = ExtResource("1_t8sqj")
 spawn_interval = 5.0
-spawn_x_variance = 250.0
 
 [node name="CharacterBody2D3" type="CharacterBody2D" parent="." unique_id=457895356]
+visible = false
 scale = Vector2(0.99999994, 0.99999994)
 collision_layer = 2
 script = ExtResource("2_8v14h")
@@ -46,6 +46,7 @@ scale = Vector2(5, 5)
 shape = SubResource("CircleShape2D_n73o4")
 
 [node name="CharacterBody2D4" type="CharacterBody2D" parent="." unique_id=988962134]
+visible = false
 scale = Vector2(0.99999994, 0.99999994)
 collision_layer = 2
 script = ExtResource("2_8v14h")
@@ -71,6 +72,7 @@ scale = Vector2(5, 5)
 shape = SubResource("CircleShape2D_n73o4")
 
 [node name="CharacterBody2D5" type="CharacterBody2D" parent="." unique_id=634805947]
+visible = false
 scale = Vector2(0.99999994, 0.99999994)
 collision_layer = 2
 script = ExtResource("2_8v14h")
@@ -96,6 +98,7 @@ scale = Vector2(5, 5)
 shape = SubResource("CircleShape2D_n73o4")
 
 [node name="CharacterBody2D6" type="CharacterBody2D" parent="." unique_id=929677254]
+visible = false
 scale = Vector2(0.99999994, 0.99999994)
 collision_layer = 2
 script = ExtResource("2_8v14h")
@@ -121,6 +124,7 @@ scale = Vector2(5, 5)
 shape = SubResource("CircleShape2D_n73o4")
 
 [node name="CharacterBody2D7" type="CharacterBody2D" parent="." unique_id=1881299303]
+visible = false
 scale = Vector2(0.99999994, 0.99999994)
 collision_layer = 2
 script = ExtResource("2_8v14h")
@@ -146,6 +150,7 @@ scale = Vector2(5, 5)
 shape = SubResource("CircleShape2D_n73o4")
 
 [node name="CharacterBody2D8" type="CharacterBody2D" parent="." unique_id=1420106422]
+visible = false
 scale = Vector2(0.99999994, 0.99999994)
 collision_layer = 2
 script = ExtResource("2_8v14h")

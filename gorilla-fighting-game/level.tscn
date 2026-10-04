@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://ybquq74kqpe7"]
+[gd_scene format=3 uid="uid://cqxvdadsf515n"]
 
 [ext_resource type="Texture2D" uid="uid://dthvc1g14ts14" path="res://Sprites/level assets/screenz_L.png" id="1_km5ld"]
 [ext_resource type="Shader" uid="uid://cq4e3pa2cwrae" path="res://VFX/scrollTex.tres" id="2_8cye3"]
@@ -116,6 +116,9 @@ texture = ExtResource("13_42xju")
 [node name="CatchBall2" parent="." unique_id=346354549 node_paths=PackedStringArray("player") instance=ExtResource("11_h6smj")]
 player = NodePath("../PorcupineBody2")
 current_player = 2
+
+[node name="Area2D" parent="CatchBall2" index="0" unique_id=1037202603]
+collision_mask = 2
 
 [node name="ballTexture" parent="CatchBall2" index="1" unique_id=2104973120]
 texture = ExtResource("15_ilwjd")
