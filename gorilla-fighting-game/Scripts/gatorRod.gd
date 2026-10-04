@@ -46,6 +46,8 @@ func _process(delta: float) -> void:
 		thrown = false
 		ballTexture.visible = false
 		position = player.position
+		if sound_Reel.playing:
+			sound_Reel.stop()
 	if steering:
 		var up = "p%d_rotate_up" % current_player
 		var down = "p%d_rotate_down" % current_player
@@ -71,11 +73,8 @@ func _process(delta: float) -> void:
 			ballTexture.visible = false
 			thrown = false
 			enemyBody.hooked = false
-			
-	if rotationSpeed != 0.0:
-		sound_Reel.play()
-	elif sound_Reel.playing && rotationSpeed == 0.0:
-		sound_Reel.stop()
+			if sound_Reel.playing:
+				sound_Reel.stop()
 		
 func castRod(delta: float) -> void:
 	var confirm = "p%d_confirm" % current_player
@@ -135,6 +134,7 @@ func hookFish(body: Node2D):
 		body.Hooked()
 		if Input.is_action_pressed(confirm):
 			hooking = true
+			sound_Reel.play()
 			if !splashed:
 				sound_Splash.play()
 		
@@ -163,3 +163,5 @@ func reelIn(delta:float):
 		tween.tween_callback(func(): hooking = false)
 		tween.tween_callback(func(): ballTexture.visible = false)
 		canHook = false
+		if sound_Reel.playing:
+			sound_Reel.stop()
