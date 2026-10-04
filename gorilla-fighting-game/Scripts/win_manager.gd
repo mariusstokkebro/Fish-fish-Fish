@@ -1,6 +1,6 @@
 extends Node2D
 var player1_score: int = 0
-var player2_score: int = 1
+var player2_score: int = 0
 @export var player1: CharacterBody2D
 @export var player2: CharacterBody2D 
 var reset = false

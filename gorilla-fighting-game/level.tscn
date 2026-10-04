@@ -134,7 +134,7 @@ player = 2
 [node name="AudioScene" parent="." unique_id=1429051702 instance=ExtResource("16_5pxul")]
 script = null
 
-[node name="WinManager2" parent="." unique_id=15051887 node_paths=PackedStringArray("player1", "player2", "penguin1_sprite", "penguin2_sprite") instance=ExtResource("18_4c15r")]
+[node name="WinManager" parent="." unique_id=15051887 node_paths=PackedStringArray("player1", "player2", "penguin1_sprite", "penguin2_sprite") instance=ExtResource("18_4c15r")]
 position = Vector2(964, 254)
 player1 = NodePath("../PorcupineBody")
 player2 = NodePath("../PorcupineBody2")
@@ -142,25 +142,25 @@ gameTime = 120.0
 penguin1_sprite = NodePath("../PorcupineBody/Sprite2D")
 penguin2_sprite = NodePath("../PorcupineBody2/Sprite2D")
 
-[node name="WinnerSprite2D" parent="WinManager2" index="0" unique_id=1393924949]
+[node name="WinnerSprite2D" parent="WinManager" index="0" unique_id=1393924949]
 z_index = 100
 scale = Vector2(0.765, 0.765)
 
-[node name="TieSprite2D" parent="WinManager2" index="1" unique_id=967764871]
+[node name="TieSprite2D" parent="WinManager" index="1" unique_id=967764871]
 z_index = 100
 scale = Vector2(0.765, 0.765)
 
-[node name="PenguinSprite2D" parent="WinManager2" index="2" unique_id=1393890583]
+[node name="PenguinSprite2D" parent="WinManager" index="2" unique_id=1393890583]
 z_index = 100
 position = Vector2(0, 306.375)
 scale = Vector2(2.1272848, 2.4216669)
 
-[node name="Player1Sprite2D" parent="WinManager2" index="3" unique_id=1257724092]
+[node name="Player1Sprite2D" parent="WinManager" index="3" unique_id=1257724092]
 z_index = 100
 position = Vector2(0, 546)
 scale = Vector2(0.99, 0.99)
 
-[node name="Player2Sprite2D" parent="WinManager2" index="4" unique_id=653720981]
+[node name="Player2Sprite2D" parent="WinManager" index="4" unique_id=653720981]
 z_index = 100
 position = Vector2(0, 546)
 scale = Vector2(0.99, 0.99)
@@ -169,6 +169,6 @@ scale = Vector2(0.99, 0.99)
 [editable path="PorcupineBody2"]
 [editable path="CatchBall"]
 [editable path="CatchBall2"]
-[editable path="WinManager2"]
-[editable path="WinManager2/ConfettiLeft"]
-[editable path="WinManager2/ConfettiRight"]
+[editable path="WinManager"]
+[editable path="WinManager/ConfettiLeft"]
+[editable path="WinManager/ConfettiRight"]
