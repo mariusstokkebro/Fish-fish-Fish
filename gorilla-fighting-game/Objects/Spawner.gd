@@ -42,6 +42,10 @@ func spawn_objects() -> void:
 	
 	spawned_obj.fish_owner = spawner_owner as int
 	
+	if spawner_owner == Player.PLAYER_1:
+		var sprite = spawned_obj.get_node("Sprite2D")
+		sprite.flip_h = true
+	
 	var start_dir = -1
 	match spawn_direction:
 		SpawnDirection.BOTTOM_TO_TOP:

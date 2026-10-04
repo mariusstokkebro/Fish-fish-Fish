@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://d2q1kyecc06yf"]
+
+[ext_resource type="PackedScene" uid="uid://bfd6q7hfe3v1p" path="res://menu_background.tscn" id="1_tbypw"]
+[ext_resource type="Texture2D" uid="uid://dxbhrmsxqvx4d" path="res://Sprites/controls_button.png" id="2_knx0b"]
+[ext_resource type="Texture2D" uid="uid://5tx7ixr11l67" path="res://Sprites/play_button.png" id="3_7o4xd"]
+[ext_resource type="Texture2D" uid="uid://jrijbkqu4o4x" path="res://Sprites/quit_button.png" id="4_turil"]
+[ext_resource type="Texture2D" uid="uid://hvyr15fpn0c6" path="res://Sprites/title.png" id="5_87j0v"]
+
+[node name="StartMenu" type="Node2D" unique_id=1845550738]
+
+[node name="Node2D" parent="." unique_id=1966454968 instance=ExtResource("1_tbypw")]
+
+[node name="ControlsButton" type="Sprite2D" parent="." unique_id=1471096519]
+z_index = 100
+position = Vector2(959, 541)
+texture = ExtResource("2_knx0b")
+
+[node name="PlayButton" type="Sprite2D" parent="." unique_id=2146860793]
+z_index = 100
+position = Vector2(959, 541)
+texture = ExtResource("3_7o4xd")
+
+[node name="QuitButton" type="Sprite2D" parent="." unique_id=1078532854]
+z_index = 100
+position = Vector2(959, 541)
+texture = ExtResource("4_turil")
+
+[node name="Title" type="Sprite2D" parent="." unique_id=1851109930]
+z_index = 100
+position = Vector2(959, 541)
+texture = ExtResource("5_87j0v")
