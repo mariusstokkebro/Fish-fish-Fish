@@ -33,6 +33,7 @@ var rotationSpeed: float = 0.0
 var timer: float = 0.0
 var canHook: bool = false
 var splashed: bool = false
+var kb_spin_vel: float = 0.0
 
 @onready var sound_Reel: AudioStreamPlayer2D = $Audio/sound_Reel
 @onready var sound_Throw: AudioStreamPlayer2D = $Audio/sound_Throw
