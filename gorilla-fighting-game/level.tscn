@@ -117,6 +117,9 @@ texture = ExtResource("13_42xju")
 player = NodePath("../PorcupineBody2")
 current_player = 2
 
+[node name="Area2D" parent="CatchBall2" index="0" unique_id=1037202603]
+collision_mask = 2
+
 [node name="ballTexture" parent="CatchBall2" index="1" unique_id=2104973120]
 texture = ExtResource("15_ilwjd")
 
