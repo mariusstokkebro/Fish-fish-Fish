@@ -28,6 +28,7 @@ var lastAngle: float = 0.0
 var rotationSpeed: float = 0.0
 var timer: float = 0.0
 var canHook: bool = false
+var splashed: bool = false
 
 @onready var sound_Reel: AudioStreamPlayer2D = $Audio/sound_Reel
 @onready var sound_Throw: AudioStreamPlayer2D = $Audio/sound_Throw
@@ -89,6 +90,7 @@ func castRod(delta: float) -> void:
 	if Input.is_action_pressed(confirm):
 		if !sound_Charge.playing:
 			sound_Charge.play()
+			splashed = false
 		distance += 100.0 * distanceMultiplier * delta
 		reticleTexture.visible = true
 		if current_player == Player.PLAYER_1:
@@ -119,18 +121,22 @@ func castRod(delta: float) -> void:
 		tween.tween_interval(2.0) 
 		tween.tween_callback(func(): steering = false)
 		await tween.finished
-		sound_Splash.play()
+		if !splashed:
+			sound_Splash.play()
+			splashed = true
 		canHook = true
 		##PLAY splash ANIMATION!!
 		
 
 func hookFish(body: Node2D):
 	var confirm = "p%d_confirm" % current_player
-	if body != player:
+	if body != player && canHook:
 		enemyBody = body
 		body.Hooked()
 		if Input.is_action_pressed(confirm):
 			hooking = true
+			if !splashed:
+				sound_Splash.play()
 		
 func reelIn(delta:float):
 	if hooking:
@@ -156,3 +162,4 @@ func reelIn(delta:float):
 		tween.tween_callback(func(): thrown = false)
 		tween.tween_callback(func(): hooking = false)
 		tween.tween_callback(func(): ballTexture.visible = false)
+		canHook = false

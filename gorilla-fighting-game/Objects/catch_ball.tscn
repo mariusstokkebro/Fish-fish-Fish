@@ -38,16 +38,15 @@ texture = ExtResource("2_cfjnb")
 
 [node name="sound_Reel" type="AudioStreamPlayer2D" parent="Audio" unique_id=1131799029]
 stream = ExtResource("3_cfjnb")
-volume_db = 10.0
+volume_db = 16.0
 
 [node name="sound_Throw" type="AudioStreamPlayer2D" parent="Audio" unique_id=1537099820]
 stream = ExtResource("4_x1y0o")
-volume_db = 5.0
 
 [node name="sound_Charge" type="AudioStreamPlayer2D" parent="Audio" unique_id=686973505]
 stream = ExtResource("5_g2s5g")
-volume_db = 15.0
+volume_db = 5.0
 
 [node name="sound_Splash" type="AudioStreamPlayer2D" parent="Audio" unique_id=204149654]
 stream = ExtResource("6_g2s5g")
-volume_db = 24.0
+volume_db = 10.0
