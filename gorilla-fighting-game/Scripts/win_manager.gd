@@ -22,6 +22,7 @@ var timer = 0.0
 var is_game_stop = false
 
 func _ready() -> void:
+	print(get_path(), " ", get_script().resource_path)
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	is_game_stop = false
 
@@ -35,15 +36,15 @@ func _process(delta: float) -> void:
 	if is_game_stop == false:
 		if timer > gameTime:
 			print_debug("Game is over")
-			if (player1_score > player2_score):
+			if (WinManager.player1_score > WinManager.player2_score):
 				_stop_game(true, true)
-			elif (player1_score < player2_score):
+			elif (WinManager.player1_score < WinManager.player2_score):
 				_stop_game(true, false)
-			elif (player1_score == player2_score):
+			elif (WinManager.player1_score == WinManager.player2_score):
 				_stop_game(false, false)
-		elif player1_score > 9:
+		elif WinManager.player1_score > 9:
 			_stop_game(true, true)
-		elif player2_score > 9: 
+		elif WinManager.player2_score > 9: 
 			_stop_game(true, false)
 	
 	if is_game_stop == true and (Input.is_action_just_pressed("p1_confirm") or Input.is_action_just_pressed("p2_confirm")):
