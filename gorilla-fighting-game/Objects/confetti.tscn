@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://b0356f1fd5nru"]
+
+[ext_resource type="Script" uid="uid://d36jbmpgf51n1" path="res://Objects/confetti.gd" id="1_4gxr7"]
+
+[sub_resource type="Curve" id="Curve_mfr1q"]
+_data = [Vector2(0.16129032, 0.36774188), 0.0, 0.9830508, 0, 0, Vector2(0.53548384, 0.19999999), 0.38709673, 0.0, 0, 0]
+point_count = 2
+
+[node name="Confetti" type="Node2D" unique_id=1560011828]
+visible = false
+script = ExtResource("1_4gxr7")
+
+[node name="green" type="CPUParticles2D" parent="." unique_id=1414458606]
+emitting = false
+amount = 20
+one_shot = true
+explosiveness = 0.6
+randomness = 0.2
+local_coords = true
+direction = Vector2(0, -1)
+spread = 50.43
+gravity = Vector2(0, 100)
+initial_velocity_min = 85.89
+initial_velocity_max = 193.25
+angular_velocity_min = -79.5
+angular_velocity_max = 207.61
+scale_amount_min = 0.0
+scale_amount_max = 10.2
+scale_amount_curve = SubResource("Curve_mfr1q")
+color = Color(0.59246045, 1, 0.62937725, 1)
+hue_variation_max = 0.01
+
+[node name="pink" type="CPUParticles2D" parent="." unique_id=1944421611]
+emitting = false
+amount = 20
+one_shot = true
+explosiveness = 0.6
+randomness = 0.2
+local_coords = true
+direction = Vector2(0, -1)
+spread = 32.85
+gravity = Vector2(0, 100)
+initial_velocity_min = 85.89
+initial_velocity_max = 193.25
+angular_velocity_min = -79.5
+angular_velocity_max = 207.61
+scale_amount_min = 0.0
+scale_amount_max = 10.2
+scale_amount_curve = SubResource("Curve_mfr1q")
+color = Color(0.9939782, 0.84136814, 0.88637936, 1)
+hue_variation_max = 0.01
+
+[node name="blue" type="CPUParticles2D" parent="." unique_id=1929797818]
+emitting = false
+amount = 20
+one_shot = true
+explosiveness = 0.6
+randomness = 0.2
+local_coords = true
+direction = Vector2(0, -1)
+gravity = Vector2(0, 100)
+initial_velocity_min = 85.89
+initial_velocity_max = 193.25
+angular_velocity_min = -79.5
+angular_velocity_max = 207.61
+scale_amount_min = 0.0
+scale_amount_max = 10.2
+scale_amount_curve = SubResource("Curve_mfr1q")
+color = Color(0.37427923, 0.9942257, 1, 1)
+hue_variation_max = 0.01
+
+[node name="yellow" type="CPUParticles2D" parent="." unique_id=493377841]
+emitting = false
+amount = 20
+one_shot = true
+explosiveness = 0.6
+randomness = 0.2
+local_coords = true
+direction = Vector2(0, -1)
+gravity = Vector2(0, 100)
+initial_velocity_min = 85.89
+initial_velocity_max = 193.25
+angular_velocity_min = -79.5
+angular_velocity_max = 207.61
+scale_amount_min = 0.0
+scale_amount_max = 10.2
+scale_amount_curve = SubResource("Curve_mfr1q")
+color = Color(0.91374177, 0.90935814, 0.63173085, 1)
+hue_variation_max = 0.01
