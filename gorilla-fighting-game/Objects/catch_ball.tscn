@@ -6,11 +6,14 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(166, 155)
 
-[node name="CatchBall" type="Node2D" unique_id=1538139581 node_paths=PackedStringArray("ballTexture", "collision")]
+[node name="CatchBall" type="Node2D" unique_id=1538139581 node_paths=PackedStringArray("ballTexture", "reticleTexture", "collision")]
 script = ExtResource("1_vqwdj")
 ballTexture = NodePath("ballTexture")
+reticleTexture = NodePath("Reticle")
 collision = NodePath("Area2D")
-distanceMultiplier = 3.0
+distanceMultiplier = 6.0
+steerSpeed = 250.0
+maxSteer = 120.0
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1037202603]
 
@@ -21,5 +24,6 @@ shape = SubResource("RectangleShape2D_g4v7s")
 [node name="ballTexture" type="Sprite2D" parent="." unique_id=2104973120]
 visible = false
 position = Vector2(5, 40.000004)
-scale = Vector2(0.52551675, 0.17902935)
 texture = ExtResource("2_cfjnb")
+
+[node name="Reticle" type="Sprite2D" parent="." unique_id=1089738642]

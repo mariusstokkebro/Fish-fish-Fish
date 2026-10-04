@@ -22,8 +22,15 @@
 [ext_resource type="Texture2D" uid="uid://ciw0hrnk271ig" path="res://Sprites/cats/LA_CABRA_1.png" id="17_lw6qj"]
 [ext_resource type="Texture2D" uid="uid://c7fy1dqcrog23" path="res://Sprites/cats/LA_CABRA_2.png" id="18_4khxo"]
 [ext_resource type="Texture2D" uid="uid://bfafsjqy5b1ee" path="res://Sprites/jook.png" id="19_h26s2"]
-[ext_resource type="Script" path="res://Scenes/play_button_anim.gd" id="21_d4h87"]
-[ext_resource type="PackedScene" uid="uid://bc34yfx1oysm5" path="res://Scenes/AnimatedLevel.tscn" id="24_d4h87"]
+[ext_resource type="AudioStream" uid="uid://vgqey5b2trc" path="res://Audio/SFX/fishSounds/Clara angler.wav" id="24_31lfj"]
+[ext_resource type="AudioStream" uid="uid://cbikcss53phku" path="res://Audio/SFX/fishSounds/Pencil bones.wav" id="25_iosqu"]
+[ext_resource type="AudioStream" uid="uid://lbb44afehqso" path="res://Audio/SFX/fishSounds/James meow.wav" id="26_lw6qj"]
+[ext_resource type="AudioStream" uid="uid://dl85yki71bu1i" path="res://Audio/SFX/fishSounds/Andreea goldfish.wav" id="27_4khxo"]
+[ext_resource type="AudioStream" uid="uid://bnbammqdsinc6" path="res://Audio/SFX/fishSounds/pufferSound.wav" id="28_pwpu7"]
+[ext_resource type="AudioStream" uid="uid://bnlu7404e5rts" path="res://Audio/SFX/fishSounds/cowSound.wav" id="29_0dnyu"]
+[ext_resource type="AudioStream" uid="uid://vy38xwhm5anh" path="res://Audio/SFX/transitionSound.wav" id="29_iosqu"]
+[ext_resource type="PackedScene" uid="uid://bfd6q7hfe3v1p" path="res://menu_background.tscn" id="30_iosqu"]
+[ext_resource type="PackedScene" uid="uid://ds5uf3np0j1wt" path="res://Scenes/audio_scene.tscn" id="31_lw6qj"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6bmrj"]
 load_path = "res://.godot/imported/anglerfish_2.png-2dd6e629be306e18bbf4a6c20a40c91c.ctex"
@@ -136,6 +143,32 @@ texture = ExtResource("17_lw6qj")
 z_index = 2
 scale = Vector2(0.99999994, 0.99999994)
 texture = ExtResource("18_4khxo")
+
+[node name="Audio" type="Node" parent="character - 1" unique_id=776781755]
+
+[node name="fish1" type="AudioStreamPlayer" parent="character - 1/Audio" unique_id=157608749]
+stream = ExtResource("24_31lfj")
+
+[node name="fish2" type="AudioStreamPlayer" parent="character - 1/Audio" unique_id=605646107]
+stream = ExtResource("25_iosqu")
+
+[node name="fish3" type="AudioStreamPlayer" parent="character - 1/Audio" unique_id=235756634]
+stream = ExtResource("26_lw6qj")
+
+[node name="fish4" type="AudioStreamPlayer" parent="character - 1/Audio" unique_id=50711629]
+stream = ExtResource("27_4khxo")
+
+[node name="fish5" type="AudioStreamPlayer" parent="character - 1/Audio" unique_id=901936931]
+stream = ExtResource("28_pwpu7")
+
+[node name="fish6" type="AudioStreamPlayer" parent="character - 1/Audio" unique_id=770963031]
+stream = ExtResource("29_0dnyu")
+
+[node name="Transition" type="AudioStreamPlayer" parent="character - 1/Audio" unique_id=1547461386]
+stream = ExtResource("29_iosqu")
+
+[node name="AudioScene" parent="character - 1/Audio" unique_id=1429051702 instance=ExtResource("31_lw6qj")]
+position = Vector2(-4, 0)
 
 [node name="Hook" type="Sprite2D" parent="character - 1" unique_id=672694937]
 z_index = -1
@@ -257,12 +290,31 @@ position = Vector2(-120.00015, -170.00003)
 scale = Vector2(1.1, 1.1)
 texture = ExtResource("19_h26s2")
 
+[node name="Audio" type="Node" parent="character - 2" unique_id=1221638455]
+
+[node name="fish2" type="AudioStreamPlayer" parent="character - 2/Audio" unique_id=1864048627]
+stream = ExtResource("24_31lfj")
+
+[node name="fish1" type="AudioStreamPlayer" parent="character - 2/Audio" unique_id=724694328]
+stream = ExtResource("25_iosqu")
+
+[node name="fish4" type="AudioStreamPlayer" parent="character - 2/Audio" unique_id=2125362728]
+stream = ExtResource("26_lw6qj")
+
+[node name="fish3" type="AudioStreamPlayer" parent="character - 2/Audio" unique_id=352514082]
+stream = ExtResource("27_4khxo")
+
+[node name="fish6" type="AudioStreamPlayer" parent="character - 2/Audio" unique_id=831875706]
+stream = ExtResource("28_pwpu7")
+
+[node name="fish5" type="AudioStreamPlayer" parent="character - 2/Audio" unique_id=1981143373]
+stream = ExtResource("29_0dnyu")
+
 [node name="PlayButton" type="Sprite2D" parent="." unique_id=1299196785]
 z_index = 4096
 position = Vector2(960, 647)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("8_i5hcc")
-script = ExtResource("21_d4h87")
 
 [node name="P1" type="Sprite2D" parent="PlayButton" unique_id=36383758]
 position = Vector2(-243.00005, 449.49997)
@@ -274,5 +326,4 @@ position = Vector2(246.99995, 452.83322)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("11_tevl1")
 
-[node name="Level" parent="." unique_id=13814193 instance=ExtResource("24_d4h87")]
-z_index = -10
+[node name="Background" parent="." unique_id=1966454968 instance=ExtResource("30_iosqu")]

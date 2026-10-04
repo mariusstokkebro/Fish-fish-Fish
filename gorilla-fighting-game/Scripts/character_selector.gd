@@ -19,6 +19,14 @@ enum Player {
 @export var hover_rot_degrees: float = 8.0
 @export var hooked_scale_mult: float = 1.5
 
+@onready var fish1_sound: AudioStreamPlayer = $"Audio/fish1"
+@onready var fish2_sound: AudioStreamPlayer = $"Audio/fish2"
+@onready var fish3_sound: AudioStreamPlayer = $"Audio/fish3"
+@onready var fish4_sound: AudioStreamPlayer = $"Audio/fish4"
+@onready var fish5_sound: AudioStreamPlayer = $"Audio/fish5"
+@onready var fish6_sound: AudioStreamPlayer = $"Audio/fish6"
+@onready var sound_transition: AudioStreamPlayer = $Audio/Transition
+
 var current_index: int = 0
 var move_timer: float = 0.0
 const MOVE_DELAY: float = 0.25
@@ -32,6 +40,8 @@ var original_positions: Array[Vector2] = []
 
 func _ready() -> void:
 	add_to_group("player_selectors")
+	
+	Global.inMenu = true
 	
 	for square in character_squares:
 		if square:
@@ -87,6 +97,7 @@ func _process(delta: float) -> void:
 			
 		elif Input.is_action_just_pressed(confirm):
 			if check_all_players_ready():
+				Global.inMenu = false
 				var selectors = get_tree().get_nodes_in_group("player_selectors")
 				for selector in selectors:
 					var active_square = selector.character_squares[selector.current_index]
@@ -103,10 +114,12 @@ func _process(delta: float) -> void:
 					else:
 						Global.p2_texture = chosen_tex
 				
-				get_tree().change_scene_to_file("res://Scenes/level.tscn")
+				get_tree().change_scene_to_file("res://level.tscn")
 		return
 
+
 	if Input.is_action_just_pressed(confirm):
+		playFishSound(current_index)
 		has_confirmed = true
 		
 		if hover_tween and hover_tween.is_valid():
@@ -159,6 +172,21 @@ func _process(delta: float) -> void:
 		move_timer = MOVE_DELAY
 	else:
 		move_timer = 0.0
+
+
+func playFishSound(int) -> void:
+	if int == 0:
+		fish1_sound.play()
+	if int == 1:
+		fish2_sound.play()
+	if int == 2:
+		fish3_sound.play()
+	if int == 3:
+		fish4_sound.play()
+	if int == 4:
+		fish5_sound.play()	
+	if int == 5:
+		fish6_sound.play()
 
 func update_selection(new_index: int, is_new_movement: bool = false) -> void:
 	if hover_tween and hover_tween.is_valid():

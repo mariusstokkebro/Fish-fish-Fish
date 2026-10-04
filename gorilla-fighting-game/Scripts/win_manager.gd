@@ -1,9 +1,12 @@
 extends Node2D
 var player1_score: int = 1
 var player2_score: int = 0
-
+@export var player1: CharacterBody2D
+@export var player2: CharacterBody2D 
+var reset = false
 var timer = 0.0
-@export var gameTime:float = 240
+
+@export var gameTime:float = 300
 @export var divider:Node2D
 @export var penguin1_sprite: Sprite2D
 @export var penguin2_sprite: Sprite2D
@@ -20,6 +23,9 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
+	if reset == true:
+		await get_tree().create_timer(2).timeout
+		reset = false
 	timer += delta
 	
 	if timer > gameTime:
@@ -30,6 +36,10 @@ func _process(delta: float) -> void:
 			_stop_game(true, false)
 		elif (player1_score == player2_score):
 			_stop_game(false, false)
+	elif player1_score > 9:
+		_stop_game(true, true)
+	elif player2_score > 9: 
+		_stop_game(true, false)
 
 
 func _stop_game(is_winner: bool, is_player1: bool) -> void:
@@ -52,4 +62,3 @@ func _stop_game(is_winner: bool, is_player1: bool) -> void:
 	print(is_winner)
 		
 	get_tree().paused = true
-		

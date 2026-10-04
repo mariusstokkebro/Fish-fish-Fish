@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://tbct7344ne28"]
+
+[ext_resource type="Texture2D" uid="uid://dthvc1g14ts14" path="res://Sprites/level assets/screenz_L.png" id="1_hj8j5"]
+[ext_resource type="Shader" uid="uid://cq4e3pa2cwrae" path="res://VFX/scrollTex.tres" id="2_ytw34"]
+[ext_resource type="Texture2D" uid="uid://t862n537r6hs" path="res://Sprites/level assets/dark_notsplit_L.png" id="3_sd0xo"]
+[ext_resource type="Texture2D" uid="uid://vtt4r3o2uxvd" path="res://Sprites/level assets/white_notsplit_L.png" id="4_wnukl"]
+[ext_resource type="Texture2D" uid="uid://valj8xcqnfpi" path="res://Sprites/level assets/screenz_R.png" id="5_vsg3h"]
+[ext_resource type="Texture2D" uid="uid://dhf25sfovlac6" path="res://Sprites/level assets/dark_notsplit_R.png" id="6_1st62"]
+[ext_resource type="Texture2D" uid="uid://bfhxckoyis3o2" path="res://Sprites/level assets/white_notsplit_R.png" id="7_p76o4"]
+[ext_resource type="Texture2D" uid="uid://c0d88je1rc6ud" path="res://Sprites/level assets/foam_notsplit_L.png" id="8_7hxve"]
+[ext_resource type="Texture2D" uid="uid://dqklomrond7uq" path="res://Sprites/level assets/foam_notsplit_R.png" id="9_se12s"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4n21a"]
+shader = ExtResource("2_ytw34")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7cplr"]
+shader = ExtResource("2_ytw34")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o1ojw"]
+shader = ExtResource("2_ytw34")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r1o0b"]
+shader = ExtResource("2_ytw34")
+
+[node name="OceanL" type="Node2D" unique_id=1282977012]
+position = Vector2(160, 0)
+scale = Vector2(800, 1080)
+
+[node name="ScreenzL" type="Sprite2D" parent="." unique_id=1757997945]
+position = Vector2(0.4, 0.5)
+scale = Vector2(0.00125, 0.0009259259)
+texture = ExtResource("1_hj8j5")
+
+[node name="DarkNotsplitL" type="Sprite2D" parent="ScreenzL" unique_id=152564909]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_4n21a")
+instance_shader_parameters/Scroll_Speed = 0.03
+texture = ExtResource("3_sd0xo")
+
+[node name="WhiteNotsplitL" type="Sprite2D" parent="ScreenzL" unique_id=2066715227]
+z_index = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_7cplr")
+instance_shader_parameters/Scroll_Speed = 0.04
+texture = ExtResource("4_wnukl")
+
+[node name="OceanL3" type="Node2D" parent="." unique_id=1503344295]
+position = Vector2(960, 0)
+scale = Vector2(800, 1080)
+
+[node name="ScreenzR" type="Sprite2D" parent="OceanL3" unique_id=1050981948]
+position = Vector2(0.6, 0.5)
+scale = Vector2(0.00125, 0.0009259259)
+texture = ExtResource("5_vsg3h")
+
+[node name="DarkNotsplitR" type="Sprite2D" parent="OceanL3/ScreenzR" unique_id=1777561667]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_o1ojw")
+instance_shader_parameters/Scroll_Speed = -0.03
+texture = ExtResource("6_1st62")
+
+[node name="WhiteNotsplitR" type="Sprite2D" parent="OceanL3/ScreenzR" unique_id=1510890259]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_o1ojw")
+instance_shader_parameters/Scroll_Speed = -0.04
+texture = ExtResource("7_p76o4")
+
+[node name="Divider" type="Node2D" parent="OceanL3" unique_id=1396534989]
+z_index = 100
+position = Vector2(950, 0)
+scale = Vector2(20, 1080)
+
+[node name="FoamNotsplitL" type="Sprite2D" parent="OceanL3/Divider" unique_id=1389549781]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_r1o0b")
+instance_shader_parameters/Scroll_Speed = 0.06
+position = Vector2(-23.5, 0.5)
+scale = Vector2(0.05, 0.0009259259)
+texture = ExtResource("8_7hxve")
+
+[node name="FoamNotsplitR" type="Sprite2D" parent="OceanL3/Divider" unique_id=206526966]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_r1o0b")
+instance_shader_parameters/Scroll_Speed = -0.06
+position = Vector2(24.5, 0.5)
+scale = Vector2(0.05, 0.0009259259)
+texture = ExtResource("9_se12s")

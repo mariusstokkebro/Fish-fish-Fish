@@ -6,6 +6,7 @@ var rotationSpeed: float = 0.0
 var lastAngle: float = 0.0
 var resistSpeed: float = 0.2
 var currentBait: Node2D
+var fish = true
 enum Player {
 	PLAYER_1 = 1,
 	PLAYER_2 = 2
@@ -18,11 +19,15 @@ enum Player {
 		
 @export var current_player: Player = Player.PLAYER_1
 func _ready() -> void:
+	Global.inMenu = false
+	startPosition = position
 	if current_player == Player.PLAYER_1 and Global.p1_texture != null:
 		sprite.texture = Global.p1_texture
 	elif current_player == Player.PLAYER_2 and Global.p2_texture != null:
 		sprite.texture = Global.p2_texture
 func _physics_process(_delta: float) -> void:
+	if WinManager.reset == true:
+		tpBackToOrigin()
 	var up = "p%d_move_up" % current_player
 	var down = "p%d_move_down" % current_player
 	var left = "p%d_move_left" % current_player
@@ -52,18 +57,17 @@ func _process(float) -> void:
 		if sound_move.playing && velocity == Vector2(0.0, 0.0):
 			sound_move.stop()
 
-
 func getMoved(movement:Vector2,bait:Node2D):
 	currentBait = bait
 	set_global_position(movement)
 	
 	
 func tpBackToOrigin():
-	if hooked:
+	if hooked == true:
 		currentBait.hooking = false
 		hooked = false
-		set_position(startPosition)
-	
+	set_position(startPosition)
+		
 	
 func Hooked():
 	sound_hooked.play()

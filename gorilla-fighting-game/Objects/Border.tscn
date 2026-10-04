@@ -1,9 +1,18 @@
 [gd_scene format=3 uid="uid://yguorhsypi3f"]
 
 [ext_resource type="Script" uid="uid://bvcusq3ovodt2" path="res://Scripts/border.gd" id="1_xv2hn"]
+[ext_resource type="AudioStream" uid="uid://bai4hocu6sdng" path="res://Audio/SFX/human-vocal-male-cheer-victory-05.wav" id="2_2ujxl"]
+[ext_resource type="AudioStream" uid="uid://bw0y3npoad83v" path="res://Audio/SFX/human-vocal-male-cheer-victory-woohoo-01.wav" id="3_ay707"]
+[ext_resource type="AudioStream" uid="uid://ci0cdw026w6rp" path="res://Audio/SFX/human-vocal-male-victory-yee-haw-01.wav" id="4_0o6yw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(158, 1075)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_lkn81"]
+streams_count = 3
+stream_0/stream = ExtResource("2_2ujxl")
+stream_1/stream = ExtResource("3_ay707")
+stream_2/stream = ExtResource("4_0o6yw")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
 size = Vector2(82, 1063)
@@ -11,13 +20,21 @@ size = Vector2(82, 1063)
 [node name="Border" type="Node2D" unique_id=255961422]
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1738892536]
+collision_layer = 4
+collision_mask = 3
 script = ExtResource("1_xv2hn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1193908980]
 position = Vector2(963, 540)
 shape = SubResource("RectangleShape2D_g4v7s")
 
+[node name="ScoreSoundPlayer" type="AudioStreamPlayer" parent="Area2D" unique_id=601290174]
+stream = SubResource("AudioStreamRandomizer_lkn81")
+volume_db = 5.0
+
 [node name="Wall" type="StaticBody2D" parent="." unique_id=1009073929]
+collision_layer = 4
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall" unique_id=202174527]
 position = Vector2(964, 528)

@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://7cgiyhqiwgan"
-path="res://.godot/imported/chargeRod.wav-e9dae2c5eb2ee54c9c9c2878e1f476f7.sample"
+path="res://.godot/imported/chargeRod.wav-f1e9e3b0e86873691480e1991bdf40a2.sample"
 
 [deps]
 
-source_file="res://Audio/SFX/chargeRod.wav"
-dest_files=["res://.godot/imported/chargeRod.wav-e9dae2c5eb2ee54c9c9c2878e1f476f7.sample"]
+source_file="res://Audio/SFX/catingRod/chargeRod.wav"
+dest_files=["res://.godot/imported/chargeRod.wav-f1e9e3b0e86873691480e1991bdf40a2.sample"]
 
 [params]
 

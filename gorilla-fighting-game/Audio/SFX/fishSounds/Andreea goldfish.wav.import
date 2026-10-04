@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://dl85yki71bu1i"
-path="res://.godot/imported/Andreea goldfish.wav-ac8819be1ff0e8f5bf57aa981d2414ba.sample"
+path="res://.godot/imported/Andreea goldfish.wav-4bb4783ad8b90a8324b352a6d7ab9e8d.sample"
 
 [deps]
 
-source_file="res://Audio/SFX/Andreea goldfish.wav"
-dest_files=["res://.godot/imported/Andreea goldfish.wav-ac8819be1ff0e8f5bf57aa981d2414ba.sample"]
+source_file="res://Audio/SFX/fishSounds/Andreea goldfish.wav"
+dest_files=["res://.godot/imported/Andreea goldfish.wav-4bb4783ad8b90a8324b352a6d7ab9e8d.sample"]
 
 [params]
 
