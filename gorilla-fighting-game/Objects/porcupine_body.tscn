@@ -32,6 +32,6 @@ volume_db = -5.0
 max_polyphony = 2
 
 [node name="fishingRod" type="Sprite2D" parent="." unique_id=417631565]
-position = Vector2(61.000008, 98)
+position = Vector2(53.000004, 58)
 rotation = 0.5122621
 texture = ExtResource("5_3u1k4")
