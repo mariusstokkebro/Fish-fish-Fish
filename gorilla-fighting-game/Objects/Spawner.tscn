@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://djilclskwwwbb" path="res://Sprites/cats/goldfish.png" id="5_p0jak"]
 [ext_resource type="Texture2D" uid="uid://flg7ssrkwdi2" path="res://Sprites/cats/LA_CABRA.png" id="6_0fiq4"]
 [ext_resource type="Texture2D" uid="uid://boaoeh3oinhm" path="res://Sprites/cats/pufferfish.png" id="7_ssla4"]
+[ext_resource type="AudioStream" uid="uid://cw0spbjljcyox" path="res://Audio/SFX/flyingFish.wav" id="12_d2fnv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n73o4"]
 radius = 20.024984
@@ -248,3 +249,6 @@ collision_mask = 16
 [node name="CollisionShape2D" type="CollisionShape2D" parent="fly" unique_id=2025690179]
 scale = Vector2(5, 5)
 shape = SubResource("CircleShape2D_n73o4")
+
+[node name="FlyMove" type="AudioStreamPlayer2D" parent="fly" unique_id=576187264]
+stream = ExtResource("12_d2fnv")

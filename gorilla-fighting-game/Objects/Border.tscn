@@ -32,6 +32,10 @@ shape = SubResource("RectangleShape2D_g4v7s")
 stream = SubResource("AudioStreamRandomizer_lkn81")
 volume_db = -15.0
 
+[node name="PowerUpSound" type="AudioStreamPlayer" parent="Area2D" unique_id=1316773568]
+stream = SubResource("AudioStreamRandomizer_lkn81")
+volume_db = -15.0
+
 [node name="Wall" type="StaticBody2D" parent="." unique_id=1009073929]
 collision_layer = 4
 collision_mask = 3

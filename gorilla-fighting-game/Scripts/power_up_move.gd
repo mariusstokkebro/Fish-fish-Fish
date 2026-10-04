@@ -41,6 +41,8 @@ var flash_tween: Tween
 @onready var ray_cast_down: RayCast2D = $RayCastDown
 @onready var ray_cast_up: RayCast2D = $RayCastUp
 
+@onready var sound_flyMove: AudioStreamPlayer2D = $FlyMove
+
 func _ready() -> void:
 	modulate.a = 0.0
 	sway_offset = randf_range(0.0, 10.0)
@@ -59,6 +61,7 @@ func _ready() -> void:
 		target_opacity = 0.9 
 		base_color = Color(1.0, 1.0, 1.0, target_opacity)
 		modulate = Color(1.0, 1.0, 1.0, 0.0)
+		sound_flyMove.play()
 	else:
 		move_speed = base_move_speed
 		target_opacity = randf_range(0.15, 0.8)

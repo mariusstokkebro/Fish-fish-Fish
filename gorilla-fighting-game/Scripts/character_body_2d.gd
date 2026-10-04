@@ -16,6 +16,7 @@ enum Player {
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var sound_hooked: AudioStreamPlayer2D = $Audio/HookedSound
 @onready var sound_move: AudioStreamPlayer2D = $Audio/MoveSound
+@onready var sound_stunned: AudioStreamPlayer2D = $Audio/StunSound
 
 @export var current_player: Player = Player.PLAYER_1
 var stun_tween: Tween
@@ -68,6 +69,7 @@ func _process(float) -> void:
 func apply_stun(duration: float) -> void:
 	if is_stunned: return
 	is_stunned = true
+	sound_stunned.play()
 	
 	if stun_tween and stun_tween.is_valid():
 		stun_tween.kill()
