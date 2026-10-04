@@ -1,6 +1,7 @@
 extends CharacterBody2D
 var hooked = false
 var speed: float = 300.0
+var wobble_time: float = 0.0
 var is_stunned: bool = false
 var startPosition
 var rotationSpeed: float = 0.0
@@ -16,9 +17,9 @@ enum Player {
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var sound_hooked: AudioStreamPlayer2D = $Audio/HookedSound
 @onready var sound_move: AudioStreamPlayer2D = $Audio/MoveSound
+var playedHookSound: bool = false
 
 @export var current_player: Player = Player.PLAYER_1
-var stun_tween: Tween
 
 func _ready() -> void:
 	Global.inMenu = false
@@ -58,33 +59,22 @@ func _physics_process(_delta: float) -> void:
 	if hooked:
 		resist(_delta)
 
-func _process(float) -> void:
-	if velocity != Vector2(0.0, 0.0) && !sound_move.playing:
-		sound_move.play()
-	else: 
-		if sound_move.playing && velocity == Vector2(0.0, 0.0):
+func _process(delta: float) -> void:
+	if velocity != Vector2.ZERO:
+		wobble_time += delta * 15.0
+		sprite.rotation = sin(wobble_time) * 0.1
+		if !sound_move.playing:
+			sound_move.play()
+	else:
+		sprite.rotation = 0.0
+		if sound_move.playing:
 			sound_move.stop()
 
 func apply_stun(duration: float) -> void:
 	if is_stunned: return
 	is_stunned = true
-	
-	if stun_tween and stun_tween.is_valid():
-		stun_tween.kill()
-	stun_tween = create_tween().set_loops()
-	stun_tween.tween_property(sprite, "rotation_degrees", 360.0, 0.5).as_relative()
-	
 	await get_tree().create_timer(duration).timeout
-	
-	if stun_tween and stun_tween.is_valid():
-		stun_tween.kill()
-	sprite.rotation_degrees = 0.0
 	is_stunned = false
-
-func apply_speed_boost() -> void:
-	speed = 600.0
-	await get_tree().create_timer(3.0).timeout
-	speed = 300.0
 
 func getMoved(movement:Vector2,bait:Node2D):
 	currentBait = bait
@@ -94,10 +84,13 @@ func tpBackToOrigin():
 	if hooked == true:
 		currentBait.hooking = false
 		hooked = false
+		playedHookSound = false
 	set_position(startPosition)
 		
 func Hooked():
-	sound_hooked.play()
+	if !playedHookSound:
+		sound_hooked.play()
+		playedHookSound = true
 	hooked = true
 
 func resist(delta):
